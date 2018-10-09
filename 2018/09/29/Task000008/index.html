@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++,Algorithm,Datastructure,算法,数据结构," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Final Project: Huffman Encoding">
+<meta name="keywords" content="c&#x2F;c++,Algorithm,Datastructure,算法,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs作业代写 哈弗曼树">
+<meta property="og:url" content="http://holydudecs.github.io/2018/09/29/Task000008/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="Final Project: Huffman Encoding">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-09T12:48:16.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cs作业代写 哈弗曼树">
+<meta name="twitter:description" content="Final Project: Huffman Encoding">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/09/29/Task000008/"/>
+
+
+
+
+
+  <title>cs作业代写 哈弗曼树 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/09/29/Task000008/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">cs作业代写 哈弗曼树</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T20:50:25+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Final Project: Huffman Encoding<br><a id="more"></a><br>Assigned: April 27, 2018</p>
+<p>Due: May 15, 2018 at 5pm<br>Summary: In this assignment, you will apply several of the data structures we have used<br>in class to create a file compression/decompression system using the Huffman<br>Encoding algorithm. You will have some time in class to work on the<br>assignment with your partner, but plan to spend time outside of class on the<br>assignment as well.<br>Learning To experience full-system object oriented design and appropriately use<br>Goals: provided data structures.<br>Collaboration: For this assignment, you will submit work in partners assigned in class. While<br>you can work with your partner any way you wish, I encourage you to use a<br>pair-programming approach while working on Class 1 in particular, whereas<br>Classes 2 and 3 can be worked on independently.<br>Submission : Turnin Form<br>Assignment<br>In this assignment, you will be working on information compression using a Huffman Tree. It is a<br>large assignment, so start with your partner early. You can choose to either work on it in a pair-<br>programming approach or by dividing some of the interfaces described below, implementing them<br>independently, and integrating them. While test-driven development for individual classes is<br>recommended, submission of test cases is not required. Bare-bones starter code is provided here.<br>At this point, you should be familiar with the core standard library data structures such as strings,<br>   vectors, lists, stacks, queues, sets, and maps. Use them judiciously in your assignment!<br>   Additionally, you are provided with utility classes for bitstreams, objects that work like regular<br>   streams but read and write individual bits instead of multi-bit or multi-character data elements.<br>   Note that while the interfaces below are required, you may also write additional internal methods if<br>   it helps you organize your code. Do make sure that different classes and declared in different<br>   header files, implemented in different implementation files, and added to the Makefile for<br>   compilation.<br>   Class 1: The decision tree (40%)<br>   In a prior assignment, you implemented a special-purpose decision tree where internal and<br>   external nodes each held different kinds of information. In this assignment, you will create a new<br>   decision tree class that stores different information. The Huffman decision tree is a binary tree<br>   where every node has a “weight” property describing the cumulative frequencies of everything in<br>   that subtree, and leaves additionally have a “value” property that describes the character<br>   represented by that leaf. A description of the Huffman tree construction algorithm is in section 12.4<br>   of our textbook. You are strongly encouraged to review the previous decision tree assignment to<br>   make this component easier.<br>   The Huffman tree class should implement the following interfaces:<br>       <a href="http://cs.whitman.edu/~strattja/cs/270/2018S/hw/fp.huffman.shtml" target="_blank" rel="noopener">http://cs.whitman.edu/~strattja/cs/270/2018S/hw/fp.huffman.shtml</a><br>       1/35/5/2018<br>       CS 270, 2018S: Final Project<br>       HuffmanTree(const map&lt;char, float&gt;&amp;): construct a Huffman Tree from a set of characters<br>                                             with frequencies. Your constructor should use the algorithms from the textbook and in class<br>                                             to build a tree by merging subtrees together. Remember, a priority queue of Nodes is going<br>                                             to be very helpful here!<br>                                             void writeTree(ostream&amp;): write the Huffman tree as text to a stream. The encoding format<br>                                                                       for the Huffman decision tree is similar to the question-based decision tree. Print one node<br>                                                                       per line: if the node is an internal node, begin the line with “NODE:”, followed by the<br>                                                                       frequency of the characters in that subtree. If a node is a leaf, begin the line with “LEAF:”,<br>                                                                       followed by the character, followed by the frequency of that character. A simple tree might<br>                                                                       look like:<br>                                                                       NODE: 1.0<br>                                                                       LEAF: a 0.5<br>                                                                       LEAF: b 0.5<br>                                                                       HuffmanTree(istream&amp;): construct a Huffman Tree from an already-open stream, according to<br>    the same tree format described above. When done, the constructor should use the seekg<br>                                                                                         method to reset the istream to the beginning of its content (like closing and reopening the file,<br>                                                                                                 without actually closing and reopening it.)<br>                                                                                              char decode(ibitstream&amp;): beginning at the top of Huffman tree, decode a single character<br>                                                                                                                        from a stream of bits. Use the ibitstream member function “readBit” to read individual bits.<br>                                                                                                                        Traverse the tree, and return the decoded character. You may want to revisit the traversal<br>                                                                                                                        code of the previous Decision Tree data structure as a refresher.<br>                                                                                                                        map&lt;char, std::vector<int>&gt; getEncodings(): Traverse the Huffman tree internally to construct<br>                                                                                                                                                                    a map from each character represented in the Huffman Tree to the bit coding that would be<br>                                                                                                                                                                    required to reach that character in the tree. (Hint: think about using a vector as a stack.<br>                                                                                                                                                                            Keep track of what choices you have made in your traversal by pushing items on to the back<br>                                                                                                                                                                            of the vector, and when you reach a leaf, the vector will contain the sequence of choices<br>                                                                                                                                                                            made to reach that leaf. Add that vector to the map, and when you return from a recursion<br>                                                                                                                                                                            step in the traversal, pop the last decision-item off the end of the stack. All of the entries in<br>                                                                                                                                                                            the vector should be either 0 or 1.)<br>                                                                                                                                                                    To test your HuffmanTree separately from an encoder, decoder, you’ll have to manually construct<br>                                                                                                                                                                    the map and stream arguments in your test cases. Recall that cout can be used as an ostream,<br>                                                                                                                                                                    cin as an istream. Bitstreams are a little different: take a look at the ibitstreamtest.cpp file to see<br>                                                                                                                                                                    an example of how to create and use stringbitstream objects that might help you in your test cases.<br>                                                                                                                                                                    Class 2: The Huffman Encoder (25%)<br>                                                                                                                                                                    This class will have a HuffmanTree and an istream&amp; as fields, and will use it to manage the<br>                                                                                                                                                                    encoding and decoding of files through the following interfaces<br>                                                                                                                                                                    HuffmanEncoder(istream&amp;): create an encoder and construct the HuffmanTree for the given<br>                                                                                                                                                                                              istream. When the construction is completed, reset the istream to the beginning of its input<br>                                                                                                                                                                                              using the seekg function with the std::ios::beg position marker, e.g.<br>                                                                                                                                                                                              “mystream.seekg(0,std::ios::beg);”<br>                                                                                                                                                                                              int writeEncodedText(obitstream&amp;): write the original text in encoded format to the given,<br>                                                                                                                                                                                              open obitstream, and return the number of characters encoded. Remember to reset the<br>                                                                                                                                                                                                                                 istream position at the end of the function.<br>                                                                                                                                                                                                                                 void writeTree(ostream&amp;): invokes the writeTree function of the HuffmanTree to write the tree<br>                                                                                                                                                                                                                                                           used to encode this istream to the given output stream.<br>                                                                                                                                                                                                                                                           Class 3: The Huffman Decoder (25%)<br>                                                                                                                                                                                                                                                           <a href="http://cs.whitman.edu/~strattja/cs/270/2018S/hw/fp.huffman.shtml" target="_blank" rel="noopener">http://cs.whitman.edu/~strattja/cs/270/2018S/hw/fp.huffman.shtml</a><br>                                                                                                                                                                                                                                                               2/35/5/2018<br>                                                                                                                                                                                                                                                               CS 270, 2018S: Final Project<br>                                                                                                                                                                                                                                                               This class will have a HuffmanTree as a field, and will use it to manage the decoding of a<br>                                                                                                                                                                                                                                                               compressed stream as produced by the encoder.<br>                                                                                                                                                                                                                                                               HuffmanDecoder(istream&amp;): create a decoder and construct the HuffmanTree from the given<br>                                                                                                                                                                                                                                                                                         istream, which stores the tree in text format (as produced by writeTree).<br>                                                                                                                                                                                                                                                                                         void decodeText(int, ibitstream&amp;, ostream&amp;): decode the message from the given input bit<br>                                                                                                                                                                                                                                                                                                                                      stream into the output character stream. The first argument indicates the expected number<br>                                                                                                                                                                                                                                                                                                                                      of characters to be decoded.<br>    void writeTree(ostream&amp;): invokes the writeTree function of the HuffmanTree to write the<br>                              tree. (This is primarily for debugging purposes, most applications will not need it.)<br>                              Above and Beyond: User application (10%)<br>                                                To complete the assignment, you must design and write some command-line user interface to<br>                                                enable a user to encode and decode text with the classes you have built. As some suggestions to<br>                                                get you started thinking, you could asking the user to provide names for files to read and write<br>                                                through prompts or the command-line, or asking the user to type strings and print the huffman-<br>                                                encoded results as ‘1’ and ‘0’ characters to the terminal, or write multiple different applications with<br>                                                different main functions for handling encoding and decoding using the same libraries. Whichever<br>                                                route you choose, start by looking up the documentation for the kind of streams you want to deal<br>                                                with - files are handled through ofstreams and ifstreams (or ofbitstreams and ifbitstreams) and<br>                                                strings can be processed using stringstream objects. Good links for the Stanford bitstream<br>                                                libraries here, and the C++ standard i/o library here. Talk with your partner to decide how you want<br>                                                your application to be informative, artistic, utilitarian, fun, or any or all of the above. Whatever<br>                                                interface you design and choose, include a README.txt file that describes what you did and how<br>                                                to use your application.<br>                                                Submitting your work<br>                                                Make sure your files are named correctly as specified above. In your comments at the top, make<br>                                                sure you:<br>                                                acknowledge any help or outside sources, in accordance with the academic honesty policy;<br>                                                describe any known bugs in the program.<br>                                                Rezip your materials using the command “zip -r mywhitmanID_Huffman.zip FP_huffman” in the<br>                                                folder containing the final project unzipped package. Submit your completed package using the<br>                                                online turnin form. Be sure to select the Final Project.</int></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c/" rel="tag"># c/c++</a>
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Datastructure/" rel="tag"># Datastructure</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/Task000007/" rel="next" title="c/c++代写 cs代写 Book Ciper">
+                <i class="fa fa-chevron-left"></i> c/c++代写 cs代写 Book Ciper
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/29/Task000009/" rel="prev" title="旋转二叉树 rotateBST">
+                旋转二叉树 rotateBST <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

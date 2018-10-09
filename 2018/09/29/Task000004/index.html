@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="代写一个查询系统,对数据进行快速读入,随后对数据进行查询.">
+<meta name="keywords" content="c&#x2F;c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c&#x2F;c++代写:简单的c++作业">
+<meta property="og:url" content="http://holydudecs.github.io/2018/09/29/Task000004/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="代写一个查询系统,对数据进行快速读入,随后对数据进行查询.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-09T12:48:16.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c&#x2F;c++代写:简单的c++作业">
+<meta name="twitter:description" content="代写一个查询系统,对数据进行快速读入,随后对数据进行查询.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/09/29/Task000004/"/>
+
+
+
+
+
+  <title>c/c++代写:简单的c++作业 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/09/29/Task000004/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">c/c++代写:简单的c++作业</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T14:40:24+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>代写一个查询系统,对数据进行快速读入,随后对数据进行查询.<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">struct Data&#123;</span><br><span class="line">    char source[20];</span><br><span class="line">    char name[10];</span><br><span class="line">    int color;//色度</span><br><span class="line">    float ph;//ph 值</span><br><span class="line">    int Ga;//gai钙</span><br><span class="line">    int Mg;//镁</span><br><span class="line">    int Na;//钠</span><br><span class="line">    float radio;//放射性</span><br><span class="line">    struct Data* next;</span><br><span class="line">&#125;;//用链表</span><br><span class="line">//同时我们会做一个fake head</span><br><span class="line"></span><br><span class="line">struct Data* head ;</span><br><span class="line">/*struct Data* head = (struct Data*) malloc(sizeof(struct Data));*/</span><br><span class="line"></span><br><span class="line">struct Data* NewDataNode()</span><br><span class="line">&#123;</span><br><span class="line">    struct Data* node=(struct Data*) malloc(sizeof(struct Data));</span><br><span class="line">    for(int i=0;i&lt;20;i++) node-&gt;source[i]=0;</span><br><span class="line">    for(int i=0;i&lt;10;i++) node-&gt;name[i]=0;</span><br><span class="line">    node-&gt;color=-1;</span><br><span class="line">    node-&gt;ph=-1;</span><br><span class="line">    node-&gt;Ga=-1;</span><br><span class="line">    node-&gt;Mg=-1;</span><br><span class="line">    node-&gt;Na=-1;</span><br><span class="line">    node-&gt;radio=-1;</span><br><span class="line">    node-&gt;next=NULL;</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void OutputData(struct Data* node)</span><br><span class="line">&#123;</span><br><span class="line">    fprintf(stdout,&quot;%s,%s,%d,%.1f,%d,%d,%d,%.3f\n&quot;,node-&gt;source,node-&gt;name,node-&gt;color,node-&gt;ph,node-&gt;Ga,node-&gt;Mg,node-&gt;Na,node-&gt;radio);</span><br><span class="line">    /*fprintf(stdout,&quot;%s,%s,%d,%.1f,%d,%d,%d,%.3f\n&quot;,node-&gt;source,node-&gt;name,node-&gt;color,node-&gt;ph,node-&gt;Ga,node-&gt;Mg,node-&gt;Na,node-&gt;radio);*/</span><br><span class="line">    /*printf(&quot;%s,%s,%d,%.1f,%d,%d,%d,%.3f\n&quot;,node-&gt;source,node-&gt;name,node-&gt;color,node-&gt;ph,node-&gt;Ga,node-&gt;Mg,node-&gt;Na,node-&gt;radio);*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int After(struct Data* l,struct Data * r)//l be after r?</span><br><span class="line">&#123;</span><br><span class="line">    if(l-&gt;radio&gt;r-&gt;radio) return 1;</span><br><span class="line">    if(l-&gt;radio&lt;r-&gt;radio) return 0;</span><br><span class="line">    if(l-&gt;Mg&lt;r-&gt;Mg) return 1;</span><br><span class="line">    if(l-&gt;Mg&gt;r-&gt;Mg) return 0;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void InsertNode(struct Data* node)</span><br><span class="line">&#123;</span><br><span class="line">    struct Data* tmp=head;</span><br><span class="line">    while(tmp-&gt;next&amp;&amp;After(node,tmp-&gt;next))</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=tmp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    struct Data* next=tmp-&gt;next;</span><br><span class="line">    tmp-&gt;next=node;</span><br><span class="line">    node-&gt;next=next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int ValidString(char ch)</span><br><span class="line">&#123;</span><br><span class="line">    if(ch&gt;=&apos;a&apos;&amp;&amp;ch&lt;=&apos;z&apos;) return 1;</span><br><span class="line">    if(ch&gt;=&apos;A&apos;&amp;&amp;ch&lt;=&apos;Z&apos;) return 1;</span><br><span class="line">    if(ch&gt;=&apos;0&apos;&amp;&amp;ch&lt;=&apos;9&apos;) return 1;</span><br><span class="line">    if(ch==13||ch==10) return 1;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int eof=0;</span><br><span class="line"></span><br><span class="line">struct Data* ReadData(FILE* fp)</span><br><span class="line">&#123;</span><br><span class="line">    struct Data* node=NewDataNode();</span><br><span class="line"></span><br><span class="line">    char ch;</span><br><span class="line"></span><br><span class="line">    int i=0;</span><br><span class="line">    while(i&lt;20&amp;&amp;(ch=fgetc(fp))!=&apos;,&apos;)</span><br><span class="line">    &#123;</span><br><span class="line">        if(ch==-1)</span><br><span class="line">        &#123;</span><br><span class="line">            free(node);</span><br><span class="line">            eof=1;</span><br><span class="line">            return NULL;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!ValidString(ch))</span><br><span class="line">        &#123;</span><br><span class="line">            fprintf(stderr,&quot;读取错误\n&quot;);</span><br><span class="line">            free(node);</span><br><span class="line">            return NULL;</span><br><span class="line">        &#125;</span><br><span class="line">        /*printf(&quot;%dth ch:%d\n&quot;,i,ch);*/</span><br><span class="line">        if(ch!=&apos;\n&apos;&amp;&amp;ch!=13&amp;&amp;ch!=10)</span><br><span class="line">        &#123;</span><br><span class="line">            node-&gt;source[i]=ch;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(i==20||i==0)</span><br><span class="line">    &#123;</span><br><span class="line">        fprintf(stderr,&quot;读取错误\n&quot;);</span><br><span class="line">        free(node);</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125;</span><br><span class="line">    /*printf(&quot;1\n&quot;);*/</span><br><span class="line"></span><br><span class="line">    i=0;</span><br><span class="line">    while(i&lt;10&amp;&amp;(ch=fgetc(fp))!=&apos;,&apos;)</span><br><span class="line">    &#123;</span><br><span class="line">        node-&gt;name[i]=ch;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    if(i==0||i==10)</span><br><span class="line">    &#123;</span><br><span class="line">        fprintf(stderr,&quot;读取错误\n&quot;);</span><br><span class="line">        /*printf(&quot;\n2\n&quot;);*/</span><br><span class="line">        free(node);</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int rd=fscanf(fp,&quot;%d,%f,%d,%d,%d,%f&quot;,&amp;node-&gt;color,&amp;node-&gt;ph,&amp;node-&gt;Ga,&amp;node-&gt;Mg,&amp;node-&gt;Na,&amp;node-&gt;radio);</span><br><span class="line">    if(rd!=6)</span><br><span class="line">    &#123;</span><br><span class="line">        fprintf(stderr,&quot;读取错误\n&quot;);</span><br><span class="line">        /*printf(&quot;\n3\n&quot;);*/</span><br><span class="line">        free(node);</span><br><span class="line">        return NULL;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    InsertNode(node);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Better(struct Data* l, struct Data* r)//l&apos;s color ,ph ,Ga , Na, Mg should be less that r</span><br><span class="line">&#123;</span><br><span class="line">    if(l-&gt;color&gt;r-&gt;color) return 0;</span><br><span class="line">    if(l-&gt;Ga&gt;r-&gt;Ga) return 0;</span><br><span class="line">    if(l-&gt;Na&gt;r-&gt;Na) return 0;</span><br><span class="line">    if(l-&gt;Mg&gt;r-&gt;Mg) return 0;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void BetterOutput(struct Data* node)</span><br><span class="line">&#123;</span><br><span class="line">    struct Data* tmp=head-&gt;next;</span><br><span class="line">    while(tmp)</span><br><span class="line">    &#123;</span><br><span class="line">        if(Better(tmp,node))</span><br><span class="line">        &#123;</span><br><span class="line">            OutputData(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        tmp=tmp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    head = (struct Data*) malloc(sizeof(struct Data));</span><br><span class="line">    FILE *fp=NULL;//打开文件</span><br><span class="line">    fp=fopen(&quot;samples.txt&quot;,&quot;r&quot;);</span><br><span class="line">    if(fp==NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        fprintf(stderr,&quot;File open error!\n&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //下面开始读取文件并存储到链表中</span><br><span class="line"></span><br><span class="line">    struct Data* tmp=head-&gt;next;</span><br><span class="line">    while(!feof(fp))</span><br><span class="line">    &#123;</span><br><span class="line">        if(ReadData(fp)==NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            if(eof==1)//read the End Of File</span><br><span class="line">            &#123;</span><br><span class="line">                eof=0;</span><br><span class="line">            &#125;else</span><br><span class="line">            &#123;</span><br><span class="line">                /*GG*/</span><br><span class="line">                tmp=head;</span><br><span class="line">                while(tmp)</span><br><span class="line">                &#123;</span><br><span class="line">                    struct Data* next=tmp-&gt;next;</span><br><span class="line">                    free(tmp);</span><br><span class="line">                    tmp=next;</span><br><span class="line">                &#125;</span><br><span class="line">                fclose(fp);</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*tmp=head-&gt;next;*/</span><br><span class="line">    /*while(tmp)*/</span><br><span class="line">    /*&#123;*/</span><br><span class="line">    /*Data* next=tmp-&gt;next;*/</span><br><span class="line">    /*OutputData(tmp);*/</span><br><span class="line">    /*tmp=next;*/</span><br><span class="line">    /*&#125;*/</span><br><span class="line"></span><br><span class="line">    //下面这个循环是在进行查询和搜索</span><br><span class="line">    while(1)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;\n\n输入color ph Ga Mg Na的最大值(q开头结束)\n&quot;);</span><br><span class="line">        struct Data* node= NewDataNode();</span><br><span class="line">        char ch=0;</span><br><span class="line">        ch=getchar();</span><br><span class="line">        if(ch==&apos;q&apos;)</span><br><span class="line">            break;</span><br><span class="line">        node-&gt;color=ch-&apos;0&apos;;</span><br><span class="line">        while((ch=getchar())!=&apos; &apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            node-&gt;color=node-&gt;color*10+ch-&apos;0&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        fscanf(stdin,&quot;%f%d%d%d&quot;,&amp;node-&gt;ph,&amp;node-&gt;Ga,&amp;node-&gt;Mg,&amp;node-&gt;Na);</span><br><span class="line">        /*OutputData(node);*/</span><br><span class="line">        while(getchar()!=&apos;\n&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            ;</span><br><span class="line">        &#125;</span><br><span class="line">        /*fscanf(stdin,&quot;%d%f%d%d%d&quot;,&amp;node-&gt;color,&amp;node-&gt;ph,&amp;node-&gt;Ga,&amp;node-&gt;Mg,&amp;node-&gt;Na);*/</span><br><span class="line">        BetterOutput(node);</span><br><span class="line">        free(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //free malloc memory</span><br><span class="line">    tmp=head;</span><br><span class="line">    while(tmp)</span><br><span class="line">    &#123;</span><br><span class="line">        struct Data* next=tmp-&gt;next;</span><br><span class="line">        free(tmp);</span><br><span class="line">        tmp=next;</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c/" rel="tag"># c/c++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/Task000003/" rel="next" title="c/c++代写:多线程编程">
+                <i class="fa fa-chevron-left"></i> c/c++代写:多线程编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/29/Task000005/" rel="prev" title="java代写:韩国算法数据结构">
+                java代写:韩国算法数据结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

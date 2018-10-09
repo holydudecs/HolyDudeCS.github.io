@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Algorithm,Datastructure,算法,数据结构,c/c_++," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="cs代写">
+<meta name="keywords" content="Algorithm,Datastructure,算法,数据结构,c&#x2F;c_++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="旋转二叉树 rotateBST">
+<meta property="og:url" content="http://holydudecs.github.io/2018/09/29/Task000009/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="cs代写">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-09T12:48:16.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="旋转二叉树 rotateBST">
+<meta name="twitter:description" content="cs代写">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/09/29/Task000009/"/>
+
+
+
+
+
+  <title>旋转二叉树 rotateBST | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/09/29/Task000009/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">旋转二叉树 rotateBST</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T20:54:09+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>cs代写<br><a id="more"></a></p>
+<p>#ifndef rotateBST_H_</p>
+<p>#define rotateBST_H</p>
+<p>#include <vector></vector></p>
+<p>#include “bst.h”<br>using namespace std;</p>
+<p>template <typename key,typename="" value=""><br>class BinarySearchTree;</typename></p>
+<p>template <typename key,typename="" value=""><br>class rotateBST:public BinarySearchTree&lt;Key,Value&gt;</typename></p>
+<p>{<br>    public:<br>        int sameKeys(const rotateBST&lt;Key,Value&gt;&amp; t2) const;//if this have all the same keys with t2<br>        void transform(rotateBST&lt;Key,Value&gt;&amp; t2)const ;<br>    protected:<br>        void leftRotate(Node&lt;Key,Value&gt;<em> r);<br>        void rightRotate(Node&lt;Key,Value&gt;</em> r);<br>    private:<br>        void recurHelper(Node&lt;Key,Value&gt;<em> nod1,Node&lt;Key,Value&gt;</em> nod2,rotateBST&lt;Key,Value&gt;&amp; t2) const;//we make left child .right of nd2 ok<br>        int UpdateHeight(Node&lt;Key,Value&gt;* nod);</p>
+<p>};</p>
+<p>template <typename key,typename="" value=""><br>int rotateBST&lt;Key,Value&gt;::sameKeys(const rotateBST&lt;Key,Value&gt;&amp; t2) const<br>{<br>    typename rotateBST&lt;Key,Value&gt;::iterator it1(this-&gt;getSmallestNode());<br>    typename rotateBST&lt;Key,Value&gt;::iterator end1(NULL);<br>    typename rotateBST&lt;Key,Value&gt;::iterator it2(t2.getSmallestNode());<br>    typename rotateBST&lt;Key,Value&gt;::iterator end2(NULL);<br>    while(it1!=end1&amp;&amp;it2!=end2)<br>    {<br>        if((<em>it1).first!=(</em>it2).first)<br>        {<br>            return false;<br>        }<br>        ++it1;<br>        ++it2;<br>    }<br>    if(it1!=end1||it2!=end2)<br>    {<br>        return false;<br>    }</typename></p>
+<pre><code>return true;
+</code></pre><p>}</p>
+<p>template <typename key,typename="" value=""><br>void rotateBST&lt;Key,Value&gt;::transform(rotateBST&lt;Key,Value&gt;&amp; t2) const<br>{<br>    if(sameKeys(t2)==false)<br>    {<br>        return;<br>    }</typename></p>
+<pre><code>recurHelper(NULL,NULL,t2);
+</code></pre><p>}</p>
+<p>template <typename key,typename="" value=""><br>void rotateBST&lt;Key,Value&gt;::recurHelper(Node&lt;Key,Value&gt;<em> nod1,Node&lt;Key,Value&gt;</em> nod2,rotateBST&lt;Key,Value&gt;&amp; t2) const//we make left child .right of nd2 ok<br>{<br>    if(nod1==NULL&amp;&amp;nod2==NULL)<br>    {<br>        while(t2.mRoot-&gt;getLeft()!=NULL)<br>        {<br>            t2.rightRotate(t2.mRoot);</typename></p>
+<pre><code>    }
+    auto p=t2.mRoot;
+    while(p-&gt;getRight()!=NULL)
+    {
+        while(p-&gt;getRight()-&gt;getLeft()!=NULL)
+        {
+            t2.rightRotate(p-&gt;getRight());
+
+        }
+        p=p-&gt;getRight();
+
+    }
+    while(this-&gt;mRoot-&gt;getKey()!=t2.mRoot-&gt;getKey())
+    {
+        t2.leftRotate(t2.mRoot);
+    }
+    recurHelper(this-&gt;mRoot,t2.mRoot,t2);
+}else
+{
+    if(nod2-&gt;getLeft()!=NULL)
+    {
+        //make the left of nod2 linked list
+        while(nod2-&gt;getLeft()-&gt;getLeft()!=NULL)
+        {
+            t2.rightRotate(nod2-&gt;getLeft());
+        }
+        auto nod=nod2-&gt;getLeft();
+        while(nod-&gt;getRight()!=NULL)
+        {
+            while(nod-&gt;getRight()-&gt;getLeft()!=NULL)
+            {
+                t2.rightRotate(nod-&gt;getRight());
+            }
+            nod=nod-&gt;getRight();
+        }
+
+        //make key same
+        while(nod2-&gt;getLeft()-&gt;getKey()!=nod1-&gt;getLeft()-&gt;getKey())
+        {
+            t2.leftRotate(nod2-&gt;getLeft());
+        }
+        recurHelper(nod1-&gt;getLeft(),nod2-&gt;getLeft(),t2);
+    }
+
+    if(nod2-&gt;getRight()!=NULL)
+    {
+        //make the left of nod2 linked list
+        while(nod2-&gt;getRight()-&gt;getLeft()!=NULL)
+        {
+            t2.rightRotate(nod2-&gt;getRight());
+        }
+        auto nod=nod2-&gt;getRight();
+        while(nod-&gt;getRight()!=NULL)
+        {
+            while(nod-&gt;getRight()-&gt;getLeft()!=NULL)
+            {
+                t2.rightRotate(nod-&gt;getRight());
+            }
+            nod=nod-&gt;getRight();
+        }
+
+        //make key same
+        while(nod2-&gt;getRight()-&gt;getKey()!=nod1-&gt;getRight()-&gt;getKey())
+        {
+            t2.leftRotate(nod2-&gt;getRight());
+        }
+        recurHelper(nod1-&gt;getRight(),nod2-&gt;getRight(),t2);
+    }
+    nod2-&gt;setHeight(nod1-&gt;getHeight());
+}
+</code></pre><p>}</p>
+<pre><code>template &lt;typename Key,typename Value&gt;
+</code></pre><p>void rotateBST&lt;Key,Value&gt;::leftRotate(Node&lt;Key,Value&gt;<em> r)<br>{<br>    if(r==NULL) return ;<br>    Node&lt;Key,Value&gt;</em> z=r;<br>    Node&lt;Key,Value&gt;<em> y=r-&gt;getRight();<br>    if(y==NULL) return ;<br>    Node&lt;Key,Value&gt;</em> t2=y-&gt;getLeft();<br>    Node&lt;Key,Value&gt;* p=z-&gt;getParent();<br>    //ok</p>
+<pre><code>//parent
+if(p==NULL) this-&gt;mRoot=y;
+else if(p-&gt;getLeft()==z) p-&gt;setLeft(y);
+else if(p-&gt;getRight()==z) p-&gt;setRight(y);
+
+//z
+z-&gt;setRight(t2);
+z-&gt;setParent(y);
+
+//y
+y-&gt;setParent(p);
+y-&gt;setLeft(z);
+
+//t2
+if(t2!=NULL)
+    t2-&gt;setParent(z);
+
+//deal z height
+if(z-&gt;getLeft()==NULL&amp;&amp;t2==NULL)
+{
+    z-&gt;setHeight(1);
+}else if(z-&gt;getLeft()==NULL)
+{
+    z-&gt;setHeight(t2-&gt;getHeight()+1);
+}else if(t2==NULL)
+{
+    z-&gt;setHeight(z-&gt;getLeft()-&gt;getHeight()+1);
+}else
+{
+    z-&gt;setHeight(max(z-&gt;getLeft()-&gt;getHeight(),t2-&gt;getHeight())+1);
+}
+if(y-&gt;getRight()!=NULL)
+{
+    y-&gt;setHeight(max(y-&gt;getRight()-&gt;getHeight(),z-&gt;getHeight())+1);
+}else
+{
+    y-&gt;setHeight(z-&gt;getHeight()+1);
+}
+if(p!=NULL)
+{
+    if(p-&gt;getLeft()!=NULL&amp;&amp;p-&gt;getRight()!=NULL)
+    {
+        p-&gt;setHeight(max( p-&gt;getLeft()-&gt;getHeight(),p-&gt;getRight()-&gt;getHeight()  )+1);
+    }else if(p-&gt;getLeft()!=NULL)
+    {
+        p-&gt;setHeight(p-&gt;getLeft()-&gt;getHeight()+1);
+    }else if(p-&gt;getRight()!=NULL)
+    {
+        p-&gt;setHeight(p-&gt;getRight()-&gt;getHeight()+1);
+    }else
+    {
+        p-&gt;setHeight(1);
+    }
+}
+return ;
+</code></pre><p>}</p>
+<pre><code>template &lt;typename Key,typename Value&gt;
+</code></pre><p>void rotateBST&lt;Key,Value&gt;::rightRotate(Node&lt;Key,Value&gt;<em> r)<br>{<br>    if(r==NULL) return ;<br>    Node&lt;Key,Value&gt;</em> z=r;<br>    Node&lt;Key,Value&gt;<em> y=z-&gt;getLeft();<br>    if(y==NULL) return ;<br>    Node&lt;Key,Value&gt;</em> t3=y-&gt;getRight();<br>    Node&lt;Key,Value&gt;* p=z-&gt;getParent();<br>    //ok</p>
+<pre><code>//parent
+if(p==NULL) this-&gt;mRoot=y;
+else if(p-&gt;getLeft()==z) p-&gt;setLeft(y);
+else if(p-&gt;getRight()==z) p-&gt;setRight(y);
+
+//z
+z-&gt;setLeft(t3);
+z-&gt;setParent(y);
+
+//y
+y-&gt;setParent(p);
+y-&gt;setRight(z);
+
+//t3
+if(t3!=NULL)
+    t3-&gt;setParent(z);
+
+//deal z height
+if(z-&gt;getRight()==NULL&amp;&amp;t3==NULL)
+{
+    z-&gt;setHeight(1);
+}else if(z-&gt;getRight()==NULL)
+{
+    z-&gt;setHeight(t3-&gt;getHeight()+1);
+}else if(t3==NULL)
+{
+    z-&gt;setHeight(z-&gt;getRight()-&gt;getHeight()+1);
+}else
+{
+    z-&gt;setHeight(max(z-&gt;getLeft()-&gt;getHeight(),z-&gt;getRight()-&gt;getHeight())+1);
+}
+if(y-&gt;getLeft()!=NULL)
+{
+    y-&gt;setHeight(max(y-&gt;getLeft()-&gt;getHeight(),z-&gt;getHeight())+1);
+}else
+{
+    y-&gt;setHeight(z-&gt;getHeight()+1);
+}
+if(p!=NULL)
+{
+    if(p-&gt;getLeft()!=NULL&amp;&amp;p-&gt;getRight()!=NULL)
+    {
+        p-&gt;setHeight(max( p-&gt;getLeft()-&gt;getHeight(),p-&gt;getRight()-&gt;getHeight()  )+1);
+    }else if(p-&gt;getLeft()!=NULL)
+    {
+        p-&gt;setHeight(p-&gt;getLeft()-&gt;getHeight()+1);
+    }else if(p-&gt;getRight()!=NULL)
+    {
+        p-&gt;setHeight(p-&gt;getRight()-&gt;getHeight()+1);
+    }else
+    {
+        p-&gt;setHeight(1);
+    }
+}
+return ;
+</code></pre><p>}</p>
+<p>#endif</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Datastructure/" rel="tag"># Datastructure</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/c-c/" rel="tag"># c/c_++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/Task000008/" rel="next" title="cs作业代写 哈弗曼树">
+                <i class="fa fa-chevron-left"></i> cs作业代写 哈弗曼树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/29/Task000010/" rel="prev" title="c++代写:大数加减乘除">
+                c++代写:大数加减乘除 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
