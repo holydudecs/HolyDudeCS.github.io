@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their pr">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000016/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their pr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000016/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T09:23:51.224Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Project">
+<meta name="twitter:description" content="1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their pr">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000016/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000016/"/>
+
+
+
+
+
+  <title>Project | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000016/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Project</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T17:22:47+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their priorities will be nonnegative integers. Regardless of the order that the elements were added to a priority queue, when an element is removed it is always the element being st</p>
+<a id="more"></a>
+<p>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>1 Project #6 1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their priorities will be nonnegative integers. Regardless of the order that the elements were added to a priority queue, when an element is removed it is always the element being stored that has the highest priority that is removed and returned. Your functions must use only dynamically–allocated memory to store priority queues. The purpose of the project is to get experience using memory allocation and creating linked data structures in C. Consequently this project is more difficult than the recent two projects, because there are many possible bugs when using dynamically–allocated data structures in C, so start right away. Note that to encourage you to test your code yourself, secret tests are the largest component of your score for this project. 2 Data structure requirements You will create your own data structure for storing the components of a priority queue. We are giving you a header file pq.h that contains the prototypes of the required functions, assuming an undefined type Priorityqueue. It #includes a header file pq-datastructure.h that is not provided. You must create this file (with its name spelled exactly as shown), containing a definition of the type Priorityqueue. (Note that there is a second header file included in the tarfile that has a prototype for a utility function that you must also write, described below.) Your priority queue data structure must obey the following: • Your data structure must use only dynamically–allocated memory to store priority queues. Otherwise, you will not receive credit for the project (even if your code passes every test). One example of a dynamically–allocated data structure is a linked list of structs, where each struct is dynamically allocated (obtained via malloc() or calloc()). Another is a binary tree of structs, where each struct is dynamically allocated. • Your data structure for storing priority queues must use at least one linked list or one binary tree in storing priority queues. You can use more than one of these. You can use other dynamically–al- 2 located data structures, such as dynamically–allocated arrays (obtained via malloc() or calloc()), as long as you use at least one linked list or binary tree in your priority queue data structure. If your data structure does not use at least one linked list or binary tree you will not receive credit for the project (even if your code passes every test). • Your data structure for storing priority queues cannot use any fixed–size arrays anywhere. If any square braces () are seen anywhere in your pq-datastructure.h header file you will not receive credit for the project (even if your code passes every test). If you have any doubts about whether you are violating these requirements you can always discuss the design that you have come up with TAs during their office hours before starting to code. There are no requirements for your own tests– we won’t even be looking at them– so these restrictions do not apply to them, only to your priority queue implementation. You will not be graded directly on execution efficiency, but if your priority queue representation is highly inefficient (for example, extremely slow for large priority queues) you might fail some tests. 3 Functions to be written Note that you have to write two source files for this project. All of the functions will be in a file pq.c except the last one described below, which will be in a file check-string-arrays.c. The functions to be written do not print any output; they either modify their Priorityqueue parameter, or return a value, or both. Some functions have a Priorityqueue as a parameter. The others (the ones that can modify a priority queue) have a pointer to a Priorityqueue (i.e., a Priorityqueue ) as a parameter. Note the following: • If a pointer or array passed into a parameter of any function is NULL, the function should have no effect. The functions that have a pointer or array parameter and have an integer return value should just return 0 without changing anything if their pointer parameter is NULL. The one function that has a pointer as a parameter and returns a pointer (dequeue()) should just return NULL without changing anything if its pointer parameter is NULL. • It should be possible for a program that calls your functions to create multiple priority queues, and they should not conflict. In other words, initializing or modifying one of them should not affect any others. Write one function at a time (entirely or even partially), then test it (as soon as that is possible) thoroughly before going on! Write and test helper functions (for example, utility functions to ma- 3 nipulate your data structures) before writing code that uses them, and test them separately first as well. 3.1 Memory management For simplicity, the following apply: • A robust C program should always check that all memory allocations succeed, and take appropriate action if not. (The appropriate action might just be gracefully exiting the program, but it at least should not be just crashing). However, for simplicity in this project you may assume that all memory allocations always succeed, so you are encouraged but not required to check the return values of calls to the memory allocation functions. • A robust C program should always free all dynamically allocated memory when it’s no longer needed, to prevent memory leaks. However, for simplicity in this project your functions do not need to free any memory. Although some of the functions remove some or all of a priority queue’s components, it is sufficient if you accomplish this by removing components of your data structure without explicitly freeing the memory that they use (like to what you did in Java programs, except here there is no garbage collector that will free the memory eventually). • Since you don’t have to free memory your functions may have memory leaks, which you don’t have to worry too much about in this project. (Of course if you leak the entire heap memory and ask for more, the operating system will terminate your program, but given the sizes of inputs your functions will be run on, that should not occur.) 3.2 void init(Priorityqueue const pq) This function should initialize its Priorityqueue parameter (meaning the Priorityqueue variable that its pointer parameter points to), causing it to be an empty priority queue containing no elements. Exactly what the function has to do depends entirely on how you decide to represent priority queues. Note that the caller created the variable that pq points to, and is just passing its address into this function. This function is like initstudent() in Project #4 or copystudent() in Project #5. Both of these functions were passed the memory address of an existing variable, which they had to initialize appropriately. They did not allocate any memory for their parameter. The copystudent() function should have allocated memory for its Student parameter’s name, but the Student parameter itself was not allocated in the function, because the caller created it. init() here may have to allocate memory for the priority queue data structure, but the variable that its parameter pq points to already exists so should not itself be allocated. 4 Section 3.11 below discusses what sequences of calls to the functions are valid. 3.3 int enqueue(Priorityqueue const pq, const char newelement, int priority) This function should store newelement, which has priority priority, in its parameter priority queue, and return 1. Exactly what it needs to do depends entirely on how you decide to implement priority queues. In this project a priority queue cannot contain two elements that have the same priority, so if there is already an element present with priority priority in the parameter priority queue, the function should just return 0 without modifying the priority queue, otherwise it should return 1 after adding the element to the queue. (Although duplicate elements are not prohibited, elements with duplicate priorities are prohibited.) The function must copy its parameter newelement into a newly–created dynamically–allocated array (meaning a deep copy)of size just sufficient to store the string. This ensures that the string, regardless of its size, is stored without wasting memory space. It also ensures correctness if the memory holding the argument array is later modified or freed by the user of these functions. 3.4 int isempty(const Priorityqueue pq) This function should return 1 if there are no elements currently being stored in its parameter priority queue,and 0 if there are any elements being stored. 3.5 int size(const Priorityqueue pq) This function should return the number of elements being stored in its parameter priority queue, which will always be zero or more. 3.6 char dequeue(Priorityqueue const pq) This function should remove the element in its parameter pq that has the highest priority and return it (meaning a pointer to it, since each element being stored is just a string). The element will no longer be stored in the queue afterwards, and the number of elements being stored will decrease by one. But if pq is currently empty the function should just return NULL instead. 3.7 void clear(Priorityqueue const pq) This function should remove all elements from its parameter pq, so it doesn’t contain any elements; its size will be zero afterwards. As mentioned above, it does not have to free the memory of any elements being removed. (Section 3.11 below discusses what sequences of calls to the functions are valid.) 5 3.8 char getallelements(Priorityqueue pq) This function should return a newly–created dynamically–allocated array (meaning a deep copy) of pointers to characters, that point to newly–created dynamically–allocated copies of the elements being stored in its parameter pq; that is, the pointers in the returned array should not be aliases of the strings stored somewhere in your priority queue data structure. The elements (strings) should appear in the array in order of decreasing priority, with the element that has highest priority first. If there are n elements in the queue pq, the array returned by the function must be an array with n + 1 elements, where the last element must be NULL. This allows the user of your functions to iterate over the elements of the array, stopping when the NULL pointer is reached. (So if the queue has no elements the function must return an array of one element, which will be NULL.) Notice that the form of the array of strings returned is exactly the same as the format of the arrays that checkstringarrays() (described in Section 3.10 below) operates upon. To facilitate program development you may want to write your own helper method that prints the elements of an array of strings, like the one that is returned by this function. (Of course you can also easily view it in the debugger.) But note that our tests that call this function all use the last one below (checkstringarrays()) to check its results, so you may want to write that one even before this one. 3.9 int removeelementsbetween(Priorityqueue const pq, int low, int high) This function should remove all elements from its Priorityqueue parameter whose priority is greater than or equal to the value of low, and less than or equal to the value of high. If no elements at all are removed (because there are no elements in the rangelow…high) the function should just return 0 without changing anything. Otherwise it should return 1 after removing all such elements. Note that there may be any number of zero or more elements that are removed, up to all of the elements in the queue. Also note that there do not have to be elements with exact priorities low and high; any elements whose priorities lie between their values (inclusive) should be removed. 3.10 int checkstringarrays(char names, char expectednames) All of the other functions must be written in pq.c except this one, which must be check-string-arrays.c. This function is a utility function for checking the results of the function getallelements() above. It will be passed two arrays of strings (pointers to characters). It may assume that both arrays will always end with a NULL pointer. (For example, if there are three pointers to strings in one of the arrays the array will actually have four elements, the pointers pointing to the three strings, followed by a NULL pointer.) It should return 1 if the arrays have the same number of 6 strings (elements) before their NULL pointers and exactly the same identical strings (meaning exactly the same in spelling, capitalization, and any spacing), in the same order. It should return 0 in any other case. As described in Section 3.1 above, this function, like any others that have a pointer or array parameter and have an integer return value, should just return 0 without changing anything if either of its pointer parameters is NULL. 3.11 Valid sequences of calls to the functions All valid sequences of calls to your functions on a Priorityqueue variable must obey the following: • init() must be the first function called on any Priorityqueue variable. • After clear() is called on a Priorityqueue variable any of the other functions may be called on that variable, but only if init() is called again on that variable before any of the other functions. The effect of any sequence of calls to the functions that does not have these properties is undefined. Ensuring that these properties are not violated is the responsibility of the caller of your functions; your code does not have to detect violation of these properties (and in fact it has no way to do so). If these properties violated, the effect is just undefined. This means that your code can do anything in that case, including working perfectly or failing spectacularly. (Note that failing is much easier to accomplish.) A Development procedure review A.1 Obtaining the project files, compiling, checking your results, and submitting Log into the Grace machines and use commands similar to those from before: cd tar -zxvf This will create a directory project6 that contains the necessary files for the project, including the two header files pq.h and check-string-arrays.h, and the public tests. You must have your coursework in your course disk space for this class. Create one file in the project6 directory named pq.c (spelled exactly that way) that will #include the header file pq.h, and in it write the functions whose prototypes are in pq.h. (Of course the functions will depend on the type definitions that you first have to write in pq-datastructure.h.) Also create another file there named check-string-arrays.c that will #include check-string-arrays.h, and in it just write the single function checkstringarrays(). 7 (Note that pq.c should #include pq.h but not #include check-string-arrays.h, because it does not use anything defined in it (it does not need to call checkstringarrays() anywhere). Similarly, checkstring-arrays.c should not #include pq.h.) A command like gcc public01.c pq.c -o public01.x will compile your program for the first public test (or you can use Emacs to compile if desired); replace the 1s in the command with 2s for the second public test, etc. You can also use separate compilation, compiling each source file to form object files, which are then linked together. However, note that one of the public tests (the twelfth one) doesn’t use anything in pq.c– it only calls checkstringarrays()– so it only needs to be compiled check-string-arrays.c. And the last two tests call functions from both pq.c and check-stringarrays.c, so they need to be compiled with both of them. As before, use diff to compare your program’s output to the public test outputs that are in the project tarfile, for example public01.x | diff - public01.output will test your code’s results on the first public test. Running submit from the project directory will submit your project, but before you submit you must make sure you have passed all the public tests, by compiling and running them yourself. Unless you have versions of all required functions that will at least compile, your program will fail to compile at all on the submit server. (Suggestion– create skeleton versions of all functions when starting to code, that just have an appropriate return statement.) A.2 Grading criteria Your grade for this project will be based on: Well more than half of your score will come from secret tests. The public tests check only a small subset of the functionality of this project. If you don’t write extensive tests of your functions yourself you could lose significant credit on the secret tests, and wind up with a low score. public tests 30 points secret tests 70 points 8 Project–specific requirements, suggestions, and other notes To summarize, your program consists of three required user–written files: pq-datastructure.h, pq.c, and check-string-arrays.c. Be sure to reread the data structure requirements in Section 2. Recall that the beginning of Section 3 says what the functions should do if any of their parameters are NULL. As mentioned above your functions do not have to free any memory. Note that during the time this project is assigned, the TAs will be explaining valgrind in discussion section. This is a UNIX tool that helps find memory problems in C programs, in particular, it can help detect errors using dynamically– allocated memory incorrectly. If you think your code may have memory problems you can use valgrind, but since you are not required to free memory, you can ignore any memory leaks that it identifies. Any other memory problems that it indicates are things that probably should be fixed. Be careful not to have any pointer aliasing in writing your functions. Do not write code (loops) that has the same effect as any string library functions. If you need to perform an operation on strings and there is a string library function already written that accomplishes that task, you are expected to use it, otherwise you will lose credit. You may lose credit if you cast the return value of the memory allocation functions. Besides being completely unnecessary, in some cases this can mask certain errors in code. You cannot modify anything in the header files pq.h or check-string-arrays.h, or add anything to them, because your submission will be compiled on the submit server using our versions of these files. You cannot write any new header files of your own either. Your code may not comprise any source (.c) files other than pq.c and check-string-arrays.c, so all your code must be in these files. Do not write a main() function in pq.c or check-string-arrays.c, because your code won’t compile (our tests already have main() functions). Write any tests in your own separate source files, and compile them together with pq.c or check-string-arrays.c (or both, depending on what functions your tests are calling). You can only use the C language features that have been covered in class up through Chapter 11 in the Reek text. 9 For this project you will lose one point from your final project score for every submission that you make in excess of five submissions. You will also lose one point for every submission that does not compile, in excess of two noncompiling submissions. Therefore be sure to compile, run, and test your project’s results before submitting it. We hope everyone will check their code themselves carefully, and not incur these penalties. ##Academic integrity Please carefully read the academic honesty section of the syllabus. Any evidence of impermissible coopera- tion on projects, use of disallowed materials or resources, publicly providing others access to your project code online, or unauthorized use of computer accounts, will be submitted to the Office of Student Conduct, which could result in an XF for the course, or suspension or expulsion from the University. Be sure you understand what you are and what you are not permitted to do in regards to academic integrity when it comes to projects. These policies apply to all students, and the Student Honor Council does not consider lack of knowledge of the policies to be a defense for violating them. More information is in the course syllabus– please review it now. The academic integrity requirements also apply to any test data for projects, which must be your own original work. Exchanging test data or working together to write test cases is also prohibited.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000015/" rel="next" title="2 Project description">
+                <i class="fa fa-chevron-left"></i> 2 Project description
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000017/" rel="prev" title="Assignment">
+                Assignment <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
