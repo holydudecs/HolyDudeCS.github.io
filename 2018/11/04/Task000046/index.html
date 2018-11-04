@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Earlier in the course, you got to write some code to control a software “turtle” as it drew shapes onto an electronic canvas. T">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plotting Functions">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000046/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="Earlier in the course, you got to write some code to control a software “turtle” as it drew shapes onto an electronic canvas. T">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000046/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:19:33.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Plotting Functions">
+<meta name="twitter:description" content="Earlier in the course, you got to write some code to control a software “turtle” as it drew shapes onto an electronic canvas. T">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000046/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000046/"/>
+
+
+
+
+
+  <title>Plotting Functions | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000046/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Plotting Functions</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:07:06+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Earlier in the course, you got to write some code to control a software “turtle” as it drew shapes onto an electronic canvas. T<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写<br>Plotting Functions</p>
+<p>Introduction</p>
+<p>Earlier in the course, you got to write some code to control a software “turtle” as it drew shapes onto an electronic canvas. The software tool that let Python 3 become a turtle graphics environment for that exercise is a module called tkinter. tkinter is the Python front-end (interface) for Tk, a software “toolkit that provides a library of basic elements … for building a graphical user interface (GUI)” (Wikipedia). In this assignment, you’ll using tkinter more directly, and plotting math functions onto another GUI canvas.</p>
+<p>Because this is probably very new for most of you, we’re giving you a head start by providing some code to get the tkinter graphics “engine” started, some code in a main() function, and a collection of functions, most of which are just stubs* that need to be made into useful code. In this assignment, you will see some things you may not have seen previously, specifically,</p>
+<p>·         optional parameters and named arguments</p>
+<p>·         functions as parameters</p>
+<p>*A stub is a tiny piece of code standing in temporarily for as-yet-unwritten code.</p>
+<p>What you’re given</p>
+<p>Here’s a stripped-down version of the code you’ll need to complete:</p>
+<p>from tkinter import *</p>
+<p>from math import *</p>
+<p>CANV_WIDTH = 750</p>
+<p>CANV_HEIGHT = 250</p>
+<p>def draw_axes():</p>
+<pre><code>&quot;&quot;&quot;Draws a horizontal line across the middle of the canvas, and a vertical
+
+line down the centre of the canvas using tkinter&apos;s default line thickness
+
+and colour.
+
+&quot;&quot;&quot;
+
+# Draw the x axis
+
+width = w.winfo_width()
+
+w.create_line(get_x(-width//2),get_y(0),get_x(width//2),get_y(0))
+
+# Draw the y axis
+
+height = w.winfo_height()
+
+w.create_line(get_x(0),get_y(-height//2),get_x(0),get_y(height//2))
+</code></pre><p>def get_x(x_val):</p>
+<pre><code>&quot;&quot;&quot;Maps a Cartesian-style x coordinate (where x is 0 at the window&apos;s
+
+horizontal centre) onto the tkinter canvas (where x is 0 is at the left
+
+edge). x_val is the Cartesian x coordinate. The units of measurement
+
+are pixels.
+
+&quot;&quot;&quot;
+
+return 0 # replace this line
+</code></pre><p>def get_y(y_val):</p>
+<pre><code>&quot;&quot;&quot;Maps a Cartesian-style y coordinate (where y is 0 at the window&apos;s
+
+vertical centre, and in which y grows in value upwards) onto the tkinter
+
+canvas (where y is 0 is at the top edge, and y grows in value downwards).
+
+y_val is the Cartesian y coordinate. The returned value is the
+
+corresponding tkinter canvas y coordinate. The units of measurement are
+
+pixels.
+
+&quot;&quot;&quot;
+
+return 0 # replace this line
+</code></pre><p>def plot_point(x,y,colour=’black’):</p>
+<pre><code>&quot;&quot;&quot;Draws a single pixel &quot;dot&quot; at Cartesian coordinates (x,y).
+
+The optional colour parameter determines the colour of the dot.
+
+&quot;&quot;&quot;
+
+pass # replace this line
+</code></pre><p>def plot_fn(fn,start_x,end_x,scale=20,colour=’black’):</p>
+<pre><code>&quot;&quot;&quot;Plots a function, y = fn(x), onto the canvas.
+
+
+Parameters:
+
+
+* fn is a function that takes a single number parameter and returns a
+
+  number.
+
+
+
+* start_x is the left-most x value to be passed to fn.
+
+
+* end_x is the right-most x value to be passed to fn.
+
+
+
+* scale (optional) is used as a multiplier in both the x and y directions
+
+  to &quot;zoom in&quot; on the plot. It is also used to increase the number of x
+
+  coordinates &quot;fed&quot; to the fn function, to fill in all the horizontal gaps
+
+  that would otherwise appear between the plotted points. scale is
+
+  particularly useful for showing detail that would be otherwise be lost.
+
+
+* colour (optional) determines the colour of the plotted function.
+
+
+
+Note: nothing bad happens if start_x, end_x, or any y value computed from
+
+fn(x) is off the canvas. Those points simply will not be displayed.
+
+(Note to the student programmer: This happens automatically. You don&apos;t
+
+have to program it.)
+
+&quot;&quot;&quot;
+
+pass # replace this line
+</code></pre><p>def square(x):</p>
+<pre><code>&quot;&quot;&quot;Returns the square of x&quot;&quot;&quot;
+
+return x * x
+</code></pre><p>def func_1(x):</p>
+<pre><code>&quot;&quot;&quot;A quadratic polynomial function (for testing).&quot;&quot;&quot;
+
+return -3 * square(x) + 2 * x + 1
+</code></pre><p>def func_2(x):</p>
+<pre><code>&quot;&quot;&quot;Your choice of a function&quot;&quot;&quot;
+
+return 0 # replace this line
+</code></pre><p>def func_3(x):</p>
+<pre><code>&quot;&quot;&quot;Your choice of a function&quot;&quot;&quot;
+
+return 0 # replace this line
+</code></pre><p>master = Tk()</p>
+<p>master.title(‘Plot THIS!’)</p>
+<p>w = Canvas(master,</p>
+<pre><code>width=CANV_WIDTH,
+
+height=CANV_HEIGHT)
+</code></pre><p>w.pack(expand=YES, fill=BOTH)</p>
+<p>w.update() # makes w.winfo_width() and w.winfo_height() meaningful</p>
+<p>def main():</p>
+<pre><code>draw_x_axis(); draw_y_axis()
+
+plot_fn(sin,-20,20,40,&apos;green&apos;) # sin() is defined in the math module
+
+plot_fn(cos,-20,20,40,&apos;blue&apos;)  # cos() is defined in the math module
+
+plot_fn(square,-20,20,40,&apos;red&apos;)
+
+plot_fn(func_1,-20,20,40,&apos;purple&apos;)
+
+#plot_fn(func_2,-20,20,40,&apos;brown&apos;)
+
+#plot_fn(func_3,-20,20,40,&apos;cyan&apos;)
+</code></pre><p>main()</p>
+<p>mainloop()</p>
+<p>What needs doing</p>
+<p>The comment for each function describes what that function needs to do. We’ve made your task somewhat easier by figuring out the parameters each function requires, but except for the functions that draw the x and y axes, and a couple of testing functions, all the others currently have code blocks consisting of the Python 3 placeholder instruction, pass, for those functions that don’t return values, and return 0 for those functions that do. Even the few functions you are given currently don’t do anything useful because they need values they’re not getting from the incomplete functions.</p>
+<p>Once you get everything else working, uncomment the last two instructions in main() and make func_2() and func_3() into visually interesting functions. If you can’t see much evidence of these functions on the plot, it may be because the interesting parts of them don’t fit onto it at the scale that’s been given to them (40). Try lowering or raising that argument.</p>
+<p>What to tackle first</p>
+<p>Filling in the code for the get_x() and get_y() functions is a good place to start with this assignment, because they’re the key to making the rest of the program work. You will know you’re at least on the right track with those functions if you can get your axes to appear. You should use w.winfo_width() and w.winfo_height() in get_x() and get_y(), respectively, to determine the dimensions of the canvas, as is done in the draw_x_axis() and draw_y_axis functions.</p>
+<p>The new stuff</p>
+<p>·         Optional and named function parameters:</p>
+<p>You’ll have noticed that the function parameters colour and scale differ from the others in the way they’re written and used. They are examples of optional parameters, and also named arguments. Within the function definition, the identifiers for these parameters are followed by an equal sign, and then some value. That value (referred to as the default value) becomes the value of the parameter in the function, but only if the function was called with the corresponding function argument missing. Python allows these optional parameters to be skipped when the function is called. For example, if you wanted to call plot_fn(), and were happy with the default scale value (20), but wanted to change the plotting colour to orange, you’d call the function using something like this:</p>
+<p>plot_fn(func_x,-20,20,colour=’orange’)</p>
+<p>(That is, you’d leave out the scale entirely, but then name the colour argument.)</p>
+<p>·         Functions as parameters</p>
+<p>You’ll also have noticed that the identifiers (names) of functions can be used as arguments to a function, and then the corresponding parameter – which becomes an alias of the function – can be called within the function. This is a handy thing to know when you want to process a number of different functions in more or less the same way, as we’re doing here.</p>
+<p>What NOT to do</p>
+<p>Don’t get too bogged down. Each of the functions can be written in a very few lines of code, but things like inverting the direction that the y access grows in and how scale works have to be thought through carefully.</p>
+<p>How to tell when you’re done</p>
+<p>When it is run, and except for the addition of your own func_2() and func_3(), your program’s output should look like this:</p>
+<p>SHAPE * MERGEFORMAT</p>
+<p>BONUS!</p>
+<p>We will give you extra credit (1 whole mark above 100%!) in this assignment if you go above-and-beyond the requirements above by automating the adding of ticks (very short lines) at integer intervals along the x and y axes. To judge where the ticks should go, add two parameters, scale and tick_length to the draw_axes() function. In general, a scale value of n would translate to a tick of length tick_length appearing every n pixels on the x and y axes. if tick_length is greater than 0, each tick on the x axis must protrude down from the axis, and each tick on the y axis must protrude left from the axis, as in this partial screen capture (which depicts ticks at a scale of 40 and a tick_length of 4):</p>
+<p>SHAPE * MERGEFORMAT</p>
+<p>However, if tick_length is less than 0, each tick on the x axis must protrude up from the axis, and each tick on the y axis must protrude right from the axis.</p>
+<p>If you decide to take us up on this bonus challenge, you will, of course, need to modify the call to draw_axes() in the main()function. Make sure you test it with a variety of integer arguments.</p>
+<p>What to turn in</p>
+<p>Your completed program, called “assignment_2.py.”</p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000045/" rel="next" title="Identification of Physical Communication Channels in Buildings">
+                <i class="fa fa-chevron-left"></i> Identification of Physical Communication Channels in Buildings
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000047/" rel="prev" title="peer-to-peer (P2P) protocol Circular DHT">
+                peer-to-peer (P2P) protocol Circular DHT <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

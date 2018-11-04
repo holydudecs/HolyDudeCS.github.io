@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="EC440: Project 2 - User Mode Thread Library Project Goals ● To understand the idea of threads. ● To implement independent, parallel execution within a process">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EC440 Project 2 - User Mode Thread Library">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000030/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="EC440: Project 2 - User Mode Thread Library Project Goals ● To understand the idea of threads. ● To implement independent, parallel execution within a process">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000030/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:11:26.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EC440 Project 2 - User Mode Thread Library">
+<meta name="twitter:description" content="EC440: Project 2 - User Mode Thread Library Project Goals ● To understand the idea of threads. ● To implement independent, parallel execution within a process">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000030/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000030/"/>
+
+
+
+
+
+  <title>EC440 Project 2 - User Mode Thread Library | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000030/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">EC440 Project 2 - User Mode Thread Library</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:26:26+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>EC440: Project 2 - User Mode Thread Library Project Goals ● To understand the idea of threads. ● To implement independent, parallel execution within a process<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>EC440: Project 2 - User Mode Thread Library Project Goals ● To understand the idea of threads. ● To implement independent, parallel execution within a process. ● You are implementing something that looks alot like real OS code. Collaboration policy ● You are encouraged to discuss this project with your classmates/instructors but are required to turn in your own solution. ● You must be able to fully explain your solution during oral examination. Deadline It is due on Friday, October 19, 23:59:59 EDT. Project Description The main deliverable for this project is a basic thread system for Linux. In the lectures, we learned that threads are independent units of execution that run (virtually) in parallel in the address space of a single process. As a result, they share the same heap memory, open files (file descriptors), process identifier, etc. Each thread has its own context, which consists of a set of CPU registers and a stack. The thread subsystem provides a set of library functions that applications may use to create, start and terminate threads, and manipulate them in various ways. The most well-known and widespread standard that specifies a set of interfaces for multi-threading programming on Unix-style operating systems is called POSIX threads (or pthreads). Recall that pthreads merely prescribes the interface of the threading functionality. The implementation then either implement user-mode threads, take advantage of kernel-mode threads (if provided by the operating system), or mix the two approaches. In this project, you will implement a small subset of the pthread API exclusively in user-mode. In particular, we aim to implement the following three functions from the pthread interface in user mode on Linux (prototypes and explanations partially taken from the respective man pages): int pthread_create( pthread_t <em>thread, const pthread_attr_t </em>attr, void <em>(</em>start_routine) (void <em>), void </em>arg); The pthread_create() function creates a new thread within a process. Upon successful completion, pthread_create() stores the ID of the created thread in the location referenced by thread. In our implementation, the second argument (attr) shall always be NULL. The thread is created (i.e., your library must create a new Thread context, cf. slides ec440lecture04) and executes start_routine with arg as its sole argument. If the start_routine returns, the effect shall be as if there was an implicit call to pthread_exit() using the return value of start_routine as the exit status. Note that the thread in which main() was originally invoked differs from this. When it returns from main(), the effect shall be as if there was an implicit call to exit() using the return value of main() as the exit status. void pthread_exit(void *value_ptr); The pthread_exit() function terminates the calling thread. In our current implementation, we ignore the value passed in as the first argument (value_ptr) and clean up all information related to the terminating thread. The process shall exit with an exit status of 0 after the last thread has been terminated. The behavior shall be as if the implementation called exit() with a zero argument at thread termination time. pthread_t pthread_self(void); The pthread_self() function shall return the thread ID of the calling thread. For more details about error handling, please refer to the respective man pages. Submission Guidelines ● The threading library must be implemented in C ● To facilitate grading, you must include the pthreads header file (#include) in your source(s). We will compile your thread library against our test application that will call your pthread functions and check whether threads are properly started and terminated. ● Your makefile should compile your source files into an object threads.o file. Note, make sure to specify -m32, since some bits of below are dependant on 32 bit calling code convention. gcc/g++ -m32 -c -o threads.o threads.c ● In your home directory create a folder project2 and place all of your source files, makefile and README there. Switch to the project2 directory and execute submit2 ● A confirmation mail of your submission is sent to your account.. You can read this mail by executing mail. ● In the README file explain what you did. If you had problems, tell us why and what. ● You are allowed to resubmit your files. The latest submission before the deadline will be graded Oral Examination ● Deadline: Friday, October 26th , 18.00 EST ● You are required to meet with one member of the course staff (excluding Prof. Krieger) during office hours to explain your solution. Implementation ● You probably will need to use a data structure that can store information about the state of the thread (its set of registers), its stack (e.g., a pointer to the thread’s stack area), and status of the thread (whether it is running, ready to run, or has exited). This data structure is often referred to as a thread control block (TCB). As you may need to accommodate multiple threads in the same time (assume a maximum of 128 threads can be created), the thread control blocks should be stored in a list or a table (array). ● You should create a helper function that initializes your thread subsystem after the application calls pthread_create() for the first time. Before the call to the helper function, there is only one thread running (the main program). ● The process of picking another thread is called scheduling. You may cycle through the available threads in a round robin fashion, giving an equal, fair share to each thread. ● In order to switch between threads, the currently executing thread needs to call the setjump library function. setjmp will save the current state of the thread into a jmp_buf structure. Then your thread subsystem can pick another thread, use longjmp function along with saved jmp_buf to restore to a previously saved state and resume the execution of the new thread. ● Think about how often you want the thread of a program to call setjump (and thus, give up control of the CPU). In particular, application developers may be unaware of your thread implementation, so it is unlikely that they will periodically call setjmp and allow your scheduler to switch to a new process. To solve this issue, we can employ signals and alarms. We can use the ualarm or the setitimer function to set up a periodic timer that sends a SIGALRM signal every X milliseconds (assume that X=50ms for this project). Whenever the alarm goes off, the operating system will invoke the signal handler for SIGALRM. So, you can install your own, custom signal handler that performs the scheduling (switching between threads) for you. To install this signal handler, you should use sigaction with the SA_NODEFER flag. Otherwise (e.g., when using the deprecated signal function), alarms are automatically blocked while you are running the signal handler. ○ We require that your thread system supports thread preemption and switches between multiple threads that are ready. It is not okay to run each individual thread to completion before giving the next one a chance to execute. ○ To create a new thread, the system has to properly initialize the TCB for the new thread: create a new thread ID, allocate a new stack (malloc can come in handy) of 32,767 byte size and initialize the thread’s state so that it “resumes” execution from the start function that is given as argument to the pthread_create function. For this, we could use setjmp to save the state of the current thread in a jmp_buf, and then, modify this jmp_buf in two important ways. First, we want to change the program counter (the EIP) to point to the start function. Second, we want the stack pointer (the ESP) to point to the top of our newly allocated stack. ○ To modify the jmp_buf directly, we have to first understand that it is a very operating system and processor family-specific data structure that is typically not modified directly. On bandit, we can see the definition of the jmp_buf h ere in this header file: /usr/include/bits/setjmp.h (run cat /usr/include/bits/setjmp.h). Moreover, libc defines the following constants as the six integer elements of this structure: #define JB_BX 0 #define JB SI 1 #define JB DI 2 #define JB BP 3 #define JB SP 4 #define JB PC 5 ○ We can see that the stack pointer has index 4 and the program counter has index 5 into the jmp_buf. This allows us to easily write the new values for ESP and EIP into a jmp_buf. Unfortunately, there is a small complication on the Linux systems in the lab. These machines are equipped with a libc that includes a security feature to protect the addresses stored in jump buffers. This security feature “mangles” (i.e., encrypts) a pointer before saving it in a jmp_buf. Thus, we also have to mangle our new stack pointer and program counter before we can write it into a jump buffer, otherwise decryption (and subsequent uses) will fail. To mangle a pointer before writing it into the jump buffer, make use of the following function: ○ static int ptr_mangle(int p) { unsigned int ret; asm(“ movl %1, %%eax;n” “ xorl %%gs:0x18, %%eax;” “ roll $0x9, %%eax;” “ movl %%eax, %0;” : “=r”(ret) : “r”(p) : “%eax” ); return ret; } ○ Remember that the start routine of every new thread expects a single argument (a void pointer called arg). More precisely, the calling function would first put the argument onto the stack and the perform the call operation (which implicitly pushes the return address onto the stack). We have to basically “simulate” such a function call to the start routine. To this end, we just have to initialize the new stack for a thread by putting the argument on top of the stack, followed by the return address (which is the address of pthread_exit). Make sure to adjust the stack pointer (ESP) appropriately. ○ Once your stack is initialized and the (mangled) stack pointer (ESP) and program counter (EIP) are written to the jmp_buf, your new thread is all ready to go, and when the next SIGALRM arrives, it is ready to be scheduled! ○ In your solution you will have to use ptr_mangle to store the mangled stack and instruction pointers into the jmp_buf structure. If, during development, you want to inspect these values (e.g., to check you actually got a true jmp_buf) you can use the following counterpart to the above ptr_mangle function (not necessary just for convenience) static int ptr_demangle(int p) { unsigned int ret; asm( “ movl %1, %%eax;n” “ rorl $0x9, %%eax;” “ xorl %%gs:0x18, %%eax;” “ movl %%eax, %0;” : “=r”(ret) : “r”(p) : “%eax” ); return ret; }    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000029/" rel="next" title="Game	of	Life">
+                <i class="fa fa-chevron-left"></i> Game	of	Life
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000031/" rel="prev" title="CS 353 - Spring 2018 - Final Exam/Project">
+                CS 353 - Spring 2018 - Final Exam/Project <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

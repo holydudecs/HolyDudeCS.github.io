@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 Assignment 3">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="University of Wollongong School of Computing and Information Technology CSCI464&#x2F;964 Computational Intelligence Autumn 2018">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000061/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 Assignment 3">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000061/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:02:22.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="University of Wollongong School of Computing and Information Technology CSCI464&#x2F;964 Computational Intelligence Autumn 2018">
+<meta name="twitter:description" content="University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 Assignment 3">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000061/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000061/"/>
+
+
+
+
+
+  <title>University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000061/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T21:00:40+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 Assignment 3<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>University of Wollongong School of Computing and Information Technology CSCI464/964 Computational Intelligence Autumn 2018 Assignment 3 (Due: 4:30PM, Monday 21 May) 20 marks — Part 1 (Genetic Programming, 10 marks) — Aim: This assignment is intended to provide basic experience in solving difficult problems with Genetic Algorithms (GAs). After having completed this assignment you should know how to implement a GA in C++ and find a near optimal solution to hard problems like the Traveling Sales Person Problem (TSP). Preliminaries: In the TSP, the goal is to find the shortest distance between N different cities. The path that the sales person takes is called a tour. The following example shows a near optimal tour between 100 cities. To test every possible path for an N city tour requires N! math additions. For example, a 30 city tour would be 2.65 X 1032 additions. Assuming 1 billion additions per second, this would take over 8,000,000,000,000,000 years. Adding just one more city would cause the number of additions to increase by a factor of 31. Obviously, this is an impossible solution to find mathematically. However, a genetic algorithm (like that shown above) can be used to find a near perfect solution in very little time. The basic concept of Genetic Algorithms is to simulate Darwinian evolution by implementing survival of the fittest. To solve the travelling sales person problem using a GA, first create a group of many random tours in what is called a population. These tours are stored as a sequence of numbers representing cities. Second, produce a new population by repeatedly picking 2 of the better (shorter) tours from the population (ie parents) and by combining them using the crossover operator to create 2 new solutions (ie children) in the hope that they create a better solution. The mutation operator can also be applied to improve the chance of finding a shorter tour. Crossover is performed by picking a one or two random points in the parents’ sequences and switching the numbers (representing cities) in the sequence between the points. The difficulty in using a GA to solve the TSP is in crossing over the cities of parent solutions to produce child solutions. For example, as show below, crossing over the cities in the parents has resulted in City 1 occurring twice in Child 1 and City 5 occurring twice in Child 2. Furthermore, City 1 is missing in Child 2 and City 5 is missing in Child 1. Consequently, a more complicated crossover operator must be used to prevent this occurring. CSCI964 - Computational Intelligence - Autumn Session 2018 Page 2 Parent 1 1 2 3 4 5 Parent 2 3 5 2 1 4 Child 1 1 2 3 1 4 Child 1 3 5 2 4 5 Assignment Specification: To complete this assignment you are to implement a genetic algorithm for solving the TSP Toll Road problem. The TSP Toll Road problem is the same as the general TSP problem except that the cities have types (1:capital, 2:regional &amp; 3:country) and the cost (cents/km) of traveling between two cities depends on their type. The objective is to visit all cities at minimum cost. The table below shows the cost of traveling between different types of cities: For example, to travel between a regional city (type-2) and a capital city (type-1) that are 100km apart it would cost 100km x 7.5c = $7.50 . Data: Three data files are provided containing 100, 200 and 500 data items. Each data item represents the coordinates (x, y) of each city (in kms) and the city type (1:capital, 2:regional, 3:country). To assist with this task, a bare-bones GA written in C++ is provide in the file “ga.cpp”. However, this GA is for solving problems represented with bit strings and will need considerable modifications and enhancements to make it capable of finding solutions to the TSP. Your completed program should accept the filename of the TSP data file as a command line argument. If no filename is given your program should ask the user to enter the filename via the keyboard. The output of your program should show the minimum tour distance achieved by each generation. However, if this produces more than two pages of output, in your final program, modify your code so that every 5th, 10th or 20th generation is displayed. To receive full marks for this assignment the following steps must be completed. (Note: these steps do not have to be implemented in the order given. Step 1 is worth 4 marks. Step 2 is worth 1 mark, Step 3 is worth 2 marks and Step 4 is worth 3 marks.) Step 1: To implement the TSP on the code in the file ga.cpp, begin by writing a function to read a data file containing the locations of the cities and their type into a dynamically allocated array. Then alter the Init(), Crossover(), Mutate() and EvaluateFitness() functions appropriately to handle the TSP Toll Road problem. You are encouraged to design your own algorithms for these functions to get your GA performing optimally (see Step 4). However, to help you get started, the following suggestions are offered. Init() must be modified to load the initial pop members with random cities. Cities are represented with the numbers 0..n-1 where n is the number of cities in the data file. Make sure no city occurs more than once in each member. (Note: the first number in the given data files is the number of cities in the file. Use this number to appropriately allocate the size of member arrays etc. so your code will run on any of the given data files. City locations are represented by (x,y) coordinates (ie integers: 0..999).) Crossover() can be implemented in a variety of ways. A search of the internet should reveal some useful examples. You should make sure that the crossover operation does not result in any offspring containing duplicate cities. This can be done by locating any duplicate cities and replace each duplicate city with a missing city. (But which missing city?) Mutate() can be implemented by swapping two or more randomly selected cities in the member. Feel free to experiment with this to obtain increased performance. CSCI964 - Computational Intelligence - Autumn Session 2018 Page 3 EvaluateFitness() should calculate the fitness by adding all the distances between visited cities times their cost to get the tour cost. This will result in the fittest cities having the smallest cost. Thus you may have to modify how the BestMember is obtained and how parent selection is done. (Step 3 has more info on this.) Step 2: To avoid the large expense of calculating the same distances during each fitness evaluation, provide an n x n lookup table of the cost of traveling between cities where n is the number of cities to be visited. Thus, when fitnesses are calculated the cost of traveling between two cities can be looked up from the table more quickly. Step 3: involves providing your GA with two parent selection options. To do this, implement roulette wheel selection and provide a global constant to switch your GA between Tournament or Roulette Wheel selection. The following algorithm is offered as a suggestion for implementing roulette wheel selection: Copy fitnesses into a temp array Subtract the minimum pop fitness from each fitness to normalise them Subtract each normalised fitness from the normalized maximum pop fitness to get the scaled fitnesses Generate a random number between 0 and the sum of all the scaled fitnesses Set TempSum to 0 for i=0;iRandomNumber) return i; } This should work, however better performance may be achieved by scaling the fittnesses such that the fittest member occupies no more than 2 times as much space on the roulette wheel as members with average fitness. Step 4: Run your GA on all three data sets and experiment with different parameters (e.g crossover &amp; mutation types and mutation &amp; crossover probabilities) so that your GA finds the cheapest path in the minimum number of generations. Write up the results in your report. Step 5: Now modify your crossover and mutation operators so that the amount of change they cause to individuals becomes less as evolution progresses. Describe the modifications you have chosen to make in your report. Provide a brief comment block at the bottom of your program to explain the measures you have taken and the parameters you have chosen to achieve your result. Submit your code with your optimal parameters in place so your optimal solution can be demonstrated. Make sure the output from your program does not occupy more than one or two pages. (Note: it is ok to just print the fitness of every 5th or 10th or 20th generation.) The above is to be taken as a guide only. It is advised to do research on GAs and the TSP problem and make any changes you think fit to improve the performance of the GA on the TSP problem. Please provide references if you use techniques found via your research. Your report should contain sufficient description, discussion and analysis, in particular, (1) Details of each step (above) of your implementation and any improvements. (2) The settings, results and performance (graphs) of your GA based on your experiments. (3) Attach a printout of your code. Ensure it is neat, well commented and easy to understand. — Part 2 (Deep Learning, 10 marks) — Aim: This assignment is intended to provide basic experience in using the recently released open source software library TensorFlow developed by Google Brain Team to implement and design simple neural networks for image classification. After having completed this assignment you should know how to realize a linear and convolutional neural network with TensorFlow, understand its training process, and interpret the classification result. CSCI964 - Computational Intelligence - Autumn Session 2018 Page 4 Assignment Specification: 1. Install TensorFlow by following the instruction at <a href="https://www.tensorflow.org/install/" target="_blank" rel="noopener">https://www.tensorflow.org/install/</a>. After that, verify it by following <a href="https://www.tensorflow.org/install/install_mac#ValidateYourInstallation" target="_blank" rel="noopener">https://www.tensorflow.org/install/install_mac#ValidateYourInstallation</a>. 2. (2 marks) Run the simple multinomial logistic regression (a three-layer neural network without a hidden layer) by reading and following <a href="https://www.tensorflow.org/get_started/mnist/beginners" target="_blank" rel="noopener">https://www.tensorflow.org/get_started/mnist/beginners</a>. Ensure that you can obtain the classification accuracy around 92%. Describe what this network does and the key steps (such as defining the networks, training, and test) with your own words. Vary the parameters like the number of training example, the learning rate, and the batch size to observe the classification accuracy. Describe your observation. 3. (3 marks) Run the basic convolutional neural networks (a multi-layer neural network with hidden layers) by reading and following <a href="https://www.tensorflow.org/get_started/mnist/pros" target="_blank" rel="noopener">https://www.tensorflow.org/get_started/mnist/pros</a>. Ensure that you can obtain the classification accuracy around 99%. Describe what this network does and the key steps (such as defining the networks, training, and test) with your own words. Vary the parameters like the patch size and the number of features (defined in [5, 5, 1, 32] and [5, 5, 32, 64]) to observe the classification accuracy. Describe your observation. 4. (5 marks) The following images are from the international competition on cell image classification hosted by International Conference on Pattern Recognition in 2014. The images have been prepartitioned into training set (8701 images), validation set (2175 images), and test set (2720 images), which are provided with this assignment instruction. In addition, a .csv file is enclosed. It contains the category of each image. This file consists of two columns: the first column is the image IDs of all the 13,596 images, and the IDs are consistent with the names of the images in the three sets; and the second column is the category of the cell image. This is an open task. You are expected to use the knowledge learned from this subject to achieve the classification accuracy on the test set as high as possible. Note that you are free to use any classification techniques, toolboxes, software packages, and programming languages to accomplish this task. For your reference, our research shows that the classification accuracy of 96% is achievable. In addition, a journal paper is enclosed in this assignment for your reference. 5. Write a report on each of the three parts (parts 1 and 2 shall be put into one single report). It shall include 1) A brief introduction on the MNIST data set used in part 2; 2) As indicated in the point 2 above, describe what this network does and the key steps (such as defining the networks, training, and test) with your own words. Vary the parameters like the number of training example, the learning rate, and the batch size to observe the classification accuracy. Describe your observation; 3) As indicated in the point 3 above Describe what this network does and the key steps (such as defining the networks, training, and test) with your own words. Vary the parameters like the patch size and the number of features (defined in [5, 5, 1, 32] and [5, 5, 32, 64]) to observe the classification accuracy. Describe your observation; 4) For the open task in point 4 above: a. Describe the classification technique, the toolboxes and the language you use; b. Describe and plot the structure of the classification system with a diagram; c. Describe how you process and prepare the image data when applicable; d. Describe how you chose the parameter of this classification system; e. Describe the training and validation accuracy and plot them when applicable; f. Report the final classification accuracy on the test set; g. Elaborate your observation during the course and provide detailed analysis. Submit: Submit your program on UNIX via the submit command before the deadline and hand in your report with a cover page to in the lecture. For part 1: C/C++ code that is compliable and runnable on the UNIX platform; Before submitting your code check the format to ensure the format and newlines appear correct on UNIX. (Marks will be deducted for untidy or incorrectly formatted work.) To avoid formatting problems avoid using tabs and use 4 spaces instead of tab to indent you code. Make sure your file is named: tsp.cpp. CSCI964 - Computational Intelligence - Autumn Session 2018 Page 5 For part 2: Provide all the source code of your programs for this part (including points 2, 3 and 4). Since you may use programming languages other than C/C++ and other libraries or packages, it is not required that your code be runnable on the UNIX platform. However, you may be asked to demonstrate your program on your laptop or a computer that has all the needed environments. Put both part 1 and part 2 into a single report. Do not write two separated reports. Submit using the submit facility on UNIX ie: $ submit -u login -c CSCI964 -a 3 assignment3.zip where ‘login’ is your UNIX login ID. We will attempt to run your program of part 1 on banshee. If problems are encountered running your program, you may be required to demonstrate your program to the coordinator at a prearranged time. If a request for a demonstration is made and no demonstration is done, a penalty of 2 marks (minimum) will be applied. Marks will be awarded for a comprehensive report, correct program design, implementation, style and performance. Any request for an extension of the submission deadline must be made by applying for academic consideration before the submission deadline. Supporting documentation must accompany the request for any extension. Late assignment submissions without granted extension will be marked but the mark awarded will be reduced by 1 mark for each day late. Assignments will not be accepted if more than one week late.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000060/" rel="next" title="实现一个聊天系统">
+                <i class="fa fa-chevron-left"></i> 实现一个聊天系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000062/" rel="prev" title="COMP20003 Algorithms and Data Structures Second (Spring) Semester 2018">
+                COMP20003 Algorithms and Data Structures Second (Spring) Semester 2018 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

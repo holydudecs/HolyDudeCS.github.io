@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="CS 277 Principles of Database Systems Spring 2018 Homework Assignment 2 (due Friday May 18, 2018) Problems: 1. Consider the beer drinkers database consi">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Principles of Database Systems">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000027/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="CS 277 Principles of Database Systems Spring 2018 Homework Assignment 2 (due Friday May 18, 2018) Problems: 1. Consider the beer drinkers database consi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000027/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T11:24:24.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Principles of Database Systems">
+<meta name="twitter:description" content="CS 277 Principles of Database Systems Spring 2018 Homework Assignment 2 (due Friday May 18, 2018) Problems: 1. Consider the beer drinkers database consi">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000027/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000027/"/>
+
+
+
+
+
+  <title>Principles of Database Systems | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000027/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Principles of Database Systems</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:23:58+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CS 277 Principles of Database Systems Spring 2018 Homework Assignment 2 (due Friday May 18, 2018) Problems: 1. Consider the beer drinkers database consi<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>CS 277 Principles of Database Systems Spring 2018 Homework Assignment 2 (due Friday May 18, 2018) Problems: 1. Consider the beer drinkers database consisting of relations over the following relational schema: FREQUENTS(drinker, bar), LIKES(drinker, beer), SERVES(bar, beer) Give relational calculus expressions for the following queries: (a) “List all drinkers who frequent at least one bar that serves at least one beer they like”. (b) “List all drinkers who frequent only bars that serve at least one beer they like.” (c) “List all drinkers who frequent every bar that serves ANCHOR STEAM”. Which of these three queries, if any, is equivalent to a conjunctive query? Justify your answer as best as you can. 2. Let R be a relational schema with attributes A, B, C. Consider the relational calculus expression πA(πA,C(R) on πB,C(R)). (a) Give a conjunctive query written as a relational calculus expression that is equivalent to the above expression. (b) Give a conjunctive query written as rule that is equivalent to the above expression. 3. Recall that a 2CNF-formula is a Boolean formula in conjunctive normal form such that each of its conjuncts is the disjunction of two literals, i.e., each conjunct has one of the following forms: (x ∨ y), (¬x ∨ y), (¬x ∨ ¬y). Recall also that 2Sat is the following decision problem: given a 2CNF formula ϕ, does ϕ have a satisfying assignment? (i.e., an assignment of Boolean values to the variables of ϕ so that each conjunct of ϕ evaluates to 1 (“true”)). (a) Show that 2Sat can be viewed as a special case of the Homomorphism Problem. This entails coming up with a suitable relational database schema S and showing that the question of whether a given 2CNF-formula ϕ is satisfiable is the same question as to whether there is a homomorphism between two particular database instances over S. In fact, the homomorphisms between the two database instances should be precisely the satisfying assignments of ϕ. (b) What changes will you have to make to your solution so that 3Sat can be viewed as a special case of the Homomorphism Problem? 4. Consider the following decision problem, called NATURAL JOIN NON-EMPTINESS: given relations R1,…,Rm, is their natural join R1 on · · · on Rm non-empty? In this version, both the number of relations given and the arity of each relation are arbitrary positive integers. (a) Show that NATURAL JOIN NON-EMPTINESS is in NP. 1 (b) Show that NATURAL JOIN NON-EMPTINESS is an NP-hard problem (Hint: Use a reduction from one of the NP-complete problems discussed in class). (c) Show that NATURAL JOIN NON-EMPTINESS is NP-hard even if the given relations are of arity at most 3 (Hint: Use a reduction from one of the NP-complete problems discussed in class). Note that a solution to this part of the problem gives also a solution to the preceding part, so you need only produce a solution for this part. (d) Let M and K be fixed positive integers. Consider the restriction of NATURAL JOIN NON-EMPTINESS in which we are given at most M relations and each relation has arity at most K. What can you say about the computational complexity of this problem? Is it NP-hard? Is it solvable in polynomial time? 5. Let q1 be the Boolean conjunctive query (written as a rule): q1 : −E(x1, x2), E(x2, x1), E(x2, x3), E(x3, x2), E(x3, x4), E(x4, x3), E(x4, x1), E(x1, x4) and let q2 be the Boolean conjunctive query (also written as a rule): q2 : − E(x1, x2), E(x2, x1), E(x2, x3), E(x3, x2), E(x3, x4), E(x4, x3), E(x4, x1), E(x1, x4), E(x1, x3), E(x3, x1). (a) Is q1 ⊆ q2? (Justify your answer) (b) Is q2 ⊆ q1? (Justify your answer) (c) Find a conjunctive query q3 such that q3 is a minimal conjunctive query equivalent to q1 (justify your answer briefly). (d) Find a conjunctive query q4 such that q4 is a minimal conjunctive query equivalent to q2 (justify your answer briefly). 6. As discussed in class, if q is a Boolean conjunctive query, then a Boolean conjunctive query q 0 is a minimal equivalent conjunctive query to q if q 0 is equivalent to q and has as few conjuncts as any conjunctive query q 00 equivalent to q. Fix now a Boolean conjunctive query q. (a) Show that if both q1 and q2 are minimal equivalent conjunctive queries to q, then the canonical database of q1 is isomorphic to the canonical database of q2 (in other words, q1 and q2 are the “same” conjunctive query up to a renaming of their variables). (b) Show that there is a Boolean conjunctive query q 0 that is a minimal equivalent query to q and is obtained from q by removing zero or more conjuncts of q (in other words, one of the “subqueries” of q is a minimal equivalent conjunctive query to q). 7. Let q be a union qi ∪q2 ∪ · · · ∪qm of conjunctive queries q1, q2, . . . , qm. We say that this union is non-redundant if there is no pair (i, j) such that i 6= j and qi ⊆ qj . (a) Is the union E(x, y) ∨ ∃z(E(x, z) ∧ E(z, y)) ∨ ∃z, w(E(x, z) ∧ E(z, w) ∧ E(w, y)) redundant or non-redundant? Justify your answer. 2 (b) Assume now that q is a non-redundant union q1 ∪ q2 ∪ · · · ∪ qm of Boolean conjunctive queries q1, q2, . . . , qm, and that q 0 is a non-redundant union q 0 1 ∪ q 0 2 ∪ · · · ∪ q 0 n of Boolean conjunctive queries q 0 1 , q0 2 , . . . , q0 n such that q is equivalent to q 0 . i. Using results established in class, show that for each i ≤ m, there is j ≤ n such that qi ≡ q 0 j . ii. Show that m = n. iii. (Optional problem) Do the previous two facts remain true without the assumption that the two unions are non-redundant? Justify your answer as best as you can. Note 1: All written assignments, term project report or term paper, and final examination are to be submitted in a typeset format (preferably in LATEX). Note 2: The purpose of the homework assignments is to help you develop a better understanding of the material covered in class and also to expose you to some material that lack of time prevents us from covering in class. You should try to work out these problems on your own using your notes from the class. You may also want to use the “Foundations of Databases” book and the papers posted at the course webpages as references. If you discuss any of the problems with other students in the class, you are still expected to produce your own write-up of the assignment; moreover, you are expected to state the names of all other students with whom you have shared ideas about the problems. Finally, please state what published or online sources you used, if any, in the solutions of the problems. 3    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000026/" rel="next" title="HW2 Tiny-UNIX on the SAPC">
+                <i class="fa fa-chevron-left"></i> HW2 Tiny-UNIX on the SAPC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000028/" rel="prev" title="Business Forecasting">
+                Business Forecasting <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

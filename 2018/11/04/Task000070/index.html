@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content=".Object This project will extend upon your priority queue implementation from Project #6. You will now do some smaller things: add conditional compilation directives to your header file pq-datastructu">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编写Priority Queuey使用老师给的框架，编写Makefile">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000070/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content=".Object This project will extend upon your priority queue implementation from Project #6. You will now do some smaller things: add conditional compilation directives to your header file pq-datastructu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000070/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:08:08.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编写Priority Queuey使用老师给的框架，编写Makefile">
+<meta name="twitter:description" content=".Object This project will extend upon your priority queue implementation from Project #6. You will now do some smaller things: add conditional compilation directives to your header file pq-datastructu">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000070/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000070/"/>
+
+
+
+
+
+  <title>编写Priority Queuey使用老师给的框架，编写Makefile | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000070/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">编写Priority Queuey使用老师给的框架，编写Makefile</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T21:07:51+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>.Object This project will extend upon your priority queue implementation from Project #6. You will now do some smaller things: add conditional compilation directives to your header file pq-datastructure.h and add one short new function to your priority queue implementation, and some larger things<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>1.Object This project will extend upon your priority queue implementation from Project #6. You will now do some smaller things: add conditional compilation directives to your header file pq-datastructure.h and add one short new function to your priority queue implementation, and some larger things, including writing a makefile that will compile your code for all of the public tests and writing a program that does black–box testing of priority queue implementations that we created. Many of the secret tests will check your testing program. Lastly, you will need to fix any bugs in your priority queue implementation (including those that may be in your check_string_arrays() function). Even if you had trouble with Project #6 and may get a low score you can still do fine in the course (one project just isn’t worth much toward your grade). You do have to get Project #6 to work though, so you can expand on it in this project. If you have bugs in your Project #6 code, fix them as soon as possible. Come to the TAs’ office hours if you need help. The data structure requirements and other restrictions and requirements for priority queues and for your implementation remain the same as they were in Project #6, so review that project if necessary again. Before asking for any debugging help in the TAs’ office hours, you must know how to use gdb and have already used gdb to throughly debug your code. Otherwise the TAs will not help debug your code. Note that you have to have three source files in your project, one header file, and one makefile. These are described specifically in Appendix A.1. That appendix also says exactly what should be written in each file and what each file should include. If you don’t read this appendix carefully your code may not even compile when submitted. Also note that– as Project #3, Project #4, Project #5, and Project #6 also said in their project require- ments sections (that many students seem to have skipped)– unless your files contain versions of all required functions that will at least compile, your program will fail to compile at all on the submit server. (As those projects all suggested, create skeleton versions of all functions when starting to code, that just have an appropriate return statement, so things will at least compile on the submit server. Do this for all required functions in all required files you have to create, described in more detail in Appendix A.1.) Due to the size of the course it is not feasible to provide information or assistance regarding programming assignments via email. You are welcome to ask any questions about this project in person, either during office hours, or during, before, or after discussion section or lecture (if time permits), but they will not be answered if asked via email. 2 First tasks Now that the preprocessor has been covered, including the conditional directives that are actually always used in C header files, you should add correct conditional compilation directives to your pq-datastructure.h header file. (This will take almost no time at all.) The next task is not hard to explain, but it may take a fair amount of work to accomplish; it is to fix bugs in your priority queue functions from Project #6. In the real world programs do not get thrown away or ignored after the date they are supposed to be finished; they commonly continue to be used and modified as needs change, or as bugs are later found. Although students often never look at academic programming projects again after submitting them, if you want to do well on this project you will not only have to look at your Project #6 code again, you will have to figure out any mistakes you made in it and fix them. Note that all of the public tests for this project, except for the last one, are the secret tests from Project #6 that have just been renamed. 3 The new function char *peek(Priority_queue pq) This function should return a newly–created dynamically–allocated string (meaning a deep copy) of the element in its parameter pq that has the highest priority, without removing it from the queue. The number of elements being stored in the queue pq will remain the same. But if pq is currently empty the function should just return NULL instead. 4 Compiling using the make utility You must write and submit a makefile along with your project code. This makefile will be used to compile your code for all the public tests, so it should have a rule for each public test present in the project tarfile. Since you won’t know how many secret tests there are, or what their dependencies should be, We will use our own makefile to compile them. The requirements for your makefile are: • It must be in a file named Makefile (with a capital first letter). (Your code will not compile on the submit server if your makefile name is wrong.) • It must use the six gcc options -ansi, -pedantic-errors, -Wall, -fstack-protector-all, -Werror, and -Wshadow, which were mentioned in the first project, to build object files. (But do not use these options to create executable files.) You may optionally add the -g option, to be able to run gdb and valgrind (memcheck) on your code, and your submitted makefile may contain -g with the other options. • Your Makefile must contain the following targets: all: This target must appear first and must create executables for all the public tests. pq.o: This target must create the object file for pq.c. check-string-arrays.o: This target must create the object file for check-stringarrays.c. an object file for each public test source file: Because your makefile is required to use separate compilation, it will need to create an object file for each public test source file. an executable for each public test: Your makefile will need to have a separate target to build each public test executable. These targets must have names ending in .x (public01.x, public02.x, etc.) and must build executables with the same filenames as those targets. (Your code will not compile on the submit server if your makefile has incorrect target names or builds executables with the wrong names.) By looking at the source file for each public test you can see what object files have to be linked together to create it. Because your makefile is required to use separate compilation, it must link the appropriate object files necessary to build each executable, not directly compile source files to form executables. clean: This target must delete the object files and executables for all the public tests, and pq.o and check-string-arrays.o, from the current directory. • Your makefile may contain additional targets, for example to build whatever tests you create to exercise your functions with, as long as it has the targets described above. • Your makefile should not directly compile header files in compilation commands (e.g., do not have compilation commands like gcc -c pq.c pq.h). • Your makefile should have all needed dependencies, otherwise programs may not get built correctly, but it should not have any unnecessary dependencies, because that would lead to unnecessary compilations. • Make has many features were not explained in class, because they are difficult for a beginner to use correctly. You are only allowed to use the features of make that were covered in class. If you do use features not explained in class your submission may not compile on the submit server for technical reasons not worth explaining here, and the TAs can not help you fix your makefile in office hours. You will also lose credit. Almost every student in previous semesters who has tried to use advanced features of make in this course has made at least some mistakes. Consequently you should write a simple and straightforward makefile, using just the features of make that were covered. If there is no makefile with your submission, or if your makefile does not satisfy these requirements, either your program will not compile at all on the submit server, or it might compile for the public tests but not for the secret tests. Do not wait to write your makefile. Writing it will preclude the need to type commands for compiling the public tests, so you can avoid making mistakes. Much more importantly, various mistakes in writing a makefile can cause your code to not compile correctly– writing your makefile and using it all during develop- ment, every time you compile your code, will enable you to test it and ensure it works right. Before submitting, you must run make clean, then run the single command make, to ensure that your makefile builds all the public tests correctly. This is the situation in which your makefile has to work on the submit server– being able to build the tests when there are no executable or object files in the directory– so you must test it and ensure it works right in the same circumstances. To reiterate, your Makefile must use separate compilation– each source file needed to form an executable must be separately compiled, then the independent object files linked together, to form the executable. 5 Black–box testing program You will lastly write a program, in a file bbtp.c, that tests any priority queue implementation for conformance to the descriptions of the functions in Project #6 (and of the description of peek() above). We will run your program with several priority queue implementations written by us, some of which contain errors. Your score for this part of the project will be based on how well your testing program detects the correct versus the incorrect implementations. This is an example of black–box testing, because you will not see the source code of the implementations you will be testing. (bbtp.c stands for “black box testing program”.) The code supplied to you includes an example bbtp.c file that has only two simple tests: one checks whether size() returns the right value for a queue with several elements; the other checks whether dequeue() returns the right element when called after adding several elements to a queue. You should expand the supplied bbtp.c by adding (many) more tests to create your own bbtp.c. Each test should check for an expected behavior based on the descriptions of the priority queue functions as described. bbtp.c should include pq.h but it should not include your pq.c file (source files normally never #include other source files). We will be link it with different implementations of the priority queue that we wrote, for different secret tests. Ideally you would be able to write different tests in separate source files, like the public and secret tests, but due to difficulties in setting things up on the submit server all your tests have to be in the same single file bbtp.c. You are encouraged to write separate functions for each thing your testing program is testing. The supplied bbtp.c illustrates this. Your submission must contain a file named bbtp.c that successfully compiles, or your entire project submission will fail to compile for any tests when submitted. So even if you haven’t started writing your bbtp.c program, your submission must at least contain a compilable bbtp.c file in order to work for any other tests. (The supplied file is adequate for this purpose.) If your testing program does not detect any errors it must quit with an exit status of CORRECT (which is defined in the pq.h file for this project). (Chapter 15 of the Reek text, which you were expected to read on your own, discusses how a program’s exit status can easily be returned.) If your program does detect any errors it must quit with an exit status of FOUND_BUG (also now defined in pq.h). It doesn’t matter what output your bbtp.c produces before quitting; you may have it produce whatever output, if any, you find useful. Note that the secret tests that check your bbtp.c are in some sense “backwards” compared to typical project tests. Usually our main program calls the functions that you write. But here your bbtp.c is the main program, and it calls functions we have written (which you wrote versions of also). Keep this in mind when writing makefile rules for your own tests of this part of the project. How do you come up with tests for your bbtp.c? Read the descriptions of the desired behavior of the priority queue functions in Section 3 of Project #6 carefully (as well as the description of peek() above). Identify as many ways you can think of in which the functions could have incorrect behavior. Write tests that would check for that behavior. To test your bbtp.c, make a copy of your pq.c (for example, pq-wrong.c), introduce bugs into it (it may be better to do this one bug at a time), and ensure that your testing program finds the bug (i.e., exits with FOUND_BUG when compiled and linked with the buggy version). (Of course your bbtp.c might find unintentional errors in your pq.c which you should fix, because that might be behavior that is tested in secret tests of this project.) Also make sure that your bbtp.c continues to exit with CORRECT when linked with your correct priority queue implementation (pq.c), once you think it is free of bugs. 5.1 Some constraints on your testing program • All the bugs in our implementations involve functions returning the wrong value or storing information incorrectly into a Priority queue. Our functions do not have any bugs that would cause program crashes, assuming you pass valid pointers into the functions that have pointers as parameters. • Our functions also do not have bugs that cause memory leaks or memory corruption. • Your testing program will only be able to do black–box testing. In particular, it will not be able to examine or modify the internals of Priority queues in testing our implementations, because you have no idea what data structures we use to store priority queues. You can call only those functions that appear in pq.h. (Reread this paragraph carefully.) Your bbtp.c cannot assume that our priority queues are implemented the same way as yours and try to access internal structures or call helper functions present in your pq.c. If it does this your tester may compile and run fine for you, but will almost certainly not even compile with our priority queue implementations. (Reread this paragraph carefully.) 5.2 Some hints regarding your testing program • Read the descriptions of the functions very carefully– several times– because their behavior as described is what your testing program needs to test for. • Be sure to test your testing program with a correct priority queue implementation. In this case CORRECT should be returned. Don’t test only with incorrect priority queue implementations and overlook this simple case. • The lcov code coverage tool either had been explained in discussion section already, or if not will be explained soon. You are welcome to use lcov to aid in writing your testing code, so that you can be sure that your tests at least cover all the parts of your function implementations. However, if you do, you must remove all lcov–related options from your Makefile rules before sub- mitting your project, otherwise, your code may not compile on the submit server, because lcov is not installed on the submit server. It will be much easier to remove the lcov options if you add a variable which has the options (such as LCOVFLAGS) at the top of your Makefile, which you can just change in one place before submitting. Note that you may not give any parts or ideas from your project to anyone else, including test data. This means that not only may you not give anyone else your bbtp.c, you may also not provide them with any ideas or suggestions of how to write it or what to test in it. A Development procedure review A.1 Obtaining the project files, compiling, checking your results, and submitting Log into the Grace machines and use commands similar to those from before: cd ~/221 tar -zxvf ~/221public/project8/project8.tgz This will create a directory project6 that contains the necessary files for the project, including the two header files pq.h and check-string-arrays.h, and the public tests. You must have your coursework in your course disk space for this class. These are the five files you need to create or have in this project, and what they should include. (Note that your filenames must match exactly or your code will not even compile on the submit server.) • Copy your pq-datastructure.h file from your project6 directory to the project8 directory. It should contain your definition of Priority_queue, and any other definitions needed by it, but it should not include any other files. • Write your makefile, in a file named Makefile, to compile your code with all of the public tests. • Copy your pq.c file from your project6 directory to the project8 directory, write the new function peek() in it, and fix any bugs that the public tests (which used to be the Project #6 secret tests) reveal. It should contain all of the functions from Project #6, plus any helper functions of yours that they use. It should include any necessary library header files. It must include pq.h. Optionally (as a matter of personal preference)– only if you have added correct conditional compilation directives to your pq-datastructure.h header file, pq.c can also include pqdatastructure.h as well, but this is not necessary, as it includes pq.h, which includes pq-datastructure.h. • Copy your check-string-arrays.c file from your project6 directory to the project8 directory and fix any bugs in it that the public tests (which used to be the Project #6 secret tests) reveal. It should contain only the function check_string_arrays() and it should include check-string-arrays.h and any necessary library header files. • Add tests of your own to the bbtp.c file included in the project tarfile. It already includes pq.h– do not remove this include. It should also include any necessary library header files. Optionally (as a matter of personal preference)– only if you have added correct conditional compilation directives to your pq-datastructure.h header file, bbtp.c can also include pq-datastructure.h as well, but this is not necessary, as it includes pq.h, which includes pq-datastructure.h. But keep in mind that your testing program cannot refer to any of the specific data structures that you used to implement priority queues. It can only use things that are mentioned in pq.h, because we are going to compile it with our own priority queue implementations. The bugs your tester is looking for will only be in the priority queue functions in pq.c, not in check_string_arrays(), so your bbtp.c should not include check-stringarrays.h. We are not linking bbtp.c with the object file check-string-arrays.o on the submit server, so if your bbtp.c tries to call check_string_arrays() your entire program will fail to compile when submitted. You will not be compiling your code from the command line now; instead you will use make and your makefile to compile everything. diff can be used as before to check whether your code passes a public test or not, for example: make public01.x public01.x | diff -b - public01.output (You can also run make from Emacs if desired.) As before, the command submit from the project directory will submit your project. Before you submit you must make sure you have passed all the public tests, by compiling and running them yourself, and you must make sure that your Makefile works, by testing it carefully as described in Section 4. A.2 Grading criteria Your grade for this project will be based on: More than half of your score will come from secret tests. Note that even the Project‘#6 secret tests are hardly exhaustive, and there is significant behavior of the functions that they do not test. If you don’t write extensive tests of your functions yourself you could lose a lot of credit on the secret tests, and wind up with a low score. Although it was not done in Project #6, your pq.c and check-string-arrays.c code will now be graded for style. Your Makefile will be checked for “stylistic” errors like extra dependencies, unnecessary dependencies, using makefile features that were not covered in class, or other issues. Even if it correctly builds the public tests these types of mistakes might result in losing credit. But you aren’t required to comment your makefile, since the criteria in the course project style guide on ELMS apply only to C code. public tests 30 points secret tests 55 points programming style 15 points B Project–specific requirements, suggestions, and other notes As mentioned, you must now use correct conditional compilation (as shown and explained in lecture). in your header file pq-datastructure.h. Note that you must spell the name of the preprocessor symbol that is used for conditional compilation either as described in class, or in the form that the Reek text uses, or you may lose credit. As in Project #6, your functions do not have to free any memory. The TAs explained valgrind (memcheck) in discussion section earlier. If you think your code may have problems in the heap (such as using uninitialized allocated memory, or overwriting beyond the end of a dynamically allocated memory region in the heap) you can use valgrind to help find them, but since you are not required to free mem- ory you can ignore any memory leaks that it identifies. Any other memory problems that it indicates are things that probably should be fixed. Be careful not to have any pointer aliasing in writing your functions. Do not write code (loops) that has the same effect as any string library functions. If you need to perform an operation on strings and there is a string library function already written that accomplishes that task, you are expected to use it, otherwise you will lose credit. You may lose credit if you cast the return value of the memory allocation functions. Besides being completely unnecessary, in some cases this can mask certain errors in code. You cannot modify anything in the header files pq.h or check-string-arrays.h, or add anything to them, because your submission will be compiled on the submit server using our versions of these files. You cannot write any new header files of your own either. Your code may not comprise any source (.c) files other than pq.c, check-stringarrays.c, and bbtp.c, so all your code must be in these files. Do not write a main() function in pq.c or check-string-arrays.c, because your code won’t compile (our tests already have main() functions). C• For this project you will lose one point from your final project score for every submission that you make in excess of five submissions. You will also lose one point for every submission that does not compile, in excess of two noncompiling submissions. Therefore be sure to compile, run, and test your project’s results before submitting it. We hope everyone will check their code themselves carefully, and not incur these penalties. If your code compiles on Grace but not on the submit server, something in your account setup is probably wrong. In this case run check-account-setup and come to office hours for help if you can’t fix any problems that it identifies yourself. • If you have a problem with your code and have to come to the TAs’ office hours for debugging help you must come with tests you have written yourself that illustrate the problem (not just the public tests), what cases it occurs in, and what cases it doesn’t occur in. In particular you will need to show the smallest test you were able to write that illustrates the problem, so whatever the cause is can be narrowed down as much as possible before the TAs even start helping you. You must also have used the gdb debugger, explained recently in discussion section, and be prepared to show the TAs how you attempted to debug your program using it and what results you got. To emphasize: the TAs will not look at your program’s results on any of the public tests in office hours. You must have written your own tests to receive any help with your program code. • Recall that the course project grading policy on ELMS says that all your projects must work on at least half of the public tests (by the end of the semester) in order for you to be eligible to pass the course. • Don’t use nano or pico for editing programs. These are very small limited text editors intended for editing short emails. There are several full–featured text editors available in UNIX. Emacs is generally similar to nano and pico, except it’s far more powerful. Academic integrity Please carefully read the academic honesty section of the syllabus. Any evidence of impermissible coopera- tion on projects, use of disallowed materials or resources, publicly providing others access to your project code online, or unauthorized use of computer accounts, will be submitted to the Office of Student Conduct, which could result in an XF for the course, or suspension or expulsion from the University. Be sure you understand what you are and what you are not permitted to do in regards to academic integrity when it comes to projects. These policies apply to all students, and the Student Honor Council does not consider lack of knowledge of the policies to be a defense for violating them. More information is in the course syllabus– please review it now. The academic integrity requirements also apply to any test data for projects, which must be your own original work. Exchanging test data or working together to write test cases is also prohibited.     </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000069/" rel="next" title="完成70个编程小任务...">
+                <i class="fa fa-chevron-left"></i> 完成70个编程小任务...
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000071/" rel="prev" title="高级Makefile编写">
+                高级Makefile编写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

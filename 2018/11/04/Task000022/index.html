@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="this project you will revise the functions in the previous project to use dynamic memory">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Assignment">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000022/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="this project you will revise the functions in the previous project to use dynamic memory">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000022/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T11:20:11.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Assignment">
+<meta name="twitter:description" content="this project you will revise the functions in the previous project to use dynamic memory">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000022/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000022/"/>
+
+
+
+
+
+  <title>Assignment | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000022/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Assignment</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:19:22+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>this project you will revise the functions in the previous project to use dynamic memory<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>1 Introduction and purpose In this project you will revise the functions in the previous project to use dynamic memory allocation. One main reason for using dynamic memory allocation is that there are situations when we don’t know ahead of time how much data we need to store. You will dynamically allocate student structures, as well as the name field of each student. This allows names of arbitrary size to be created without wasting memory, because for each name only the memory actually needed for it is allocated (whereas in Project #4, every name was stored in an array of 40 characters, even if it was much shorter). The purpose of the project is to get some simple practice with dynamic memory allocation, before you use it for more complex data structures. Another purpose of the project is to get some basic experience with a few string library functions. You are expected to use the string library functions whenever there is one that can be used, or you may lose credit. Do not write code (using loops) that duplicates the effects of any string library functions! Just use the string library functions instead. As with the previous project, this is a small project that has only public tests and will not be graded for style. So you have a short time to do it (so that you will have more time for the more difficult projects). Due to the size of the course it is not feasible to provide information or assistance regarding programming assignments via email. You are welcome to ask any questions about this project in person, either during office hours, or during, before, or after discussion section or lecture (if time permits), but they will not be answered if asked via email. 2 Functions to be written The fields of the Student structure in student.h are the same as before except instead of the name field being an array of 40 elements, it is now a pointer to a char. Functions that have to store a name for a student must dynamically allocate memory for it first. In all cases, functions must create a string of exactly the size needed to store a student’s name– not longer (and certainly not any shorter). There is only one function now that creates a student, new_student(), and it must dynamically allocate a Student structure, store its parameter values in its fields, and return a pointer to it. The other functions now all take a pointer to a Student structure as a parameter. There is also one new function copy_student() to be written, which copies the data from one student to another. 2.1 Student <em>new_student(const char name[], unsigned int id, float shoe_size) Project #4 discussed two approaches for writing structure functions in C. Another option is whether structures are normally declared (in which case they are stored in the runtime stack) or whether they are dynamically allocated (in which case they are stored in the heap). In the latter case (which is what will be done in this project), it is common for functions to dynamically allocate structures and return a pointer to them, often after suitably initializing data in their fields. This function should return a pointer to a dynamically–allocated Student structure that has its parameters’ values stored in its fields (the string name should be stored in the structure’s name field, etc.). If name is NULL the name in the allocated structure should just be an empty string (and the other parameters should still be stored in the other fields). So if name is NULL a string should be allocated, the empty string stored in it, and the name field of the created structure that is being returned should be set to point to the new allocated name storing the empty string. In this project the name field of the Student structure has no fixed or maximum length, so this function can make no assumption about whether the string in the parameter name will fit or not. Instead, it must allocate a string of exactly the right size to store the name parameter, copy the value of the name parameter to the allocated string, and make the name field of the allocated structure point to it. Note that student’s name field should point to newly allocated memory, and not just point to the parameter name that was passed in. 2.2 unsigned int has_id(Student </em>const student, unsigned int id) This function should return 0 if the Student structure that its parameter student points to does not have the ID id, and some (any) nonzero value if it does. 2.3 int has_name(Student <em>const student, const char name[]) This function should return 0 if the Student structure student points to does not have the name name, and some nonzero value if it does. In order for the parameter to equal the student’s name it has to be exactly identical in spelling, capitalization, and any spacing. If either of its parameters are NULL the function should return 0 without having any other effect. 2.4 unsigned int get_id(Student </em>const student) This function should return the id field of the Student structure that its parameter student points to. 2.5 float get_shoe_size(Student <em>const student) This function should return the shoe_size field of the Student structure that its parameter student points to. 2.6 void change_shoe_size(Student </em>const student, float new_shoe_size) This function should change the shoe_size field of the Student structure that its parameter student points to to be new_shoe_size. 2.7 void change_name(Student <em>const student, const char new_name[]) This function should change the name field of the Student structure that its parameter student points to to be new_name. As in new_student(), it must first allocate a string of exactly the right size to store the new_name parameter, copy the value of new_name to the allocated string, and make the name field of the structure that student points to now point to the new allocated name. Note that student’s name field should point to newly allocated memory, and not just point to the parameter new_name. If new_name is NULL the name of the student that the first parameter points to should become an empty string (a string should be allocated, the empty string stored in it, and the name field of the structure that student points to should be set to point to the new allocated name storing the empty string). 2.8 void copy_student(Student </em>student1, Student *const student2) This function should copy all of the fields of the structure that student2 points to into the structure that student1 points to. As in new_student() and change_name(), the name field of the structure that student1 points to should be a string that is allocated of just the right size to store the name in the structure that student2 is pointing to. If either parameter is NULL the function should just have no effect. Note that student1’s name field should point to newly allocated memory, and not just point to student2’s name field. Important: the caller is passing in the memory address of existing Student structures that they have created before calling this function. This function has to allocate memory for student1’s name field, but not for the student1 structure itself. It was created by the caller. (It may, or may not, have been dynamically allocated.) Grading criteria Your grade for this project will be based on: B Project–specific requirements, suggestions, and other notes All functions that have a Student pointer as a parameter should have no effect at all if the pointer is NULL. The two functions that have a Student parameter and return the value of a field of the Student structure (get_id() and get_shoe_size()) should just return 0 and 0.0 respectively if their Student pointer parameter is NULL. The descriptions of the functions above that have a character string parameter for a student’s name say that the student’s name should become an empty string if NULL is passed into their name parameter. A robust C program should always check that all memory allocations succeed, and take appropriate action if not. (The appropriate action might just be gracefully exiting the program, but it at least should not be just crashing). However, for simplicity in this project you may assume that all memory allocations always succeed. A robust C program should always free all dynamically allocated memory when it’s no longer needed, to prevent memory leaks. However, for simplicity in this project you do not need to free any memory. Be careful not to have any pointer aliasing in writing your functions. public tests 100 points Do not write code (loops) that has the same effect as any string library functions. If you need to perform an operation on strings and there is a string library function already written that accomplishes that task, you are expected to use it, otherwise you will lose credit. You cannot modify anything in the header file student.h or add anything to student.h, because your submission will be compiled on the submit server using our version of this file. Your code may not comprise any source (.c) files other than student.c, so all your code must be in that file. You cannot write any new header files of your own either. C Do not write a main() function in student.c, because your code won’t compile (our tests already have main() functions). Write any tests in your own separate source files, and compile them together with student.c. You can only use the C language features that have been covered in class up through Chapter 11 in the Reek text. For this project you will lose one point from your final project score for every submission that you make in excess of five submissions. You will also lose one point for every submission that does not compile, in excess of two noncompiling submissions. Therefore be sure to compile, run, and test your project’s results before submitting it. We hope everyone will check their code themselves carefully, and not incur these penalties. If your code compiles on Grace but not on the submit server, something in your account setup is probably wrong. In this case run check-account-setup and come to office hours for help if you can’t fix any problems that it identifies yourself. If you have a problem with your code and have to come to the TAs’ office hours, you must come with tests you have written yourself that illustrate the problem (not just the public tests), what cases it occurs in, and what cases it doesn’t occur in. In particular you will need to show the smallest test you were able to write that illustrates the problem, so whatever the cause is can be narrowed down as much as possible before the TAs even start helping you. You must also have used the gdb debugger, explained recently in discussion section, and be prepared to show the TAs how you attempted to debug your program using it and what results you got. To emphasize: the TAs will not look at your program’s results on any of the public tests in office hours. You must have written your own tests to receive any help with your program code. Academic integrity Please carefully read the academic honesty section of the syllabus. Any evidence of impermissible coopera- tion on projects, use of disallowed materials or resources, publicly providing others access to your project code online, or unauthorized use of computer accounts, will be submitted to the Office of Student Conduct, which could result in an XF for the course, or suspension or expulsion from the University. Be sure you understand what you are and what you are not permitted to do in regards to academic integrity when it comes to projects. These policies apply to all students, and the Student Honor Council does not consider lack of knowledge of the policies to be a defense for violating them. More information is in the course syllabus– please review it now. The academic integrity requirements also apply to any test data for projects, which must be your own original work. Exchanging test data or working together to write test cases is also prohibited.     </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000021/" rel="next" title="Lab 6 ‑ HBase">
+                <i class="fa fa-chevron-left"></i> Lab 6 ‑ HBase
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000023/" rel="prev" title="CS10 Python Programming Homework 5">
+                CS10 Python Programming Homework 5 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

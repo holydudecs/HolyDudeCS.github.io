@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="TCSS 342 ­ Data Structures Assignment 4 ­ Compressed Literature 2 Guidelines This assignment consists of programming and written work. Solutions">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Structures Assignment 4 ­ Compressed Literature 2">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000048/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="TCSS 342 ­ Data Structures Assignment 4 ­ Compressed Literature 2 Guidelines This assignment consists of programming and written work. Solutions">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000048/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:20:39.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Data Structures Assignment 4 ­ Compressed Literature 2">
+<meta name="twitter:description" content="TCSS 342 ­ Data Structures Assignment 4 ­ Compressed Literature 2 Guidelines This assignment consists of programming and written work. Solutions">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000048/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000048/"/>
+
+
+
+
+
+  <title>Data Structures Assignment 4 ­ Compressed Literature 2 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000048/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Data Structures Assignment 4 ­ Compressed Literature 2</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:20:12+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>TCSS 342 ­ Data Structures Assignment 4 ­ Compressed Literature 2 Guidelines This assignment consists of programming and written work. Solutions<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>TCSS 342 ­ Data Structures Assignment 4 ­ Compressed Literature 2 Guidelines This assignment consists of programming and written work. Solutions should be a complete working Java program including your original work or cited contributions from other sources. These files should be compressed in a .zip file for submission through the Canvas link. This assignment is to be completed on your own or in a group of two. If you choose to work in a group of two this must be clear in your submission. Please see the course syllabus or the course instructor for clarification on what is acceptable and unacceptable academic behavior regarding collaboration outside of a group of two. Assignment I have a large collection of raw text files of famous literature, including Leo Tolstoy’s War and Peace consisting of over 3 million characters and about 22000 different words (counting differences in capitalization), and I’d like to store these works more efficiently. David Huffman developed a very efficient method for compressing data based on character frequency in a message. We applied this method in a straightforward way in Assignment 3 to compress the literature but I have a better idea on how to apply Huffman’s encoding. Since all the literature in my collection is in the English language it is reasonable to suppose they will not just have commonly used characters but commonly used words as well. My idea is that if we can treat every distinct word as a symbol and every non­word character (white space, punctuation, etc.) also as a symbol then we can apply Huffman’s encoding based on the frequency of words in the text instead of characters. I propose this will help us compress the text much smaller. To carry this out we need an efficient way to store each word as we encounter it and the associated count it accumulates as we scan the entire document. While a binary search tree may work, the constant access time of a hash table is more attractive. You will implement a hash table to help store the word counts and eventual codes for each word. You can then modify a solution to Assignment 4 to count words instead of characters In this assignment you will implement a hash table by: ● creating a table with 32768 (2^15) buckets. ● creating a hash function that for any key will produce an integer in the range [0…32767] ● implementing get and put methods (no need for remove) that hash a key and then retrieve or store a value from the proper bucket. ● uses linear probing to handle collisions. ● (Optional)uses another collision handling strategy other that linear probing except chaining. In this assignment you will implement Huffman’s coding algorithm by: ● counting the frequency of words and separators in a text file. ○ for the purposes of this assignment a word will count as string of characters from the set {0,…,9,A,…,Z,a,…,z,’,­}. Notice the ‘ and capital letters may appear in the string for words like “wouldn’t’ve” and “d’Eckmuhl”. Every other character is a separator and will be handled as a string of length one (i.e. “ “, “n”, “!”, etc). ○ use a hashtable of your creation (see above) to store each word and separator in the hash table with its count. ● creating a tree with a single node for each word or separator with a non­zero count weighted by that count. ● repeating the following step until there is only a single tree: ○ merge the two trees with minimum weight into a single tree with weight equal to the sum of the two tree weights by creating a new root and adding the two trees as left and right subtrees. ● labelling the single tree’s left branches with a 0 and right branches with a 1 and reading the code for the strings stored in leaf nodes from the path from root to leaf. ● using the code for each string to create a compressed encoding of the message. ● (Optional)provide a method to decode the compressed message. You are also responsible for implementing a Main controller that uses the CodingTree class to compress a file. The main must: ● Read the contents of a text file into a String. ● Pass the String into the CodingTree in order to initiate Huffman’s encoding procedure and generate a map of codes. ● Output the codes to a text file. ● Output the compressed message to a binary file. ● Display compression and run time statistics. Formal Specifications You are responsible for implementing the MyHashTable class that must function according to the following interface: ● MyHashTable(int capacity) ○ creates a hash table with capacity number of buckets (for this assignment you will use capacity 2^15 = 32768) ○ K is the type of the keys ○ V is the type of the values ● void put(K searchKey, V newValue) ○ update or add the newValue to the bucket hash(searchKey) ○ if hash(key) is full use linear probing to find the next available bucket ● V get(K searchKey) ○ return a value for the specified key from the bucket hash(searchKey) ○ if hash(searchKey) doesn’t contain the value use linear probing to find the appropriate value ● boolean containsKey(K searchKey) ○ return true if there is a value stored for searchKey ● void stats() ○ a function that displays the following stat block for the data in your hash table: Hash Table Stats ================ Number of Entries: 22690 Number of Buckets: 32768 Histogram of Probes: [14591, 3419, 1510, 859, 479, 337, 238, 169, 166, 100, 90, 78, 53, 42, 51, 54, 29, 28, 18, 17, 21, 20, 17, 15, 12, 10, 12, 11, 6, 4, 12, 4, 9, 13, 5, 4, 7, 0, 0, 3, 2, 3, 2, 3, 5, 1, 3, 2, 1, 2, 6, 2, 1, 3, 1, 1, 2, 3, 3, 0, 2, 2, 1, 1, 1, 1, 2, 4, 3, 2, 1, 0, 2, 1, 3, 0, 0, 2, 2, 1, 2, 3, 2, 1, 3, 0, 0, 0, 0, 0, 0, 3, 2, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 2, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1] Fill Percentage: 69.244385% Max Linear Prob: 533 Average Linear Prob: 3.434773 ○ A histogram of probes shows how many keys are found after a certain number of probes. In this example data there are 22690 words. 14591 of them can be found in the bucket they belong in. 3419 of them can be found after one linear probe. 1510 of them can be found after two linear probes and so on. The worst key is found after 533 probes in my implementation so my histogram has 533 entries. ● private int hash(K key) ○ a private method that takes a key and returns an int in the range [0…capacity]. ● String toString() ○ a method that converts the hash table contents to a String. You are responsible for implementing the CodingTree class that must function according to the following interface: ● CodingTree(String fulltext) ○ a constructor that takes the text of an English message to be compressed. ○ The constructor is responsible for calling all methods that carry out the Huffman coding algorithm and ensuring that the following property has the correct value. ● MyHashTable codes ○ a hash table of words or separators used as keys to retrieve strings of 1s and 0s as values. ● String or List bits ○ a data member that is the message encoded using the Huffman codes. ● (Optional)String decode(String bits, Map codes) ­ this method will take the output of Huffman’s encoding and produce the original text. You will also create a Main class that is capable of compressing a number of files and includes methods used to test components of your program. ● void main(String[] args) ­ this method will carry out compression of a file using the CodingTree class. ○ Read in from a textfile. You may hardcode the filename into your program but make sure you test with more than one file. ○ Output to two files. Again feel free to hardcode the names of these files into your program. These are the codes text file and the compressed binary file. ○ Display statistics. You must output the original size (in kilobytes), the compressed size (in kilobytes), the compression ratio (as a percentage), the elapsed time for compression, and the hash table statistics. ● void testCodingTree() ○ this method tests the coding tree on a short simple phrase so you can verify its correctness. ● void testMyHashTable() ○ this method tests the hash table. To implement your CodingTree all other design choices are left to you. It is strongly encouraged that you use additional classes and methods and try to use the proper built in data structures whenever possible. For example, in my sample solution I make use of a private method to count the frequency of each character, a private node class to implement my tree, a recursive function to read the codes out of the finished tree, and a priority queue to handle selecting the minimum weight tree. Empirical Analysis (Optional) In order to get extra credit for implementing another collision handling strategy you must provide a short analysis of the performance of your strategy to linear probing. Include in this analysis which of the two methods you think worked better with this data (if either) and provide evidence in the form of statistics to back up your analysis. Submission The following files are provided for you: ● WarAndPeace.txt ­ the plain text of Leo Tolstoy’s novel War and Peace. ● codes.txt ­ An appropriate set of codes produced by my sample solution. (Note: This is not a unique solution. Other proper encodings do exist.) ● compressed.txt ­ The compressed text of the novel. It’s size is the most relevant feature. ● trace.txt ­ Sample console output from my solution. You will submit a .zip file containing: ● Main.java ­ the simulation controller. ● CodingTree.java ­ the completed and functional data structure. ● MyHashTable.java ­ the completed and functional data structure. ● (Optional)Analysis.pdf ­ the written analysis of your better collision handling strategy. Grading Rubric This assignment is graded out of 25 points but there are 31 points available. Correctness 15 points ● To get all 15 points you must compress “War and Peace” to within 1 kilobyte of 1002 kilobytes in less than three seconds. ● Solutions that compress “War and Peace” to within more than 1 kilobyte of 1002 kilobytes but less than 10 kilobytes of 1002 kilobytes are deducted 5 points. ● Solutions that compress “War and Peace” to within more than 10 kilobytes of 1002 kilobytes but less than 100 kilobytes of 1002 kilobytes are deducted 10 points. ● Solutions that compress “War and Peace” to within more than 100 kilobytes of 1002 kilobytes are deducted 15 points. ● Solutions that take longer than three seconds but less than 10 seconds will be deducted 3 points. ● Solutions that take longer than 10 seconds will be deducted 5 points. ● A 0 will be awarded if your solution does not produce a compressed file. ● A 0 will be awarded if your solution does not use your MyHashTable in place of the Java HashMap for the frequency map and the codes map. ● One point is deducted if you do not output the original size of the file. ● One point is deducted if you do not output the new size of the file. ● One point is deducted if you do not output the runtime of your program. Interface 3 points ● All CodingTree methods and properties match the interface provided above. One point is deducted for each mismatch. Testing 2 points ● One point is deducted if there is not an adequate testCodingTree() method. ● One point is deducted if there is not an adequate testMyHashTable() method. Miscellaneous 4 points ● All four points are awarded automatically with the following exceptions. ● One point is deducted if you work in a team of two. ● One point is deducted if your submission is late. ● One point is deducted if you resubmit after your assignment is graded. ● One point is deducted if your submission is not in the correct format (i.e. not in a ZIP, you submit .class files instead of .java, you submit code that needs to be altered to work, etc.) (Optional) Decoding 4 points ● A properly decoded file is identical to the original. ● Up to four points are deducted for errors in the decoding process. ● Two points are deducted if the decoding process does not read in the compressed files but instead uses variables stored in memory after encoding. (Optional) Analysis 3 points ● All three points are awarded if you implement two probing strategies (like linear probing and quadratic probing) and provide an analysis of which strategy worked better in your hash table. ● Up to three points are deducted if no analysis is provided or if the analysis is inadequate. Tips for maximizing your grade: ● Make sure your classes match the interface structure exactly. I will use my own controller (Main.java) and test files on your code and it should work without changes. Do not change the method name (even capitalization), return type, argument number, type, and order. Make sure all parts of the interface are implemented. ● Only zip up the .java files. If you use eclipse these are found in the “src” directory, not the “bin” directory. I can do nothing with the .class files. ● All program components should be in the default package. If you use a different package it increases the difficulty of grading and thus affects your grade. ● Place your name in the comments at the top of every file. If you are a group of two make sure both names appear clearly in these comments.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000047/" rel="next" title="peer-to-peer (P2P) protocol Circular DHT">
+                <i class="fa fa-chevron-left"></i> peer-to-peer (P2P) protocol Circular DHT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000049/" rel="prev" title="Research Methodology">
+                Research Methodology <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

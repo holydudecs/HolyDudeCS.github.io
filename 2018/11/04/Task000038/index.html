@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="d by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Assessment Details and Submission Guidelines Unit Code BN303 Unit Title Wireless Network &amp;amp; Security Assessment Type Group Assessment - tw">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design a WLAN (WMAN) for an enterprise">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000038/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="d by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Assessment Details and Submission Guidelines Unit Code BN303 Unit Title Wireless Network &amp;amp; Security Assessment Type Group Assessment - tw">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000038/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T11:43:03.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design a WLAN (WMAN) for an enterprise">
+<meta name="twitter:description" content="d by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Assessment Details and Submission Guidelines Unit Code BN303 Unit Title Wireless Network &amp;amp; Security Assessment Type Group Assessment - tw">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000038/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000038/"/>
+
+
+
+
+
+  <title>Design a WLAN (WMAN) for an enterprise | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000038/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Design a WLAN (WMAN) for an enterprise</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:38:46+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>d by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Assessment Details and Submission Guidelines Unit Code BN303 Unit Title Wireless Network &amp; Security Assessment Type Group Assessment - two students Assessment Title Design a WLAN (WMAN) for an enterprise Purpose of the assessment (with ULO Mapping) a. Design secure WLAN and utilize techniques to mitigate possible attacks. b. Solve complex problem in secure wirele<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>Prepared by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Assessment Details and Submission Guidelines Unit Code BN303 Unit Title Wireless Network &amp; Security Assessment Type Group Assessment - two students Assessment Title Design a WLAN (WMAN) for an enterprise Purpose of the assessment (with ULO Mapping) a. Design secure WLAN and utilize techniques to mitigate possible attacks. b. Solve complex problem in secure wireless network designs. c. Design floor plan with actual coverage wireless range d. implement security and authentication system e. search and compare between WLAN ( MLAN) links types Weight 20% Total Marks 60 Word limit 1500 minimum Due Date Thursday 5:00 pm i.e. 27th of September 2018 Submission Guidelines • All work must be submitted on Moodle by the due date along with a completed Assignment Cover Page. • The assignment must be in MS Word format, 1.5 spacing, 11-pt Calibri (Body) font and 2 cm margins on all four sides of your page with appropriate section headings. • Reference sources must be cited in the text of the report, and listed appropriately at the end in a reference list using IEEE referencing style. Extension • If an extension of time to submit work is required, a Special Consideration Application must be submitted directly through AMS. You must submit this application within three working days of the assessment due date. Further information is available at: <a href="http://www.mit.edu.au/about-mit/institute-publications/policiesprocedures-and-guidelines/specialconsiderationdeferment" target="_blank" rel="noopener">http://www.mit.edu.au/about-mit/institute-publications/policiesprocedures-and-guidelines/specialconsiderationdeferment</a> Academic Misconduct • Academic Misconduct is a serious offence. Depending on the seriousness of the case, penalties can vary from a written warning or zero marks to exclusion from the course or rescinding the degree. Students should make themselves familiar with the full policy and procedure available at: <a href="http://www.mit.edu.au/about-mit/institute-publications/policiesprocedures-and-guidelines/Plagiarism-Academic-Misconduct-PolicyProcedure" target="_blank" rel="noopener">http://www.mit.edu.au/about-mit/institute-publications/policiesprocedures-and-guidelines/Plagiarism-Academic-Misconduct-PolicyProcedure</a>. For further information, please refer to the Academic Integrity Section in your Unit Description. Prepared by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Wireless Network proposal ABC Is an American institute of technology, which has recently moved to Canberra. ABC has developed two mid-size campuses located in Canberra. The distance between the two campuses is 2 km. The first campus dimensions are 1600 meters length and 1400 meters width. The second campus dimensions are 1200 meters length and 800 meters width. The first campus has four blocks (buildings) for three colleges (IT, Physics and Chemistry) in addition to a library. The second campus has three blocks for the administration office, Business College and a library. It is understood that the ABC would like to stay in use of the latest wireless technology. All users are required to use mobile devices and wireless technology only, EXCEPT the administration users; They are to use both wired and wireless networks. It is also understood that both campuses are required to be connected together using a desired high performance, less overhead and secure technology. Additionally all users must be able to use wireless technology indoor and outdoor within the dimensions of each campus. A DHCP server(s) will be required to assign IP dynamically to the users including guest users. It is understood that the guest users will not need to authenticate before login however, an authentication system and network design has to be developed to keep the ABC network highly secure. Currently, the number of students in each colleges as follow: IT: 650 Physics: 330 Chemistry: 200 Business: 100 In addition to 250 staff and administration ABC would like you to develop a wireless network proposal (report) which can address the mentioned requirements and concerns Report Contents 1. Proposal description and requirements 2. Network design analysis a. Students are required to draw the campuses floor mapping which includes buildings, outdoor areas and pin on it where Access Points (APs) will be located, the model of each APs and circle the coverage area for each APs. (using WITuner software showing heating diagram entitled to 5 extra marks) <a href="http://www.wituners.com/" target="_blank" rel="noopener">http://www.wituners.com/</a> b. Students are required to explain in detail how and what they will implement to ensure the security and the integrity of the ABC network (such as authentication system, VPN, security options) 3. IP address design Prepared by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 a. It is expected that number of students will increase gradually with an average 6% for the next five years. 4. Network topology diagram 5. Hardware and software analysis a. Students are required to search for the APs and devices brands and check technical specification which include range covered and speed. b. Students have to choose the suitable APs for indoor and outdoor having ranges to cover the surrounded areas. 6. The desired type of link(s) between campus. Justify your choice. 7. References IEEE ( minimum 5 different resources ) Marking aspects: Marks are allocated as indicated on each question, taking the following aspects into account: Criteria Description Marks Introduction Few statements to explain the Proposal description and requirements 5 Network design analysis Drawing floor mapping (using accurate scale to represent the campus dimensions including the location of the APs and the coverage areas. Justify your network design. 15 Network topology diagram Using a suitable emulation software, design the network diagram 10 Hardware and software Full records including technical aspects for all hardware. Justify your hardware choices. 10 Report structure Quality of the reporting skills such as adequate structure, careless presentation, good writing, word limits, alignments, figures, headers, footers , etc 5 Reference style (IEEE) Minimum 5 Proper different referencing resources 5 Demonstration power point presentation ( 10 slides at most ) 10 Total 60 Prepared by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Marking Rubric for Exercise Answers Grade Mark HD 80%+ D 70%-79% CR 60%-69% P 50%-59% Fail &lt; 50% Excellent Very Good Good Satisfactory Unsatisfactory Introductio n /5 Explanation is clear and easy to follow with strong arguments Consistency logical and convincing Mostly consistent and convincing Adequate cohesion and conviction Argument is confused and disjointed Network design analysis /15 The presented solution demonstrated an extreme degree of sophistication and effectiveness to secure and/or manage WLAN The presented solution demonstrated a high degree of sophistication and effectiveness to secure and/or manage WLAN The presented solution demonstrat ed an average degree of sophisticati on and effectivenes s to secure and/or manage WLAN The presented solution demonstrate d a low degree of sophisticatio n and effectiveness to secure and/or manage WLAN The presented solution demonstrated a poor degree of sophistication and effectiveness to secure and/or manage WLAN. Network topology diagram /10 All elements are presented and well integrated Components presented with good cohesive Component presented and mostly well integrated Most components presented Proposal lacks structure. hardware and software /10 Clearly chooses with full technical aspects Chooses with good technical aspects Chooses with mostly have technical aspects Chooses without technical aspects Chooses but links or needed to the proposal Prepared by: Tarek Elwan Moderated by: Imran Ali Jokhio July 2018 Report structure and report presentatio n /5 Proper writing. Professionally presented Properly written, with some minor deficiencies Mostly good, but some structure or presentatio n problems Acceptable presentation Poor structure, careless presentation Reference style /5 Clear styles with excellent source of references. Clear referencing/ style Generally good referencing /style Unclear referencing/s tyle Lacks consistency with many errors Demonstrat ion /10 Successful completion and well understanding of the outcome. Successful completion and understanding of the outcome. Partially completed and partially understandi ng of the outcome. Partially completed and did not understandin g of the outcome. Not completed and did not understanding of the outcome.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000037/" rel="next" title="Association Mining and Trend Prediction">
+                <i class="fa fa-chevron-left"></i> Association Mining and Trend Prediction
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000039/" rel="prev" title="Assignment">
+                Assignment <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

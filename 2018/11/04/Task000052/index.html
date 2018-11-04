@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="ignment #2 (15%) — or — Threads and Synchronization Goal: The baseline Nachos implementation has an incomplete thread system. In this assignmen">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Threads and Synchronization">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000052/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="ignment #2 (15%) — or — Threads and Synchronization Goal: The baseline Nachos implementation has an incomplete thread system. In this assignmen">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000052/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:28:34.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Threads and Synchronization">
+<meta name="twitter:description" content="ignment #2 (15%) — or — Threads and Synchronization Goal: The baseline Nachos implementation has an incomplete thread system. In this assignmen">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000052/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000052/"/>
+
+
+
+
+
+  <title>Threads and Synchronization | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000052/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Threads and Synchronization</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:27:06+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ignment #2 (15%) — or — Threads and Synchronization Goal: The baseline Nachos implementation has an incomplete thread system. In this assignmen<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>CS371 assignment #2 (15%) — or — Threads and Synchronization Goal: The baseline Nachos implementation has an incomplete thread system. In this assignment, your job is to complete it, and then use it to solve synchronization problems. You will: 1. Gain experience with simple thread programming (execute multiple Nachos threads (and possibly Java threads) with synchronization). 2. Implement Nachos locks and condition variables. 3. Turn a thread-unsafe data structure into thread-safe data structure. 4. Write a test code to spawn threads and access a hash table concurrently. 5. Exercise git and code version control. Firm Deadline: This assignment is due at the start of class on Thursday, November 1. The early review ends at the start of class on Tuesday, October 30. Submission: 1. all your code must be submitted to the github server. 2. you must fill and submit the cs371 assignment2 grading sheet.doc through Blackboard. 3. The git commit history must show all the members of the group have contributed and committed at least once, or the group receives 10% penalty. Background: Properly synchronized code should work no matter what order the scheduler chooses to run the threads on the ready list. In other words, we should be able to put a call to KThread.yield (causing the scheduler to choose another thread to run) anywhere in your code where interrupts are enabled, and your code should still be correct. You will be asked to write properly synchronized code as part of the later assignments, so understanding how to do this is crucial to being able to do the project. You will be modifying source code files in the threads subdirectory, and compiling in the proj1 subdirectory. You are encouraged to add new classes to your project as you see fit; the code we provide you is not a complete skeleton for the project. However, be careful to add any additional classes to the packages (directories) permitted. For all of the projects in this course: 1. Do not modify Makefile, except in the test directory for projects 2 and 3. 2. Only modify nachos.conf according to the project specifications. 3. Do not modify any classes in the nachos.machine package, the nachos.ag package, or the nachos.security package. Also do not add any classes to these packages, as they would not be used during grading. 4. Do not add any new packages to your project. All the classes you submit must reside in the packages we provide. 1 5. Do not modify the API for methods that the grader uses. This constraint is enforced every time you run Nachos by Machine.checkUserClasses. If an assertion fails there, you will know you have modified an interface that needs to stay the way it was given to you. 6. Do not directly use Java native threads (the java.lang.Thread class). The Nachos security manager will not permit it. All the threads you use should be managed by TCB objects (see the documentation for nachos.machine.TCB). 7. Do not use the synchronized keyword in any of your code. We will grep for it and reject any submission that contains it. 8. Do not directly use Java File objects (in the java.io package). In later projects, when we start dealing with files, you will use a Nachos file system layer. 9. Sprinkled throughout the Nachos classes there are some calls to the Nachos autograder. Leave them as they are. There should be no busy-waiting in any of your solutions to this assignment. (The initial implementation of Alarm.waitUntil is an example of busy-waiting.) Tasks 1. Git Prep(10 points) We will continue to exercise Git version control. From this homework onward, (a) Please set your nachos git repo private and only accessible to the members in the team and to the instructor. Please go to github education to activate your free service of unlimited private repo using your pace email, and then add all your team members and the instructor as collaborators (The github id of the instructor is jyuan2pace). Please test non-collaborators can no longer view your repo by logging out your account. (b) Please make sure the .gitignore is properly set and no class files are to be tracked. (c) Please make sure your nachos project in your repo starts with the root directory nachos. For example, your proj1 could have a path name nachos/proj1 if the name of your repo is nachos, or a path name cs371/nachos/proj1 if your repo is named cs371. However, cs371 nachos/proj1 is going to rejected. You must keep nachos as the root of the project directory. 2. Part A. Nachos thread system (50 basic points, 20 extra points) (a) Implement KThread.join, which synchronizes the calling thread with the completion of the called thread. As an example, if thread B executes the following: KThread A = new KThread (…); … A.join (); we say that thread B (the ”parent”) joins with thread A (the ”child”). When B calls join on A, there are two possibilities. If A has already finished, then B returns immediately from join without blocking. If A has not finished, then B waits inside of join until A finishes; when A finishes, it resumes B. Note that join does not have to be called on a thread. A thread should be able to finish successfully even if no other thread calls join on it. A thread can not join to itself. (The initial implementation already checks for this case and invokes Lib.assert when it happens. Keep this Lib.assert call in your code.) Join can be called on a thread at most once. If thread B calls join on A, then it is an error for B or any other thread C to call join on A again. Assert on this error. 2 Testing Implement tests that verify if a parent calls join on a child and the child is still executing, the parent waits; if a parent calls join on a child and the child has finished executing, the parent does not block; if a thread calls join on itself, Nachos asserts; if join is called more than once on a thread, Nachos asserts; one parent thread can join with multiple child threads in succession; independent pairs of parent/child threads can join with each other without interference. (b) Implement condition variables directly, by using interrupt enable and disable to provide atomicity. We have provided a sample implementation that uses semaphores; your job is to provide an equivalent implementation without directly using semaphores (you may of course still use locks). Once you are done, you will have two alternative implementations that provide the exact same functionality. Your second implementation of condition variables must reside in class nachos.threads.Condition2. A thread must have acquired the lock associated with the condition variable when it invokes methods on the CV. The underlying implementation of the Lock class already has code to assert in these cases, but we recommend writing a test program that causes such an error so that you can see what happens. Testing Implement tests that verify that sleep blocks the calling thread; wake wakes up at most one thread, even if multiple threads are waiting; wakeAll wakes up all waiting threads; if a thread calls any of the synchronization methods without holding the lock, Nachos asserts; wake and wakeAll with no waiting threads have no effect, yet future threads that sleep will still block (i.e., the wake/wakeAll is ”lost”, which is in contrast to the semantics of semaphores). (c) Complete the implementation of the Alarm class (extra points). A thread calls waitUntil(long x) to suspend its execution until wall-clock time has advanced to at least now + x. This method is useful for threads that operate in real time, such as blinking the cursor once per second. There is no requirement that threads start running immediately after waking up; just put them on the ready queue in the timer interrupt handler after they have waited for at least the right amount of time. Do not fork any additional threads to implement waitUntil; you need only modify waitUntil and the timer interrupt handler. waitUntil itself, though, is not limited to being called by one thread; any number of threads may call it and be suspended at any one time. If the wait parameter x is 0 or negative, return without waiting (do not assert). Note that only one instance of Alarm may exist at a time (due to a limitation of Nachos), and Nachos already creates one global alarm that is referenced via ThreadedKernel.alarm. Testing Implement tests that verify that a thread waits (approximately) for its requested duration; if the wait parameter is 0 or negative, the thread does not wait; multiple threads waiting on the alarm are woken up at the proper times, and in the proper order. To help you get jump started on testing, a couple of example test programs across the various problems are given in the attachment. 3. Part B. Concurrent HashTable in Nachos (70 basic points, 30 extra points) In cs241 you have studied several hash table implementations. However all of them shared one thing in common - they could only be accessed sequentially by a single thread, which we can thread-unsafe. In this assignment you will implement a thread safe hash table - a concurrent hash table that can be accessed and modified by several threads simultaneously. Quick review A hash table is a data structure designed to support three operations in time O(1) : lookup, insertion and deletion. The hash table itself is an array of m slots (also called buckets), and uses a hash function f() to map elements into those slots. When an element e is inserted into the hash table it is placed in the slot f(e). To look up whether an element e is in the table, we only need to compute f(e) and check whether the element is in that slot. The problem with this very basic scheme is collisions. A collision happens when two elements, e1 and e2 are hashed into the same slot. There are several ways to resolve this problem, and in this exercise we will use ”chaining”. In this technique 3 Figure 1: A simple hash table example using mod as hash function every slot in the hash table contains a linked list of elements. For example, consider a hash table with 10 slots that contains integers, and the hash function f(e) = e%10 . Suppose the user inserts 5 elements with the values 1, 15, 31, 55 and 57. The resulting hash table will look like figure 1: Why Concurrent Hash Tables Matter? A hash table is a venerable and well-understood data structure often used for high-performance applications because of its excellent average lookup time. Many operating systems, such as Linux, relies on hash tables to manage pages, buffers, inodes, and other kernel-level data objects. Most operating systems support multi-threads and multi-core programming. The performance of the operating system depends on the efficiency and scalability of these data structures, and thus the support to concurrent data structures are on the critical path. If hash tables in kernel can only be accessed by one thread at a time, then it becomes the bottleneck of the performance despite the efficiency of multi-threads. In this assignment, you will implement a fine-grained concurrent hash table in the Nachos OS module that can be used by many threads simultaneously, as shown in the figure 2. Fine-grained vs Coarse-grained Synchronization (a) The simplest way to synchronize concurrent accesses to a hash table is to implement a coarsegrained lock on the entire hash table, as shown in figure 3. However, this approach blocks out all threads that are not sharing the same key as the thread that holds the lock and thus loses the advantages of concurrent execution. Coarse-grained is not recommended or required. (b) You are required to implement the concurrent hash table in a fine-grained manner. You have two options: i. Lock the bucket/chain, as shown in figure 4 ii. Lock the key on the chain, as shown in figure 5 Feel free to choose one of them to implement your concurrent hash table. (c) You are required to implement the concurrent hash table in two versions: using Nachos semaphores and using Nachos condition variables implemented in Part A. However, with an incremental 4 Figure 2: Concurrent hash table in the Nachos Figure 3: Locking entire hash table 5 Figure 4: Locking the index or the chain to implement fine-grained synchronization Figure 5: Locking the key on the chain to implement fine-grained synchronization 6 development strategy, you can start with Java thread library while in the middle of developing the nachos thread system. (d) You are required to develop comprehensive and thorough tests on your concurrent hash table. Interface Your hash table must support the following operations: (a) The hash table constructor: HashTable(int n buckets) i. n buckets - the initial number of buckets in the hash table. (b) Single element insertion: void insert(int k, int val). This function inserts a single element with the key k, and value val into the hash table. Note that if an element already exists in the hash table, it should not be added again, and an exception should be thrown out. (c) Single element removal: void remove(int k). This function removes a single element with the key k from the hash table. If the element has not been removed because it was not in the table, an exception should be thrown out. (d) Single element query: int get(int k). This function checks whether an element with the key k is in the hash table, and returns the value associated with the key. If the element to be searched is not in the table, an exceptions should be thrown out. (e) Bucket size query: int getbucketsize(). This function returns the number of elements currently in a bucket. (f) Batch operations: void batch(int n ops, ThreadOperation [] ops). Your hash table must support requests to perform several different operations concurrently. The additional parameters passed to the batch function are: i. n ops - the number of operations in the batch ii. ops - an array of ThreadOperation instances, where each instance represents a single element operation. The definition of this class could be like below: enum OperationType{ INSERT, REMOVE, QUERY } Class ThreadOperation { int k; OperationType op; int result; }; All operations in the batch must run concurrently. This means every operation must be executed by a different thread. All of those threads must be created as early as possible- you should not wait for some operations in a batch to complete before starting others. The return value of each operation should be written to the result field in the corresponding ThreadOperation instance. The batch function returns only after all operation in the batch complete. Dynamic splitting (10 extra points) In practice, the worstcase performance of a hashtable operation depends on the maximum number of element in any one bucket. If some buckets get too large, we would like to increase the number of buckets, thus getting a better distribution of the elements and decreasing the number of elements in most buckets. In this homework we encourage students to use a very simple scheme to handle this issue. Students who implement dynamic splitting will receive 10 extra points. Your hash table will have a predefined maximum number of elements per bucket, max. Whenever an insert operation causes any bucket to have more than max elements, a split operation is triggered: the number of buckets is doubled, and elements are redistributed into the new buckets. 7 Implement replace using Hand-over-hand locking (20 extra points) Many concurrent HashTable also allows the thread to update the value of a pre-existing key in one single operation, and this is called replace. This extra-point tasks requires you to implement replace efficiently using hand-overhand locking while the search runs through the chain list. You must also update the batch as well as test code to include replace as a single element operation. 8    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000051/" rel="next" title="battle ship游戏">
+                <i class="fa fa-chevron-left"></i> battle ship游戏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000053/" rel="prev" title="通信专业代写">
+                通信专业代写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

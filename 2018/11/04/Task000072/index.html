@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Machine details and background concepts This section explains background concepts, the components of the hypothetical Commqual architecture, and its instructions. The following section describes the">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编 操作系统">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000072/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="Machine details and background concepts This section explains background concepts, the components of the hypothetical Commqual architecture, and its instructions. The following section describes the">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000072/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:08:59.870Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编 操作系统">
+<meta name="twitter:description" content="Machine details and background concepts This section explains background concepts, the components of the hypothetical Commqual architecture, and its instructions. The following section describes the">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000072/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000072/"/>
+
+
+
+
+
+  <title>汇编 操作系统 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000072/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">汇编 操作系统</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T21:08:39+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> Machine details and background concepts This section explains background concepts, the components of the hypothetical Commqual architecture, and its instructions. The following section describes the functions you are to write.<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<ol>
+<li>Machine details and background concepts This section explains background concepts, the components of the hypothetical Commqual architecture, and its instructions. The following section describes the functions you are to write. 1.1 Hardware concepts A program written in any computer language is ultimately executed on a particular machine using the basic instructions that its processor provides. Instructions manipulate information in memory and also in the processor’s registers. In modern systems, memory is used to hold data, such as variables, and programs themselves are also stored in memory. Registers are locations that can store values just like memory except they are internal to the CPU, so they are accessed much more quickly. Registers temporarily store values that instructions operate upon, as well as the results of instructions. The fundamental operation of any CPU is to read an instruction from memory, figure out what it says to do, perform that operation, and go on to read the next instruction; this is called the fetch– decode–execute cycle. (This is discussed in much more detail in the Bryant &amp; O’Hallaron text, which is on reserve in McKeldin Library if you want or need more information.) Although the instruction sets of different processors vary widely, many instructions can be categorized by functionality: computation instructions: These are instructions performing various arithmetic and logical operations. data movement instructions: These are instructions for transferring data values between memory and registers, between different registers, and sometimes between different memory locations. flow of control instructions: These are instructions that affect which instruction will be executed next, for implementing conditionals and iteration, as well as function calls. invoking the operating system: Some instructions perform system calls, meaning they call functionality in the operating system to perform tasks like terminating the calling program, or doing input or output. 1.2 Machine specifications The Commqual’s processor has a 32–bit (4 byte) word length, which means that instructions, registers and memory words are all 32 bits. (As explained in lecture, processors manipulate information in multibyte quantities called words.) As mentioned, our hypothetical machine is extremely small, and it only has 4K bytes of memory. More precisely, it has 4096 bytes, or 1024 (4096 / 4) four–byte words. The first byte of memory has address 0. Memory addresses are always given in bytes, but memory is only word–addressable, meaning that the processor can only manipulate data in four–byte quantities, using the memory address of the first (or low– order) byte of a four–byte word. Consequently the memory addresses that refer to instructions or data are 0, 4, 8, etc. The Commqual processor has 18 different hardware instructions that perform different operations. In memory there’s no difference between instructions and data– memory words contain numbers, which can be interpreted as instructions and executed, or that can be treated as data. The Commqual has 12 registers, each of which as mentioned is 32 bits. These are referred to using the names R0 through R11. The Commqual has what is called a load/store architecture, which means that the only instructions that access memory are some of the data movement instructions, which copy or load a value from a memory location into a register, or store a value from a register into memory. All other instructions, including computations, operate upon values in registers and put their result into a register. So computation usually involves loading operands from memory into registers, doing computation on them, and storing the results from registers back into memory. One of the Commqual’s 12 registers has a special purpose. Register R0 (the first register) is the program counter, which always contains the memory address of the next instruction to be fetched and executed. A flow of control instruction has the effect of modifying the program counter’s value, while all other instructions cause the program counter to be incremented, so unless a flow of control instruction is executed the default behavior of the processor is to execute instructions sequentially in memory. Although all of the instructions cause the program counter’s value to be modified one way or the other, it’s an error for instructions to attempt to directly change the contents of R0. For example, it is invalid for a program to try to store the result of a computation in the program counter, since the CPU would then lose the address of the next instruction to be executed. The remaining registers may be read from or written to by the various instructions. 1.3 Hardware, components of instructions, and instruction format Since the Commqual’s processor has a 32–bit word length, all instructions, just like all data, must fit into a 32– bit word. None of the instructions use all 32 bits of their word; different instructions use between 12 bits and 22 bits. Note though that not every 32–bit word represents a valid instruction, as described below. Different types of instructions have operands that they operate upon, which are encoded as part of the instruction, meaning that they are included in the instruction word. Therefore the 32 bits of a memory word or register are considered to have different fields when interpreted as an instruction, and the fields are used to represent (a) which instruction the word or register contains, (b) up to three registers that are used as operands of some instructions, (c) an extension, whose use will be described below, and (d) either a memory address or constant numeric value that are used as operands by some instructions. The instruction format on the Commqual processor is as follows (the fields are explained below), although note that, as described below, one instruction is an exception to this diagram: 5 bits 4 bits 4 bits 4 bits 3 bits 12 bits opcode register1 register2 register3 extension memory address or immediate operand The fields have the following uses and functionality: opcode: An opcode uniquely identifies the operation that an instruction performs. Short names are used in assembly language to refer to each instruction. Since the Commqual has 18 different instructions, 5 bits are required to represent an opcode. For example, the value 1 in this field indicates an add instruction. (The instructions themselves are briefly described in the next subsection.) Note that some values that could be in the opcode field don’t represent valid instructions, since 32 different values can be stored in 5 bits, but the Commqual only has 18 instructions. (But 18 different possibilities cannot be represented using only 4 bits, so 5 bits are needed for the opcode field.) register1, register2, register3: As described in Section 2.4, some instructions operate upon the contents of one register, others operate on two registers, and some have three register operands. These three fields contain numbers that are used to indicate the registers that instructions use as operands. Since the Commqual processor has 12 registers, 4 bits can indicate any of them. Note that some values that could be in the register fields don’t represent valid registers, since 16 different values can be stored in 4 bits, but the Commqual only has 12 registers. extension: Two instructions on the Commqual have several variants each, which work in different but related ways. For these instructions, a value in the extension field is used to indicate which variant an instruction represents. Not all values that can be stored in 3 bits represent valid extensions either. memory address or constant: Some of the Commqual’s instructions have the address of a memory location as an operand. For example, an instruction could indicate that the contents of memory location 216 should be stored in one of the registers, and the value 216 would be the contents of this field of the instruction. One instruction has a constant or literal value (typically called an immediate in assembly language) as an operand. For example, an instruction could indicate that the numeric value 216 should be stored in one of the registers, and the value 216 would be encoded in the instruction. Instructions that use a memory address (see the table in Section 2.4 below) just use the 12–bit memory address field to store the address of the memory location that the instruction operates upon. (Since the Commqual only has 4096 bytes of memory, and 4096 = 212, 12 bits is sufficient to represent any valid address on the machine.) But the li instruction, that contains a numeric constant or immediate, uses the rightmost 15 bits of the instruction word (the contents of the memory address field and the extension 15 field) to store the immediate, so immediate values can be between 0 and 2 − 1 = 32767. (Therefore the li instruction is the exception to the diagram of the instruction format given in Section 2.3.) As mentioned, not all fields are used by instructions, and unused fields may just contain any bits at all. For example, say an instruction has opcode value 6, and it’s one of the instructions that uses all three register operands, and suppose this particular instruction is going to operate upon registers R3, R4, and R1. Also suppose this instruction doesn’t have a memory address or immediate as an operand and it doesn’t use the extension field, and it just contains 0s in the bits of the extension field. Then this instruction would be stored in a 32–bit memory word as 0x31a0800016 , which is 83260211210 (suggestion– convert the hexadecimal value to binary to see what the bits are in the instruction). As another example, suppose another instruction © 2018 L. Herman/P. Sadeghian; all rights reserved 3 has opcode value 16 and uses one register operand, which in this case is R11, does not use the extension field, and has the memory address 21610 If it also had 0s in all of the unused fields it would be stored in a memory word as 0x858000d816 (which is 223975855210). 1.4 Names, operands, and effects of the machine instructions Although you need to know something about the Commqual hardware instructions in order to write the project, you mostly don’t need to know what they do in detail, so after the number and the type of the operands used by each instruction are given in a summary table, their effects are summarized just briefly. Each instruction is listed with the (decimal) number between 0 and 17 that represents its opcode. opcode value (decimal) register1 register2 register3 extension memory address/immediate sys 0 ✓ ✓ add 1 ✓ ✓ ✓ sub 2 ✓ ✓ ✓ mul 3 ✓ ✓ ✓ div 4 ✓ ✓ ✓ rem 5 ✓ ✓ ✓ shl 6 ✓ ✓ ✓ shr 7 ✓ ✓ ✓ neg 8 ✓ ✓ cm p 9 ✓ ✓ ✓ br 10 ✓ and 11 ✓ ✓ ✓ or 12 ✓ ✓ ✓ The sys instruction is used to invoke certain operating system routines from a program. Since it’s one of the two instructions which uses the extension field mentioned above, it will be described in the following subsection. add adds the contents of register2 and register3, and stores the result in register1. Similarly, sub does subtraction, mul does multiplication, div does division, rem does remainder, shl shifts a value to the left and shr shifts it to the right. For instance, the instruction mul R10 R3 R7 multiplies the contents of registers R3 and R7, and stores the result in register R10. And sub R4 R5 R2 subtracts the content of R2 from the content of R5, and stores the result into R4. neg negates the value of its second register operand and stores the result in its first register operand, for example, if register R3 had 216, neg R2 R3 would store −216 in R2. The cmp instruction performs a comparison. Since it is the other instruction that uses the extension field it is also described in the next subsection. Because br is related to it it is also described there. and performs logical conjunction, or performs logical disjunction, and not does logical negation. li loads a constant or literal value (li stands for load immediate) into a register. For instance, the instruction li R4 234 would have the effect of loading the numeric value 234 (not the contents of memory location 234) into register number R4. (Assuming 234 is in decimal, this instruction would be stored in a word or register as 0x720000ea16, which is 191260285810.) lw and sw are the only instructions that use or affect the contents of memory locations. lw (load word) moves a value from a memory location to a register. It uses the first register operand and a memory address, and its effect is to copy the contents of the indicated memory address into the register specified by the register operand. For example, lw R11 200 would load the value that is in memory location 200 into register number R11. (Assuming 200 is in decimal, this instruction would be stored in a register or memory word as 0x7d8000c816, which is 210554080810.) sw (store word) does the opposite, copying a value from a register to the memory location. Lastly, mov copies its second register operand’s value to its first register operand. not 13 ✓ ✓ li 14 ✓ ✓ lw 15 ✓ ✓ sw 16 ✓ ✓ mo v 17 ✓ ✓ Note that all of the instructions are computation instructions except li, lw, sw, and mov are data movement instructions, cmp and br are data movement instructions, and sys is for invoking the operating system. Note that the same register may be used for multiple operands in instructions that operate upon two or three registers, for example add R1 R2 R1, or even add R3 R3 R3. Any operands that aren’t indicated in the table above are not applicable for that instruction. For example, mov has two register operands, therefore they will be contained in the first two register fields register1 and register2, and neither the third register field register3, nor the extension or the address or immediate field will be used by a mov instruction. Also note that the only instructions that use the memory address or immediate field for storing a memory address (as opposed to an immediate operand) are lw, sw, and br. 1.4.1 The sys, cmp, and br instructions Since these two instructions that use the extension field have several variants each they are described here. Recall that sys instruction makes a system call, meaning it allows an assembly program to invoke code in the operating system to perform some task. The sys instruction has three variants, depending upon what value is in the instruction’s extension field: • If the extension field contains the value 0, this form of the instruction has no other operands; its effect is to cause the operating system to stop the program when it is executed. • If the extension field contains 1, this form of the instruction has one register operand, and has the effect of printing to the output the value in the register specified by the operand. • If the extension field has 2, this form of the instruction also has one register operand, and has the effect of reading an integer value from the input and storing it into the register specified by the operand. The cmp instruction has two register operands and it compares the values in the registers indicated by the operands in one of six ways, setting a “condition code flag” internal to the CPU if the condition is true (otherwise it clears the flag). If the extension field has the value 0 the values in the two registers are compared for equality (e.g., ==), if the extension has the value 1 the values in registers register1 and register2 are compared using !=, the extension 2 compares the values using &lt;, the extension 3 compares the values using &lt;=, the extension 4 compares the values using &gt;, and the extension 5 value compares the values using &gt;=. The condition code flag can be used by the br (branch) instruction, whose only operand is a memory address in the memory address field. It stores the address into the program counter register R0 if the condition code flag is set, and otherwise has no effect. Consequently it can be used by a program to jump to some other location and start executing instructions there, instead of just executing the sequentially next instruction. 2 Functions to be written The header file machine.h contains the prototypes of the four functions described below that you are to write, as well as some other definitions. The functions use a typedef name Machine_word, which is an unsigned int value, to represent a Commqual word (e.g., machine instruction or register content), since on the Grace machines an int is four bytes. 2.1 int assemble(unsigned short opcode, unsigned short reg1, unsigned short reg2, unsigned short reg3, unsigned short extension, unsigned int addr_constant, Machine_word *const word) An assembler converts assembly language to machine language; this function is very roughly analogous. Its input is not assembly language; instead it converts the values of individual variables (its first six parameters) representing the components of a Commqual instruction into Commqual machine language (a Memory_word). If its parameters are valid it should encode its first six parameters as the 32–bit word of a Commqual instruction, and store the result into the Machine_word that its seventh (pointer) parameter points to. The function will have to use the bitwise operators to place the parameters’ values in the correct bits of the Machine_word that word points to. For example, if opcode has the value 5 (representing rem), the high order (leftmost) five bits of the Machine_word that word1 points to will become 00101. Any fields that are not used by hardware instructions must have their bits set to 0 by the function. Even though unused fields of hardware instructions are ignored by the Commqual’s processor, this will allow our tests to expect definite values when checking your function’s results. For example, in a lw instruction the eleventh through twenty– third bits (counting from the least significant bit, meaning the extension field and the second and third register operands) must be 0, regardless of the values of the values of the parameters reg2, reg3, or extension, because those fields are not used by a lw instruction. The only exception: if the value of the parameter opcode is LI (with decimal value 14), the value of addr_constant should be used to fill the rightmost 15 bits of the result (because the li instruction uses the rightmost 15 bits for its immediate operand), and the value of the parameter extension is not used. For any other value of opcode, extension’s value should be used to fill the 13th through 15 bits of the result (counting from the right, meaning the extension field). If its pointer parameter word is NULL the function should just return 0 without changing anything at all. Otherwise it should store the encoded hardware instruction into the Machine_word that word points to and return 1. Other than checking whether word is NULL, note there are no other error conditions the function has to check for. If the caller passes invalid argument values into the parameters (e.g., an opcode of 20, or a register number of 100), the result in word is allowed to be invalid in any way at all. This would be the caller’s fault for being foolish enough to pass in invalid values, rather than the function’s responsibility to detect. If word is non–NULL the function just has to assume that it points to a valid Machine_word (unsigned int), because in C there is no way for a function to check this; it is the caller’s responsibility to ensure it. 2.2 int print_instruction(Machine_word instruction) This function is passed a Machine_word, which as mentioned can be used to represent the contents of either a memory location or a register. It should interpret its parameter as a hardware instruction. If the instruction is not valid according to the criteria described in Section 3.4 the function should not print anything at all and just return 0. If the instruction is valid it should return 1 after printing instruction’s components on a single output line, in this format: • The instruction’s opcode (the opcode field of its parameter, meaning its leftmost 5 bits) should be printed using its name in the table in Section 2.4 (sys, add, sub, mul, etc.), spelled exactly as shown there. If the value of the opcode field is the enum SYS (which has the value 0), then sys should be printed. If the opcode field is ADD then add should be printed, etc. • Following the opcode, the extension and register operands that are actually used by that instruction should be printed, in that order (the extension followed by the register operands, in order). For example, a neg instruction uses the first two registers as operands, so they should be printed, in that order. A cmp instruction uses the first two registers and the extension as operands so the extension should be printed first, then the two register operands. Register names should be printed in decimal with a preceding R; no space should separate the R from the following register number. For example, register 0 would be printed as R0, register 1 would be printed as R1, etc. For instructions that use it, the extension should just be printed as a single decimal digit between 0 and 5. • If a hardware instruction is one that uses a memory address or immediate (the li instruction) it should be printed last, in decimal notation. If it is a memory address it should be printed using exactly five places, with addresses that are less than 1000010 printed using as many leading zeros as necessary to print the address using exactly five places. For example, the memory address 21610 would be printed as 00216. (This formatting can trivially be performed in C with the right printf() formatting options, discussed in class.) Note that immediates that are operands of the li instruction should not be printed with any leading zeros, except the immediate value zero itself should be printed as 0. Only memory address operands may have leading 0s. The printed fields must be separated with one or more whitespace characters (meaning tabs or blank spaces); the exact amount of whitespace is up to you. The printed instruction should not have any whitespace before the opcode or following the last field printed. It should not print a newline after the instruction. Note: in projects where output has to be produced, students sometimes lose credit for minor misspellings or formatting mistakes. The submit server checks your output automatically, consequently even trivial mis- spellings would cause your output to be incorrect. Due to the size of the course we will not be able to give back any credit lost for failed tests due to spelling or formatting errors, even though they are minor, because that would necessitate manual checking of 601 students’ outputs (for multiple tests each), which is impossible. Therefore it will be essential for you to check carefully that your output is correct, that register names and opcodes are spelled exactly, and that the output format described above is followed. 2.3 int disassemble(const Machine_word program[], unsigned int program_size, unsigned int data_segment_size) A disassembler converts machine language to assembly language. This function will do that by applying print_instruction() to an array containing instructions. Its first parameter is an array of words representing a program (consisting of a series of instructions possibly followed by some data) and its second parameter is the number of elements in the array that are being used. The memory for a program is divided up into different sections. The code segment is where the program’s executable instructions are stored, while the data segment is where the program’s data (variables) are stored. One or more of the program array’s elements will be considered to represent the code segment (a valid program on the Commqual must have at least one executable instruction). The function’s third parameter gives the number of elements at the end of the array that are considered to be the data segment. All the elements before that represent the code segment. For example, if the second parameter’s value was 10 and the third parameter’s value was 3 this indicates that the array has 10 elements, of which the first 7 are to be interpreted as instructions and the last 3 are to be interpreted as data.</li>
+</ol>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000071/" rel="next" title="高级Makefile编写">
+                <i class="fa fa-chevron-left"></i> 高级Makefile编写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000073/" rel="prev" title="c++作业算法实现">
+                c++作业算法实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="2018/5/27 CITS1401 https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html 1/4 School of Computer Science and Software Engineering">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project 2 Finding Synonyms by Association">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000034/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="2018/5/27 CITS1401 https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html 1/4 School of Computer Science and Software Engineering">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000034/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:12:05.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Project 2 Finding Synonyms by Association">
+<meta name="twitter:description" content="2018/5/27 CITS1401 https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html 1/4 School of Computer Science and Software Engineering">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000034/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000034/"/>
+
+
+
+
+
+  <title>Project 2 Finding Synonyms by Association | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000034/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Project 2 Finding Synonyms by Association</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:33:31+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2018/5/27 CITS1401 <a href="https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html" target="_blank" rel="noopener">https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html</a> 1/4 School of Computer Science and Software Engineering CITS1401 Problem Solving and Programming<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>2018/5/27 CITS1401 <a href="https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html" target="_blank" rel="noopener">https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html</a> 1/4 School of Computer Science and Software Engineering CITS1401 Problem Solving and Programming Project 2: Finding Synonyms by Association Submission deadline: 11:59pm, Monday 28 May 2018. Value: 20% of CITS1401. To be done individually. You should construct a Python 3 program containing your solution to the following problem and submit your program electronically using cssubmit. No other method of submission is allowed, and only the Python 3 program file, please. You are expected to have read and understood the University’s guidelines on academic conduct. In accordance with this policy, you may discuss with other students the general principles required to understand this project, but the work you submit must be the result of your own effort. Plagiarism detection, and other sytems for detecting potential malpractice, will therefore be used. Besides, if what you submit is not your own work then you will have learnt little and will therefore, likely, fail the final exam. You must submit your project before the submission deadline listed above. Following UWA policy, a late penalty of 10% will be deducted for each day (or part day), after the deadline, that the assignment is submitted. However, in order to facilitate marking of the assignments in a timely manner, no submissions will be allowed after 7 days following the deadline. Overview A synonym is a word with a similar meaning to another word, and differences often come down to differences in the way the words are used in practice. English is rich in synonymns. For example, some synonyms for fair are: just, objective, impartial, unbiased, while for the word hardworking, some synonyms are: diligent, determined, industrious, enterprising. The way one typically looks for synonyms for a word is via a thesaurus. (The link to the Wikipedia entry provides some interesting history. The first thesaurus-like work dates back to the 4th century.) Until relatively recently, each Thesaurus was compiled by hand, but with computerisation, a machine learning approach can be taken. In machine learning, relationships between things are learned from data - lots of it! In particular, in this project we will exploit the idea that similar words tend to be used in similar contexts, and will broaden the notion of “synonym” to mean related words. The “context” will be appearance in the same sentence in piece of text. The following piece of text is taken from “Life on the Mississippi”, but Mark Twain (Project Guttenberg edition). <code></code>THE Mississippi is well worth reading about. It is not a commonplace river, but on the contrary is in all ways remarkable. Considering the Missouri its main branch, it is the longest river in the world–four thousand three hundred miles. It seems safe to say that it is also the crookedest river in the world, since in one part of its journey it uses up one thousand three hundred miles to cover the same ground that the crow would fly over in six hundred and seventy-five. It discharges three times as much water as the St. Lawrence, twenty-five times as much as the Rhine, and three hundred and thirty-eight times as much as the Thames. No other river has so vast a drainage-basin: it draws its water supply from 2018/5/27 CITS1401 <a href="https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html" target="_blank" rel="noopener">https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html</a> 2/4 twenty-eight States and Territories; from Delaware, on the Atlantic seaboard, and from all the country between that and Idaho on the Pacific slope–a spread of forty-five degrees of longitude. The Mississippi receives and carries to the Gulf water from fifty-four subordinate rivers that are navigable by steamboats, and from some hundreds that are navigable by flats and keels. The area of its drainage-basin is as great as the combined areas of England, Wales, Scotland, Ireland, France, Spain, Portugal, Germany, Austria, Italy, and Turkey; and almost all this wide region is fertile; the Mississippi valley, proper, is exceptionally so.’’ The text can be found at sample.txt. The idea is that for every unique word in the text you will compute a “profile” of associated words; to be associated, a word has to appear in the same sentence at least once. The profile for a given word, e.g. “river”, records all the words that appear in the same sentence as that word, and the number of sentences each has appeard in. So, in this example, the word “river” appears 4 times. Its profile will have the word “idaho”, which appears once, and the word “drainage-basin”, which appears once in the context of “river” (and a second time in a sentence that does not also have the word “river”). What your program will be doing is comparing profiles. Some things to note: A word is any sequence of letters bounded by the start of a sentence, the end of the sentence, blank space or punctuation marks, which include comma, single-quote, double-quote, colon, semin-colon and round or square brackets. Punctuation marks can be treated as space characters. The end of a sentence is marked by a full stop, an exclamation mark or a question mark, but otherwise can be ignored. Note that every word has to be converted to lower case so words appear the same even if they appear at the start of sentences. You will notice that the word “the” appears in every sentence. This is not very useful as part of a profile, so, apart from a text corpus, from which the profiles are obtained, your program will also be given a list of common words such as “and”, “the”, “but”, and so on, one word per line. The intention is that these words should be ignored as you build (and then compare) profiles. A sample list of common words can be found at: common.txt. Other lists of common words may be substituted, depending on context. Your program will read sets of words, one per line, terminated by a blank line. Each such set is one experiment; another experiment can follow after the blank line, and so on. For example: river mississippi water spain cairo The first word of the set will be a target word. The other words will be test words. The aim is, by comparing profiles of the test words against the profile of the test word, a ranked list will be computed of the test words, in descending order of similarity with the target word. The first word in the ranked list will then be announced as the synonym for target word Scoring Profiles The metric I would like you to use to score the similarity between two profiles is a modified cosine metric. where p and q are two profiles, e.g. due to “river” and “mississippi”. The numerator is the inner product between the two profiles, but many of the words in one profile won’t be in the other profile, so the product of the corresponding terms will be 0. The numerator therefore just covers the words shared by the two profiles, where the count for a word from the first 2018/5/27 CITS1401 <a href="https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html" target="_blank" rel="noopener">https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html</a> 3/4 profile is multiplied by the corresponding count from the other profile. For example, for the profiles “river” and “mississippi” the shared words are “water” and “drainage-basin”. The list of shared words can be represented as: [(‘water’, 1, 1), (‘drainage-basin’, 1, 1)], where the two integers after each word are the counts of that word in the respective profiles. The numerator is the sum of the products, i.e. 2. The denominator is the square-root of the product of the sums of squares of each of terms in the respective profiles. For example, for “mississippi” is will be: 12 (for “spain”) + 12 (for “carries”) + …. and so on. Tasks The only function definition that you must have is: def main(corpus_file_name, commonwords_file_name = None) The names of the parameters are not relevant, but the function with that name and the arguments prepresenting those file names must be present so my testing program will be able to interact properly with your program. (The file of common words is optional.) If main() definition is not present, it will not be possible to test your program. Otherwise, how you structure your program is up to you. The tasks your program will have to undertake are: If the commonwords file is present, open the file and read the words into an appropriate data structure. Open the corpus file and read in the lines of text. As the file is being read in, break it up into sentences. As each sentence is completed, break the sentence up into words. For each unique word (other than common words) in a sentence, update the counts of the profile entries for that word with respect to all the others. For example, after reading in the first sentence in the sample, the profile associated with mississippi will contain references to “worth” and “reading”, but not “is”, “well” or “about” (as these are in the commonwords). Each term will now have a count of 1. Similarly, “mississippi” will have a count of 1 in the profile of “worth”, and so on I recommend you write a function that prints out the data structure you have created to represent the profiles. I won’t be testing that you have such a function, but I find it good practice as you can make sure that things are the way you expect. Process query word sets until just a blank line is read in. Read in words, one per line until a blank line is read in. The first word is the target word. For each word, extract the corresponding profile and compare the second and subsequent profiles to the first. Generate a score for each comparison and record the score against the corresponding word. Sort the word-score list and print the words and the scores in order of descending score. Print the computed synonym. A script from a sample session can be found at: typescript. The sample session only contains a single set of target word plus query words; your program should be able to handle multiple sets (with a blank line between sets). Hints A couple suggestions that you may care to incorporate in your code (or not - entirely up to you): One possible representation for the set of profiles is a dictionary of dictionaries, where the mapping is: profile_word -&gt; associated_word -&gt; count for associated_word A dictionary is a better way to represent the common words than a list, because a list needs to be traversed to find an item in the list (or to discover that the item is not there). Dictionaries can do that in a single operation. A more natural representation in this application than dictionaries are sets. Sets are beyond the scope of this unit, not because they are hard but because there simply isn’t the time. There is no discussion of sets in the textbook, but there are numerous discussions available on the web, including this discussion. As before, your program will be tested extensively, including possible error states. Submission 2018/5/27 CITS1401 <a href="https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html" target="_blank" rel="noopener">https://lms.uwa.edu.au/bbcswebdav/pid-1040550-dt-content-rid-8276956_1/courses/CITS1401_SEM-1_2018/project2_2018%283%29.html</a> 4/4 Submit a single Python (.py) file containing all of your functions via cssubmit. Assessment Your submission will be assessed on 60% of the marks will be awarded based on how well your program completes a number of tests, reflecting normal use of the program, and also how the program handles various error states, such as the input file not be present (which can easily happen when you mistype the file name). 40% will be style - the code is clear to read - and efficiency - your program is well constructed and runs efficiently. Bear in Mind: “Testing shows the presence, not the absence of bugs.” – E.W. Dijkstra. So, test your program thoroughly - I will.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000033/" rel="next" title="Assignment 2">
+                <i class="fa fa-chevron-left"></i> Assignment 2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000035/" rel="prev" title="Project 2 Playing-card cryptography">
+                Project 2 Playing-card cryptography <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

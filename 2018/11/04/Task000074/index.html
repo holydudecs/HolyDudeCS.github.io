@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="悉如何使用Pthreads的API,撰寫multithreaded program。">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c&#x2F;c++代写:多线程编程">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000074/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="悉如何使用Pthreads的API,撰寫multithreaded program。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000074/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:10:18.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c&#x2F;c++代写:多线程编程">
+<meta name="twitter:description" content="悉如何使用Pthreads的API,撰寫multithreaded program。">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000074/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000074/"/>
+
+
+
+
+
+  <title>c/c++代写:多线程编程 | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000074/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">c/c++代写:多线程编程</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T21:09:36+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>悉如何使用Pthreads的API,撰寫multithreaded program。<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>c/c++代写:多线程编程<br>CS305 作業系統概論 Homework #2 Multithreading</p>
+<p>2018.04.18<br>一、 作業目的<br>熟悉如何使用Pthreads的API,撰寫multithreaded program。</p>
+<p>二、 作業內容<br>【大數據中的關鍵文件】為了要在許多文件中找出關鍵文件,L公司想要來利用電腦科技來達成目標。<br>對L公司而言,在一個有M個文件的文件集合D={d 1 ,d 2 ,…,d M }中,關鍵文件d k 就是與其他文件的相似度總<br>和最高的文件。但對於如何快速計算文件的相似度,L公司卻毫無頭緒。<br>於是L公司來到風之塔學院尋求幫助。對於這個大數據問題,風之塔學院的C教授帶著他的高徒開發這個<br>程式。C教授決定先使用傑卡德相似係數(Jaccard similarity coefficient)的方法來計算,找出關鍵文件。傑<br>卡德相似係數的公式如下,在兩個集合 A 與 B 中,兩個集合A和B的交集元素個數在A,B的聯集元素個<br>數中所佔的比例,就是它們的傑卡德相似係數:<br>J ( A , B ) = | A ∩ B |/ | A ∪ B |<br>因此如果對下面兩個文件</p>
+<p>d 1 = “this is a book” d 2 = “this is a pen” J(d 1, d 2 )=3/5=0.6 </p>
+<p>C教授同時要用multithreaded programming 的方式來設計程式。每一份文件對其他M-1份文件的平均傑卡<br>德相似係數(Average J(d 1, d 2 ))是由一個單獨的thread 來計算出來。所有文件會放在一個檔案中,程式須由<br>命令列讀入檔名。檔案中最多會有50個文件。每個文件會有兩行資料,第一行是文件的ID,第二行是文<br>件內容。文件ID會是一個字串,文件內容中的字詞會由一個或多個空白隔開。傑卡德相似係數如果有多<br>位小數,需要至少精準到小數點後5位。在處理文件時,依照下面規則處理:</p>
+<p>只考慮純字母組成的詞。<br>如果有重複出現的詞,只計算一次。例如: “a good book is a book” 中, “book”只算出現一次。<br>在程式執行時,<br>主執行緒針對文件數量產生對應的子執行緒。例如有4份文件,就產生4個子執行緒。主執行緒並負<br>責印出來下列事項,印出內容時,每一行需要印出 “[Main thread]”:<br>a. 每一個子執行緒的 tid,以及所負責計算的主文件ID。<br>b. 具有最高平均傑卡德相似係數的文件ID及文件內容。<br>c. 整個程式會用多少CPU時間 (以ms為單位)。<br>子執行緒則負責計算傑卡德相似係數。執行過程中,要列印出本身的動作,並且每一行都要印出自<br>己的thread id 。以下是需要印出的項目:<br>a. 負責計算的主文件ID編號。<br>b. 子執行緒計算傑卡德相似係數時,要印出是哪兩個文件在計算,以及它們Jaccard similarity。<br>c. 最後的平均傑卡德相似係數。<br>d. 子執行緒執行會用多少CPU時間 (以ms為單位)。<br>以下是一個可能的執行過程:<br>prog2 data.txt</p>
+<p>[Main thread]: create TID:123, DocID:0001 [TID=123] DocID:0001 [TID=123] J(0001,0002)=0.6 [TID=123] J(0001,0003)=0.6 … [TID=123] AvgJ:0.511 [TID=123] CPU time: 20ms … [Main thread] KeyDocID:0003 HighestJ:0.9999 [Main thread] CPU time: 2000ms<br>二、 作業要點<br>請注意,本作業使用的程式語言是C/C++,測試平台的作業系統: Ubuntu 17.10 LTS 64-bit。使用的<br>編譯程式為gcc/g++ 編譯器:7.2。其他平台或程式語言不在本次作業考慮範圍之內。如在測試平台上<br>無法編譯與執行,都不予給分。<br>請注意,本作業一定要用Pthread API來進行。任何不用Pthread API的程式,都不予給分。<br>本作業的評分方式如下:<br>a. 每一個項目能正確執行時,最多可得的分數如下<br>i. 從命令列讀入檔名參數,20分。<br>ii. 能產生 pthread,10分。<br>iii. 子執行緒可以印出本身的tid,20分。<br>iv. 傑卡德相似係數計算。不可以使用任何套件或函式庫,需自己完成。20分。<br>v.<br>印出執行所用的CPU時間,20分。<br>vi. 主執行緒找出關鍵文件並印出它的平均傑卡德相似係數,20分。<br>本作業需繳交檔案:<br>a. 說明報告:檔案為docx或pdf格式。<br>i. 報告中必須說明程式的設計理念、程式如何編譯,以及如何操作。<br>ii. 報告中同時必須詳細說明你完成哪些部份。如有用到特殊程式庫,請務必說明。<br>iii. 請務必讓助教明白如何編譯及測試你的程式。助教如果無法編譯或測試,會寄信(最多兩<br>次)通知你來說明,但每說明一次,助教會少給你10分。<br>b. 完整原始程式碼檔案。程式碼檔案必須是可直接編譯的檔案。不可含執行檔。助教會重新編譯你<br>們的程式。<br>所有相關檔案,例如報告檔、程式檔、參考資料等,請壓縮成一個壓縮檔(不可超過2MB)後上傳<br>至portal。請注意,不可抄襲。助教不會區分何者為原始版本,被判定抄襲者,一律0分。<br>如果傑卡德相似係數計算有使用網路範例,務必在作業中說明。該部份將不會計分,但不會判定為<br>抄襲。<br>三、 繳交方式:<br>最終繳交時間:<br>a. 電子檔在 2018.05.11 以前,上傳至個人portal。如有多個檔案,將所有檔案壓縮成zip(rar 亦可)格<br>式,然後上傳。<br>b. 上傳檔名格式:「學號作業號碼.docx」或「學號作業號碼.rar」。例如:912233_01.doc 或<br>912233_01.rar。<br>如有違規事項者,依照課程規定處理。<br>如需請假,請上portal請假,並持相關證明文件,在請假結束後的第一次上課時完成請假手續,並在<br>一週內完成補交。補交作業將以8折計算。<br>老師不接受「門縫」方式繳交,助教也不接受任何作業。<br>四、 如有未盡事宜,將在學校portal板面公告通知。<br>五、 If you need any assistance in English, please contact Prof. Yang.<br>六、 參考資料<br>參考課本圖 4.9。<br>PThread: <a href="https://computing.llnl.gov/tutorials/pthreads/" target="_blank" rel="noopener">https://computing.llnl.gov/tutorials/pthreads/</a><br>POSIX 線 程 (pthread) 入 門 文 章 分 享 : <a href="http://dragonspring.pixnet.net/blog/post/32963482-" target="_blank" rel="noopener">http://dragonspring.pixnet.net/blog/post/32963482-</a><br>posix%E7%B7%9A%E7%A8%8B%28pthread%29%E5%85%A5%E9%96%80%E6%96%87%E7%AB%A<br>0%E5%88%86%E4%BA%AB<br>Jaccard index wiki: <a href="https://en.wikipedia.org/wiki/Jaccard_inde" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Jaccard_inde</a></p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000073/" rel="next" title="c++作业算法实现">
+                <i class="fa fa-chevron-left"></i> c++作业算法实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2045/01/01/Task000000/" rel="prev" title="CS个人代写">
+                CS个人代写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

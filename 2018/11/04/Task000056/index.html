@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="ignment 3 Due: Sunday, 13 May 2018, 11:59 PM on TEACH as a .tar Inheritance through Real Estate Tycoon Summary Problem Statement In this program you will create a real estate tycoon game which is turn">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏Inheritance through Real Estate Tycoon">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000056/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="ignment 3 Due: Sunday, 13 May 2018, 11:59 PM on TEACH as a .tar Inheritance through Real Estate Tycoon Summary Problem Statement In this program you will create a real estate tycoon game which is turn">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000056/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:30:36.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="游戏Inheritance through Real Estate Tycoon">
+<meta name="twitter:description" content="ignment 3 Due: Sunday, 13 May 2018, 11:59 PM on TEACH as a .tar Inheritance through Real Estate Tycoon Summary Problem Statement In this program you will create a real estate tycoon game which is turn">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000056/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000056/"/>
+
+
+
+
+
+  <title>游戏Inheritance through Real Estate Tycoon | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000056/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">游戏Inheritance through Real Estate Tycoon</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:30:09+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ignment 3 Due: Sunday, 13 May 2018, 11:59 PM on TEACH as a .tar Inheritance through Real Estate Tycoon Summary Problem Statement In this program you will create a real estate tycoon game which is turn based (a turn simulating one month). The game will be won if the player reaches a bank account value of $1 million. The player will lose the game if they go bankrupt (have $0). The player starts with a bank account value of $500,000 and no properties. Each turn: • Payments will be paid to outstanding debt and taxes. • Tenants may leave properties if the rent exceeds their ability to pay. • Rent will be<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>Assignment 3 Due: Sunday, 13 May 2018, 11:59 PM on TEACH as a .tar Inheritance through Real Estate Tycoon Summary Problem Statement In this program you will create a real estate tycoon game which is turn based (a turn simulating one month). The game will be won if the player reaches a bank account value of $1 million. The player will lose the game if they go bankrupt (have $0). The player starts with a bank account value of $500,000 and no properties. Each turn: • Payments will be paid to outstanding debt and taxes. • Tenants may leave properties if the rent exceeds their ability to pay. • Rent will be collected from rent producing properties which have tenants. • A random event will occur. Random events include: o Weather: hurricane, tornado, earthquake, wildfire. o Stock market crash. o Gentrification: big business moves to town, natural resource discovered, positive press about the city. • A listing of properties with potential to purchase a property. • The ability to sell a property. • The ability to raise or lower rents on a property. Each property has the following attributes: • Property value • Location • Mortgage • Property tax: fixed at 1.5% • Tenant(s) The types of properties are: • House: can be rented by one tenant • Apartment Complex: can collect rent on each apartment in the complex at the same rate • Business Complex: has spaces of various sizes and rent values, can have multiple tenants Implementation Details Set Up The game will start with three of each property type. Each one will be randomly assigned a location (United States: SE, NE, Midwest, SW, and NW), randomly assigned a property value (House &gt;=100,000; Apartment Complex &gt;= 300,000; Business Complex &gt;= 400,000; all starting property values are capped at 600,000), a mortgage which includes a randomly assigned monthly (turn) price (not to exceed 5000) and a calculated duration of mortgage based on the monthly price (exclude interest). The property tax for all properties will be fixed at 1.5% of the property value. Property taxes will be assessed every twelve months (turns). Apartment complexes will have a random number of rooms assigned to them (max 10). Business complexes will have a random number of spaces (max 5) assigned with a random size attached to each space (small, medium, or large). Properties will have tenants in each building. The tenants may be citizens or businesses. Both will have a max, randomly assigned monthly budget which is fixed through out the game (500 to 5000 for citizens, 2000 to 10000 for businesses). Both will also have a randomly assigned agreeability score ranging from 1 to 5 (1 being not agreeable and 5 being incredibly agreeable) which will be fixed throughout the game. Citizens may occupy houses and apartments, businesses may only occupy business complexes. Each business that pays rent in a complex increases the property value by 1% each turn. The player will begin with a bank account of $500,000 and no properties. Playing the Game The goal of the game is to make money, but to make money, some money must be spent. The turn will begin by first collecting the monthly rent from the appropriate properties, adding this amount to the bank. If rent was set higher on the last turn than what a tenant’s monthly budget is, then this turn they will leave the property and not pay rent. Tenants cannot be replaced in this game once they leave. The room they vacate will be left empty. If a tenant’s agreeability score is less than 2 and the rent is higher than their monthly budget, they will refuse to pay rent but will stay in the property. In this game, the player can not evict tenants, the only way to collect rent on disagreeable tenants is to lower the rent. The monthly mortgage payments will then be made for the appropriate properties, subtracting this amount from the bank. Every twelve turns, property tax will be paid, subtracting this amount from the bank. The property tax is 1.5% of the current value of the property. A random event will then occur. The following effects will occur for all properties that meet the requirements: • A hurricane occurs, impacting properties in the SE by decreasing their property value by 50%. • A tornado occurs, impacting properties in the Midwest by decreasing their property value by 30%. • The earthquake occurs, impacting properties in the Northwest by decreasing their property value to 10%. • A wildfire occurs, impacting properties in the Southwest by decreasing their property value by 25%. • Stock market crash: all properties decrease in value by 30%. • Gentrification (big business moves to town, natural resource discovered, positive press about the city): a random location is selected, all properties in that location see and increase in property value of 20%. After the random event, the player will be given the option to buy a property, sell a property, or adjust rents on a property. If the player chooses to buy a property, three random properties should be pulled from the arrays of properties set up at the beginning of the game. If all of those properties have been bought, new ones should be generated into the array. The property will be added to the player’s list of properties of that type and removed from the general arrays. The mortgage on the property will begin being collected the next turn and will continue until the property is paid off. If the player chooses to sell a property, the player will select which property they wish to sell and at what price. Properties can only be sold if there are no tenants on the property. A random number from 1 to 3 will be selected to determine if the player will get their asking price (3), get the property value (2) or get 10% less than the property value (1). The amount received will be added to the bank account. If the player chooses to adjust rents, they must select which property and specify what the new rent will be. For business complexes, the player can select a specific space in the property to adjust the rent on. Ending the Game Play will continue until the bank account is 0 or 1,000,000. Requirements • The program must run to the above specified requirements in their entirety. • A readable and understandable user interface must be present. • Classes must be used. • Inheritance must be used, demonstrating the use of base and child classes. • Appropriate use of the Big 3. • Files must be separated. • A functioning Makefile must be provided. • No memory leaks. • No functions greater than 20 lines. • No use of libraries that have not been permitted in the course (namely and ) • Lack of correct coding style will incur an automatic 10 point deduction.    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000055/" rel="next" title="write a main() function that can proces">
+                <i class="fa fa-chevron-left"></i> write a main() function that can proces
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000057/" rel="prev" title="TLS Certificate checking">
+                TLS Certificate checking <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

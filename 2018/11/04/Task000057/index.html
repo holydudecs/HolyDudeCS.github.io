@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="School of Computing and Information Systems COMP30023: Computer Systems Assignment 2 Due date: No later than 11:59pm on Thursday 24th May 2018 Weight: 15% Project Overview The aim of this project is t">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TLS Certificate checking">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000057/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="School of Computing and Information Systems COMP30023: Computer Systems Assignment 2 Due date: No later than 11:59pm on Thursday 24th May 2018 Weight: 15% Project Overview The aim of this project is t">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000057/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:31:16.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TLS Certificate checking">
+<meta name="twitter:description" content="School of Computing and Information Systems COMP30023: Computer Systems Assignment 2 Due date: No later than 11:59pm on Thursday 24th May 2018 Weight: 15% Project Overview The aim of this project is t">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000057/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000057/"/>
+
+
+
+
+
+  <title>TLS Certificate checking | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000057/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TLS Certificate checking</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:30:41+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>School of Computing and Information Systems COMP30023: Computer Systems Assignment 2 Due date: No later than 11:59pm on Thursday 24th May 2018 Weight: 15% Project Overview The aim of this project is to increase your awareness and familiarity with TLS Certificate checking. Whilst many applications<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>School of Computing and Information Systems COMP30023: Computer Systems Assignment 2 Due date: No later than 11:59pm on Thursday 24th May 2018 Weight: 15% Project Overview The aim of this project is to increase your awareness and familiarity with TLS Certificate checking. Whilst many applications will perform the certificate checking for you, it is important to understand the underlying process in order to be able to evaluate security. Your task is to write a program that validates TLS certificate files. Your program must be written in C. Submissions that do not compile and run on a NeCTAR instance may receive zero marks. You must write your own certificate validation code using the OpenSSL library. Project Details Your task is to write a C program that reads in a CSV (comma separated value) file that contains two columns. The first column provides the file path for the certificate to test. The second column provides the URL from which that certificate belongs. Your program must step through each line in the CSV file, load the certificate specified in column one, and validate it, including checking the URL contained in column two. The output of your program should be another CSV file, called output.csv. It must contain one line per certificate checked, in the same order as the input CSV file. Each line should contain three columns, the two columns from the input file, and a third column containing either the value 1 if the certificate is valid, or 0 if the certificate is invalid. An example input file is shown below: cert one.cer,<a href="http://www.comp30023test.com" target="_blank" rel="noopener">www.comp30023test.com</a> cert two.cert,game1.onlinegaming.com 1 An example output file is shown below: cert one.cer,<a href="http://www.comp30023test.com,1" target="_blank" rel="noopener">www.comp30023test.com,1</a> cert two.cert,game1.onlinegaming.com,0 The minimum checking you are expected to do is as follows: 1. validation of dates, both the Not Before and Not After dates 2. domain name validation (including Subject Alternative Name (SAN) extension) and wildcards 3. minimum key length of 2048 bits for RSA 4. correct key usage, including extensions Your program must compile to an executable called certcheck and must take one command line argument, which is the relative path to the input CSV file. For example, the following should run your program and check the certificates listed in mytestfile.csv ./certcheck mytestfile.csv You can assume that there are no restrictions on Subject Alternative Name’s beyond the specification, and in particular that wildcard domains are allowed in both the Common Name and the SAN. Your checking code should handle such wildcards correctly. You can assume that all certificates will use RSA keys. Program execution / command line arguments To run your program on your NeCTAR cloud instance prompt: ./certcheck pathToTestFile where: • pathToTestFile is a valid relative path to the test CSV file. Note: Program interface will be strictly enforced, if your program does not comply with the required standard you may get zero marks for part B and C. 2 Submission details Please include your name and login id in a comment at the top of each file. Our plan is to directly harvest your submissions on the due date from your provided GitLab (<a href="https://gitlab.eng.unimelb.edu.au" target="_blank" rel="noopener">https://gitlab.eng.unimelb.edu.au</a>) git account. You must create a repository called comp30023-2018-project-2 in your GitLab account and push your submission to it. You must submit program file(s), including a Makefile. Make sure that your Makefile, header files and source files are added/committed and pushed to your GitLab repository. Do not add/commit object files or executables. Anything you want to mention about your submission, write a text file called README. • If you do not use your Git repository for the project you will NOT have a submission and will be awarded zero marks. • It should be possible to “checkout” the Git repository, then type make clean and then make to produce the executable certcheck. • Late submissions will incur a deduction of 2 marks per day (or part thereof). • If you submit late, you MUST email the lecturer, Chris Culnane <a href="mailto:cculnane@unimelb.edu.au" target="_blank" rel="noopener">cculnane@unimelb.edu.au</a>. Extension policy: If you believe you have a valid reason to require an extension you must contact the lecturer, Chris Culnane <a href="mailto:cculnane@unimelb.edu.au" target="_blank" rel="noopener">cculnane@unimelb.edu.au</a> at the earliest opportunity, which in most instances should be well before the submission deadline. Requests for extensions are not automatic and are considered on a case by case basis. You will be required to supply supporting evidence such as a medical certificate. In addition, your git log file should illustrate the progress made on the project up to the date of your request. Plagiarism policy: You are reminded that all submitted project work in this subject is to be your own individual work. Automated similarity checking software will be used to compare submissions against each other and known public source code. It is University policy that cheating by students in any form is not permitted, and that work submitted for assessment purposes must be the independent work of the student concerned. 3 Using Git is an important step in the verification of authorship. You are encouraged to commit regularly so that you have a record of your work. This is also best practice when using version control software. Assessment Code that does not compile and run on a NeCTAR instance will be awarded zero marks. Your submission will be tested and marked with the following criteria: • Part A Compiles from Git (5 marks) – Code successfully added to your git repository on <a href="https://gitlab.eng.unimelb.edu.au" target="_blank" rel="noopener">https://gitlab.eng.unimelb.edu.au</a> (1 mark) – Make file included (and it works) (1 mark) – Clarity and quality of code – appropriate comments and documentation where necessary (2 marks) – Code correctly implements command line interface (1 mark) • Part B Basic Certificate Checking (5 marks) – Reads input CSV and write output CSV (1 mark) – Correctly validates Not Before date (1 mark) – Correctly validates Not After date (1 mark) – Correctly validates domain name in Common Name (2 mark) • Part C Advanced Certificate Checking (5 marks) – Correctly validates minimum RSA key length of 2048 bits (1 mark) – Correctly validates key usage and constraints (2 mark) ∗ BasicConstraints includes “CA:FALSE” ∗ Enhanced Key Usage includes “TLS Web Server Authentication” – Correctly validates Subject Alternative Name extension (2 marks) 4 Example Code and Development Example source code that opens an X509 certificate and reads some values from it, is available in the Assignment git repository: <a href="https://gitlab.eng.unimelb.edu.au/COMP30023/Assignment2.git" target="_blank" rel="noopener">https://gitlab.eng.unimelb.edu.au/COMP30023/Assignment2.git</a> This will show the basics of opening and reading values from an X509 certificate file using OpenSSL in C. However, this will not provide all the functionality that you require. Part of the exercise is to navigate through the OpenSSL documentation and discover the appropriate methods to call to extract and evaluate the data you need. Please Note: You must write your own validation code, you cannot use the built in OpenSSL certificate validation functions. The documentation is available at: <a href="https://www.openssl.org/docs/manmaster/man3/" target="_blank" rel="noopener">https://www.openssl.org/docs/manmaster/man3/</a> A list of function calls you may not use is as follows: • X509 check ca • X509 check host • X509 cmp current time • X509 cmp time Testing your program Your server will be partially evaluated using automated testing. A sample test script and sample certificates will be provided in the repository: <a href="https://gitlab.eng.unimelb.edu.au/COMP30023/Assignment2.git" target="_blank" rel="noopener">https://gitlab.eng.unimelb.edu.au/COMP30023/Assignment2.git</a> You may use this script to test your program successfully passes the following assessment criteria: • Basic Certificate Checking (5 marks) 5    </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000056/" rel="next" title="游戏Inheritance through Real Estate Tycoon">
+                <i class="fa fa-chevron-left"></i> 游戏Inheritance through Real Estate Tycoon
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000058/" rel="prev" title="a web applicatio">
+                a web applicatio <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

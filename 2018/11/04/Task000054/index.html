@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="signment 1: CMPT 371 Complete in groups of one to three students 1) [16 points] A system uses statistical time division multiplexing, there are 100 channels (100 different signals) being combined into">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Complete in groups of one to three students">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000054/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="signment 1: CMPT 371 Complete in groups of one to three students 1) [16 points] A system uses statistical time division multiplexing, there are 100 channels (100 different signals) being combined into">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000054/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T12:29:31.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Complete in groups of one to three students">
+<meta name="twitter:description" content="signment 1: CMPT 371 Complete in groups of one to three students 1) [16 points] A system uses statistical time division multiplexing, there are 100 channels (100 different signals) being combined into">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000054/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000054/"/>
+
+
+
+
+
+  <title>Complete in groups of one to three students | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000054/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Complete in groups of one to three students</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T20:29:09+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>signment 1: CMPT 371 Complete in groups of one to three students 1) [16 points] A system uses statistical time division multiplexing, there are 100 channels (100 different signals) being combined into one multiplexed signal. Each channel carries frames that contain 30 bytes of header and 1170 bytes of<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>Assignment 1: CMPT 371 Complete in groups of one to three students 1) [16 points] A system uses statistical time division multiplexing, there are 100 channels (100 different signals) being combined into one multiplexed signal. Each channel carries frames that contain 30 bytes of header and 1170 bytes of data (a total of 1200 bytes). Each channel supports a data rate of 1 MB per second (1KB = 1024 bytes, 1MB = 1024 KB, 1GB = 1024 MB). Assume that each channel is used an average of 45% of the time. Assume that on average we wish to use 90% of the capacity of the line (the line carrying the multiplexed signals). What is the capacity of the line required to carry the multiplexed signal (in bytes per second, Bps)? 2) Consider a transmission line with a capacity of 100 Mbps (1Mbps = 220 bits per second). a) [4 points] How many users would the line support assuming each user has a 5 Mbps connection and uses synchronous TDM to access the line? Assume that only 97% of the capacity of the line may be used for user connections. b) [4 points] Suppose that each user only used their 5 Mbps line 28% of the time, 97% of the capacity of the may be used for user connections and synchronous TDM is being used. How many users can the line support for these assumptions? c) [4 points] Suppose that each user only used their 5 Mbps line 28% of the time, 97% of the capacity of the may be used for user connections and statistical TDM is being used. How many users can the line support for these assumptions? d) [7 points] Suppose there are 120 users, using 2 Mbps connections at the same time. Each user uses their connection 32% of the time. Find the probability that at any given time, exactly 24 users are transmitting simultaneously. (Hint: use the binomial distribution). e) [3 points] Assume that the transmission line in the problem is used within a packet switched network. Would you use Synchronous or Statistical TDM? Why? f) [3 points] Assume that the transmission line in the problem is used within a connection oriented circuit switched network. Would you use Synchronous or Statistical TDM? Why? 3) As an example of a communication protocol in the application layer consider DNS. a) [2 points] What does DNS stand for? b) [4 points] State two basic uses for DNS? c) A DNS resolver on your local host makes a query to the local DNS server for the IP address of apple.fruit.myID.com. The DNS server will make iterative queries. The DNS server has recently been initialized (cache empty at initialization, except for information about root servers) and has made only one query before the query for apple.fruit.miID.com is made. This one previous query was for the IP address of meal.dinner.myID.com i. [3 points] After the query for meal.dinner.myID.com what DNS name server records are stored in the cache? ii. [3 points] Would the first query made by the local DNS server be to one of the root servers? Would the first query made be to one of the servers for .com? Why? iii. [2 points] When making a query to myID.com. what would be the DNS record being requested in the query? iv. [3 points] Draw an annotated diagram to help you explain how the query for the address of apple.fruit.myID.com is executed. Be sure to indicate on your diagram what information is requested and returned in each query. State any assumptions you make. Assume the local DNS server makes iterative queries 4) Suppose two hosts A and B are directly connected. The propagation speed through the direct connection is 2.2<em>108 meters per second. The distance between the two hosts is 4500 m. The transmission rate supported by the direct connection is 16 Mbps (1 Mbit = 220 bits). A user has a 4.5 Gb (4.5</em>230 bits) file to transfer across the connection. a) [2 points] What is the propagation delay? b) [2 points] What is the maximum number of bits that have left A before the first bit arrives at B? This number of bits is called the bandwidth delay product. c) [2 points] We can think of each bit occupying a piece of the link. If the bandwidth delay product tells us that there are 100 bits in the transmission medium then we can think of each bit occupying 1/100 of the length of the transmission media. What is the width of each bit (the length of the transmission medium it fills)? d) [2 points] Assume that the file is sent as a single message (not broken into packets). What is the transmission time of the file? Now consider that the connection between A and B is through a packet switched network. Message segmentation is the process of our file (or any other message) into smaller sections and sending each of those sections in a separate packet. Assume that each link in the packet switched network has a capacity of 100Mbps, the propagation delay on each link is 0.002s, the processing delay on each link is 0.003s, there are no queuing delays, and the packet is transmitted by A and by 9 additional hosts as it travels through the packet switched network to B. e) [5 points] Consider sending the file through the packet switched network without message segmentation (as a single packet). Assume that each of the intermediate hosts are store and forward nodes. The time taken by processing and queuing at each node is 0.002s. How long does it take to send the file from A to B? f) [8 points] Assume that the file is segmented into packets containing 12000 bits of data each. Each packet has a header of 200 bits. If a packet is partially full of data the remainder of the data field is filled with zeros before the resulting full size packet is transmitted. How long does it take for the file to be transmitted through the network (assume no queuing delays). g) [0 points] What is the optimal packet size to transmit this file through this network. (will not be graded but may appear on a quiz or final) 5) Consider the HTTP protocol. HTTP is the protocol the protocol used for sending the contents of web pages between hosts, from a web server to an agent (client like firefox or explorer). HTTP is also used by agents to make requests to web servers for particular web pages. HTTP communications, both requests and replies travel through TCP connections. The packets sent back and forth between an agent requesting web pages and the web server receiving the web page were captured using the packet sniffer wireshark. All the provided files provide a list of packets that were transmitted when two web pages were requested using the chrome browser on a windows 10 machine. Summary data was captured and is provided for you in the files testHTTP.pdf and converasationonly.pdf. The file testHTTP.pdf contains a list of packet headers for all HTTP packets generated as the two web pages were displayed. The conversationonly.pdf file contains a list of packet headers for one of the several TCP conversations that were generated by requesting the first web page, it includes the related HTTP requests and replies (also in testHTTP.pdf) and the TCP data transfers for the requested objects.. Detailed contents of a small number of the packets are provided in the files detailsTestHTTP.pdf and detailsRetest.pdf. The file detailsTestHTTP.pdf contains the packet details when the first request is made for the first web page when there is no information about the webpage in the cache. The file detailRetest.pdf contains the details for the same request when there is information about the webpage in the cache. All packets listed in the summary data files are included in the testhttp.pcapng Wireshark file. If you open this file with Wireshark you can see the contents of all these packets. This file should not be needed but provides information that may help you more completely understand the provided files. Based on the information in these files answer each of the following questions. In each case explain how the contents of the files supports the answer you have given. a) [4 points] What is the difference between a basic HTTP GET request and a conditional HTTP get request? When is each type of request used? b) [4 points] What is different about the responses to a basic HTTP GET command and to a conditional HTTP GET request? What information does each type of response return? Would you expect a different response to the conditional get if the web page had been modified between the two requests? c) [3 points] What browser is making the request? What version of HTTP is that browser running? What version of HTTP is the queried web server running? d) [2 points] What was the IP address of the computer running the browser? What was the IP address of the web server it queried? Use evidence from the file testHTTP.pdf. e) [2 point] For one of the HTTP GET responses shown in file conversationonly.pdf how many packets were used to carry the HTTP GET response from the server to the client? Now consider the file testHTTP.pdf and the file conversationonly.pdf. These files contains a query made for a web page including multiple objects. Based on the contents of these files answer the following questions: f) [3 points] Were persistent or non-persistent connections used to download the webpage information from the server? Why? g) [2 points] Was pipelining used to download the webpage information from the server?     </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000053/" rel="next" title="通信专业代写">
+                <i class="fa fa-chevron-left"></i> 通信专业代写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000055/" rel="prev" title="write a main() function that can proces">
+                write a main() function that can proces <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

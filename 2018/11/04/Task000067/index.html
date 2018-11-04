@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="中国留学生CS作业代写" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="CS305 作業系統概論 Prog. #3 Real-time Process Scheduling 2018.05.14 一、 作業目的 在本作業中，利用模擬的方式來熟悉 Real-time Process Scheduling 的觀念。">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS305 作業系統概論 Real-time Process Scheduling">
+<meta property="og:url" content="http://holydudecs.github.io/2018/11/04/Task000067/index.html">
+<meta property="og:site_name" content="中国留学生CS作业代写">
+<meta property="og:description" content="CS305 作業系統概論 Prog. #3 Real-time Process Scheduling 2018.05.14 一、 作業目的 在本作業中，利用模擬的方式來熟悉 Real-time Process Scheduling 的觀念。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holydudecs.github.io/2018/11/04/Task000067/images/wechat.jpeg">
+<meta property="og:updated_time" content="2018-11-04T13:06:31.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS305 作業系統概論 Real-time Process Scheduling">
+<meta name="twitter:description" content="CS305 作業系統概論 Prog. #3 Real-time Process Scheduling 2018.05.14 一、 作業目的 在本作業中，利用模擬的方式來熟悉 Real-time Process Scheduling 的觀念。">
+<meta name="twitter:image" content="http://holydudecs.github.io/2018/11/04/Task000067/images/wechat.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holydudecs.github.io/2018/11/04/Task000067/"/>
+
+
+
+
+
+  <title>CS305 作業系統概論 Real-time Process Scheduling | 中国留学生CS作业代写</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">中国留学生CS作业代写</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000067/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CS305 作業系統概論 Real-time Process Scheduling</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T21:06:08+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CS305 作業系統概論 Prog. #3 Real-time Process Scheduling 2018.05.14 一、 作業目的 在本作業中，利用模擬的方式來熟悉 Real-time Process Scheduling 的觀念。<br><a id="more"></a><br>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<p>CS305 作業系統概論 Prog. #3 Real-time Process Scheduling 2018.05.14 一、 作業目的 在本作業中，利用模擬的方式來熟悉 Real-time Process Scheduling 的觀念。 二、 作業內容 撰寫一個模擬程式自檔案中讀取 Real-time process 資訊，這些 process 的定義為 t(r, C, D, T) 其中 r is the arrival time (ms), C is the CPU burst (ms), D is the deadline, and T is the period. 模擬程式會顯示這些Real-time process 的使用rate monotonic scheduling (RMS)以及 earliest deadline first (EDF) 排程過程。並依照指定的時 段輸出模擬過程。在命令列以參數形式，內容是“rms”或是“edf”來指定是哪一種演算法。 如果在過程中發現某process會miss deadline，程式必須印出訊息，同時模擬中止。如果在同一時間中有 多個processes一起到達，則先顯示到達的情況再來顯示排程選擇的進行。如果有rate相同的processes，則 依照pid大小決定排程優先權：pid小的process具有高的排程優先權。 輸入檔案的範例： # Simulation output time: start end 0 300 # Process info: pid, r, C, D, T 1 0 3 9 9 2 0 4 10 10 3 0 5 15 15 例如下面是可能的輸出： &gt; rtsim rms data.txt 0 p1 arrives 0 p2 arrives 0 p3 arrives 0 p1 starts 3 p1 ends 3 p2 starts … 16 p3 misses the deadline … 三、 作業要點 1. 請注意，本作業使用的程式語言是C/C++，測試平台的作業系統： Ubuntu 17.10 LTS 64-bit。使用的 編譯程式為gcc/g++ 編譯器：7.2。其他平台或程式語言不在本次作業考慮範圍之內。如在測試平台上 無法編譯與執行，都不予給分。 2. 工作排程都是由0 ms開始模擬。資料檔案中， “#” 表示註解，第1個非註解行是顯示模擬結果的起始 時間與結束時間。接下來n個非註解行是process資訊， 執行檔名一律都是rtsim。程式執行必須使用下 面方式： rtsim rms data.txt 3. 本作業的評分方式如下： a. 能順利以RMS排程 2 ≤ n ≤ 5 個 processes，可輸出從0～300 ms的模擬結果。此項目最多得40分。 b. 能順利以EDF排程 2 ≤ n ≤ 5 個 processes，可輸出從0～300 ms的模擬結果。此項目最多得40分。 c. 可隨意顯示0～300 ms 其中任何一段時間兩個演算法的排程模擬結果。此項目最多得20分。 d. 完成以上所有基本功能者，才可按照以下項目，多得其他的分數。如果前面基本功能沒有全部成 功完成，以下進階功能不予計分。 如有實作進階功能的同學，請多加一個0或1的參數表示會不會有mutex的考慮。如果沒有指明，預 設是0。在文件中要明顯標明程式是否實作進階功能。 例如 ： rtsim rms data.txt 0 // 表示模擬最單純的RMS rtsim edf data.txt 1 // 表示模擬考慮priority inversion的EDF rtsim edf data.txt // 表示模擬最單純的EDF i. 在RMS中加入Priority inversion的情況。假設所有的processes都共用一個mutex，在模擬過程 中，每個process一開始執行，就會隨機決定該次執行是否會需要得到該mutex，同時在該次執 行結束時，會釋放該mutex。模擬時，需要將這些情況都顯示出來。此項目最多得25分。 例如，一個可能的輸出： … 60 p3 starts, gets mutex 62 p1 starts, gets mutex, blocked … ii. 如項目i，但是針對EDF來完成。此項目最多得25分。 4. 本作業需繳交檔案： a. 說明報告：檔案為docx或pdf格式。 i. 報告中必須說明程式的設計理念、程式如何編譯，以及如何操作。 ii. 報告中同時必須詳細說明你完成哪些部份。如有用到特殊程式庫，請務必說明。 iii. 請務必讓助教明白如何編譯及測試你的程式。助教如果無法編譯或測試，會寄信（最多兩 次）通知你來說明，但每說明一次，助教會少給你10分。 b. 完整原始程式碼。不可含執行檔。助教會重新編譯你們的程式。 5. 所有相關檔案，例如報告檔、程式檔、參考資料等，請壓縮成一個壓縮檔（不可超過2MB）後上傳 至portal。請注意，不可抄襲。助教不會區分何者為原始版本，被判定抄襲者，一律0分。 四、 繳交方式： 1. 最終繳交時間： a.電子檔在 2018.06.06以前，上傳至個人portal。如有多個檔案，將所有檔案壓縮成zip（rar 亦可）格 式，然後上傳。 b.上傳檔名格式：「學號<em>作業號碼.doc」或「學號</em>作業號碼.rar」。例如：912233_01.doc 或 912233_01.rar。 2. 如有違規事項者，依照課程規定處理。 3. 如需請假，請上portal請假，並持相關證明文件，在請假結束後的第一次上課時完成請假手續，並在 一週內完成補交。補交作業將以8折計算。 4. 老師不接受「門縫」方式繳交，助教也不接受任何作業。 五、 如有未盡事宜，將在個人portal板面公告通知。 六、 If you need any assistance in English, please contact Prof. Yang. 七、 參考資料 1. 課本第5章 2. <a href="http://www.twwiki.com/wiki/RMS" target="_blank" rel="noopener">www.twwiki.com/wiki/RMS</a> 3. <a href="https://github.com/sigsegved/RTOS-Scheduling-algo-simulation" target="_blank" rel="noopener">https://github.com/sigsegved/RTOS-Scheduling-algo-simulation</a> (此網站資料僅供參考，請勿抄襲)     </p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/04/Task000066/" rel="next" title="Python web代写">
+                <i class="fa fa-chevron-left"></i> Python web代写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/Task000068/" rel="prev" title="Essay College Students and Mental Health代写">
+                Essay College Students and Mental Health代写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wechat.jpeg"
+                alt="Nameless Coder" />
+            
+              <p class="site-author-name" itemprop="name">Nameless Coder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nameless Coder</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a rel="external nofollow" class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
