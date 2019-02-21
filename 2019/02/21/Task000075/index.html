@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写" />
+  <meta name="keywords" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写,数据分析" />
 
 
 
@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis#####Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is per">
-<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写">
+<meta name="description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis##Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is permit">
+<meta name="keywords" content="c&#x2F;c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写,数据分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Assignment">
 <meta property="og:url" content="http://holydudecs.github.io/2019/02/21/Task000075/index.html">
 <meta property="og:site_name" content="中国留学生CS作业代写">
-<meta property="og:description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis#####Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is per">
+<meta property="og:description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis##Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is permit">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://holydudecs.github.io/2019/02/21/Task000075/images/wechat.jpeg">
-<meta property="og:updated_time" content="2019-02-21T14:36:05.381Z">
+<meta property="og:updated_time" content="2019-02-21T14:43:08.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Assignment">
-<meta name="twitter:description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis#####Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is per">
+<meta name="twitter:description" content="c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写 Homework 2: Type Systems and Dataflow Analysis##Due Wednesday, February 13, 2019 Reminders Please submit your homework on Canvas. Collaboration is permit">
 <meta name="twitter:image" content="http://holydudecs.github.io/2019/02/21/Task000075/images/wechat.jpeg">
 
 
@@ -316,33 +316,21 @@
       
         <a id="more"></a>
 <p>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
-<h1 id="Homework-2-Type-Systems-and-Dataflow-Analysis"><a href="#Homework-2-Type-Systems-and-Dataflow-Analysis" class="headerlink" title="Homework 2: Type Systems and Dataflow Analysis"></a>Homework 2: Type Systems and Dataflow Analysis</h1><p>#####Due Wednesday, February 13, 2019</p>
+<h1 id="Homework-2-Type-Systems-and-Dataflow-Analysis"><a href="#Homework-2-Type-Systems-and-Dataflow-Analysis" class="headerlink" title="Homework 2: Type Systems and Dataflow Analysis"></a>Homework 2: Type Systems and Dataflow Analysis</h1><p>##Due Wednesday, February 13, 2019</p>
 <h2 id="Reminders"><a href="#Reminders" class="headerlink" title="Reminders"></a>Reminders</h2><ul>
 <li>Please submit your homework on Canvas.</li>
-<li>Collaboration is permitted, but you must write the solutions by yourself without assistance.<br>Getting solutions from outside sources such as the Web or students not enrolled in the class is<br>forbidden.</li>
+<li>Collaboration is permitted, but you must write the solutions by yourself without assistance. Getting solutions from outside sources such as the Web or students not enrolled in the class is forbidden.</li>
 </ul>
-<ol>
-<li>Consider the information flow type system that you studied in the paper “A Sound Type System<br>for Secure Flow Analysis”, by Volpano, Smith, and Irvine. Now suppose that you have a func-<br>tional rather than imperative language. The grammar of programs e in the language is given<br>by</li>
-</ol>
+<p>1.Consider the information flow type system that you studied in the paper “A Sound Type System for Secure Flow Analysis”, by Volpano, Smith, and Irvine. Now suppose that you have a functional rather than imperative language. The grammar of programs e in the language is given by</p>
 <pre><code>e ::= x | c | (e 1 e 2 ) | λx.e 1 | e 1 + e 2 | e 1 ≥ 0 | let x = e 1 in e 2 | if e 1 then e 2 else e 3
-</code></pre><p>where x represents variables and c represents constants.<br>Present a type system for information flow analysis of programs in this language. Your answer should clarify the following points.</p>
-<ol>
-<li>(a) What is the form of a type judgment in this setting?</li>
-<li>(b) What does a type environment look like?</li>
-<li>(c) Does the grammar of the language need to be augmented with additional type annotations?</li>
-</ol>
-<p>Recall that while type-checking the λ-calculus, we needed to add a type annotation to the<br>input variable x in λ-terms.<br>(d) What are the typing rules? Please present the rules formally, and also write a sentence or<br>two explaining each rule.</p>
-<ol start="2">
-<li>Define a data flow analysis that can be used to compute two sets of variables for each statement<br>in a program: those which are definitely not defined before use, and those which may not be<br>defined before use. These sets can be used to provide extra error checking of programs. Your<br>answer should answer the following questions.<br>(a) What is the dataflow lattice for this setting?<br>(b) What are the dataflow equations?<br>(c) Why does your analysis terminate?<br>(d) How do you use the information computed by your analysis to construct the two sets<br>specified above for output to the user?<br>(e) How does your dataflow analysis operate on the following program, and what are the<br>variable sets of interest for the label c in the code?</li>
-</ol>
+</code></pre><p>where x represents variables and c represents constants. Present a type system for information flow analysis of programs in this language. Your answer should clarify the following points.<br>(a) What is the form of a type judgment in this setting?<br>(b) What does a type environment look like?<br>(c) Does the grammar of the language need to be augmented with additional type annotations? Recall that while type-checking t-he λ-calculus, we needed to add a type annotation to the input variable x in λ-terms.<br>(d) What are the typing rules? Please present the rules formally, and also write a sentence or two explaining each rule.</p>
+<p>2.Define a data flow analysis that can be used to compute two sets of variables for each statement in a program: those which are definitely not defined before use, and those which may not be defined before use. These sets can be used to provide extra error checking of programs. Your answer should answer the following questions.<br>(a) What is the dataflow lattice for this setting?<br>(b) What are the dataflow equations?<br>(c) Why does your analysis terminate?<br>(d) How do you use the information computed by your analysis to construct the two sets specified above for output to the user?<br>(e) How does your dataflow analysis operate on the following program, and what are the variable sets of interest for the label c in the code?</p>
 <pre><code>1s := 0
 c: while (i &lt; n) {
 s := s + i
 i := i + 1
 }
-</code></pre><ol start="3">
-<li>Consider any lattice L = (S, v, t, u) where S is a set, v is a partial order, and t and u are<br>respectively the join and meet operators. Show that the following identities hold:</li>
-</ol>
+</code></pre><p>3.Consider any lattice L = (S, v, t, u) where S is a set, v is a partial order, and t and u are respectively the join and meet operators. Show that the following identities hold:</p>
 <pre><code>(a) For all x, y, z, x t (y t z) = (x t y) t z
 (b) For all x, y, (x t y) u x = x.
 </code></pre><p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
@@ -363,7 +351,7 @@ i := i + 1
       
         <div class="post-tags">
           
-            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</a>
+            <a href="/tags/c-c-代写-java代写-python代写-matlab代写-作业代写-留学生作业代写-数据分析/" rel="tag"># c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写,数据分析</a>
           
         </div>
       
@@ -482,7 +470,7 @@ i := i + 1
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
