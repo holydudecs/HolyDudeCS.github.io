@@ -245,6 +245,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000026/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nameless Coder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wechat.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国留学生CS作业代写">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/Task000026/" itemprop="url">HW2 Tiny-UNIX on the SAPC</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T19:23:10+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>c/c++代写,java代写,python代写,matlab代写,作业代写,留学生作业代写</p>
+<ol>
+<li>Introduction</li>
+</ol>
+<p>The objective of this assignment is to implement a tiny-UNIX with 3 services: read, write, and exit on the SAPC. The students are asked to convert the read, write functions in hw1’s I/O package to system calls. In addition, they are asked to write the new service exit. The prototypes for the services are:</p>
+<p>int read(int dev, char <em>buf, int nchar);    /</em> read nchar bytes into buf from dev <em>/<br>int write(int dev, char </em>buf, int nchar); /<em> write nchar bytes from buf to dev </em>/</p>
+<p>int exit(int exitcode);                        /<em> exit will return back to Tutor </em>/</p>
+<p>The testio program in hw1 can be modified to test the 3 services. Use a script file to capture the outputs.</p>
+<ol start="2">
+<li>Discussions</li>
+</ol>
+<p>This assignment builds on your standalone I/O package from hw1.  If you prefer, you can use the hw1 solution, which is included in the provided hw2 directory.  In any case, fix yours, if necessary, up to spec first.</p>
+<p>To make system calls, the user program needs to execute a trap instruction to transfer control to the kernel and the kernel’s trap handler will perform the service. The x86 Linux syscall linkage is as follows:</p>
+<p>–int 0x80 is the syscall instruction</p>
+<p>–the syscall # is in eax</p>
+<p>–the syscall args are in ebx (first), ecx (second), and edx (third).</p>
+<p>Here are the files you need:</p>
+<p>i) Shared between user and kernel:</p>
+<p>   tty_public.h: device numbers</p>
+<p>   tsyscall.h: syscall numbers (like the UNIX /usr/include/sys/syscall.h)</p>
+<p>ii) Kernel files:</p>
+<p>   ioconf.h, tty.h: i/o headers used only by kernel</p>
+<p>   tsystm.h: syscall dispatch, kernel fn protos (like UNIX /usr/include/sys/systm.h)</p>
+<p>   startup0.s: same as $pclibsrc/startup0.s.  Sets up stack, calls  into startup1.c</p>
+<p>   startup1.c: same as $pclibsrc/startup.c, but calls your kernel initialization routine instead of main.</p>
+<p>   tunix.c:  has kernel init routine. It needs to call ioinit, call set_trap_gate(0x80,&amp;syscall), and </p>
+<pre><code>             possibly other inits. tunix.c also has the code for syscallc, sys call exit, and set_trap_gate. The
+
+             code for set_trap_gate is just that of set_intr_gate with the line:
+
+
+               desc-&gt;flags = GATE_P|GATE_DPL_KERNEL|GATE_INTGATE;
+
+            Replaced by
+
+              desc-&gt;flags = GATE_P|GATE_DPL_KERNEL|GATE_TRAPGATE;
+
+
+   You can find the locate_idt function in $pclibsrc/cpureg.S. Make sure you include the following prototype if you want to call it using C:
+
+
+
+          extern void locate_idt(unsigned int *limitp, char ** idtp);
+
+
+syscallc: first write it with a big switch statement over the various different syscalls.  If you have time,
+
+              upgrade it to use a sysent dispatch table.
+</code></pre><p>   sysentry.s:  Trap handler’s assembler envelope routine _syscall for the trap resulting from a</p>
+<pre><code>system call--needs to push eax, ebx, ecx, edx on stack, where they can be accessed from C,
+
+call _syscallc, then pops, iret. Use $pclibsrc/irq4.s as an example and modify it to fit your
+
+needs.
+</code></pre><p>   io.c: rename “read” to “sysread”, etc. to avoid linking problems, since “read” is a now user-level call.</p>
+<p>   ioconf.c, ioconf.h:  from hw1.</p>
+<p>   tty.c, tty.h, tty_public.h:  tty driver from hw1, unchanged</p>
+<p>iii) User-level files:</p>
+<p>   tunistd.h: prototypes for user mode system calls(like UNIX /usr/include/unistd.h)</p>
+<p>   uprog.c:  has main().  Easily extended to multiple user files, or user assembler sources, as long as they</p>
+<pre><code>follow the syscall rules and have a _main entry point.  First example is
+
+                   main() { write(TTY1,&quot;hi!n&quot;,4);}. 
+
+ Work back to testio.c from hw1.
+</code></pre><p>   ulib.s:  library set-ups for syscalls: _read, _write, _exit. Provided for write, you add read and exit.</p>
+<p>   crt0.s:  user-level “C startup module”  sets up stack, calls _main, does exit syscall.  Entry point _ustart.</p>
+<pre><code>Edit $pclibsrc/startup0.s
+</code></pre><p>iv) hw1 solution files not directly used in hw2: </p>
+<p>   io_public.h:  like tunistd.h above, but also lists ioinit(), and not exit().</p>
+<p>   testio.c:  remove ioinit() call here to turn into proper user program.(and note that the kprintf’s are</p>
+<pre><code>only for debugging)
+</code></pre><p>v) Make file</p>
+<p>makefile:  The provided makefile can make a hw2 system by “make U=test1” to use test1.c as a user</p>
+<pre><code>program.  The default user program is uprog.c and it can be build by entering “make”.
+</code></pre><p>In the hw2 directory, empty files (file with length =0) are provided and you can use them to test the makefile.  (Empty files are valid .c and .s programs and make treats them as regular files).  If you try</p>
+<p>“make U=test1” with the provided files, you should see compiles followed by a load with an error as follows:</p>
+<p>…</p>
+<p>io.opc: In function `write’:</p>
+<p>/home/eoneil/444/hw2/io.c:50: multiple definition of `write’</p>
+<p>ulib.opc(.text+0x0): first defined here</p>
+<p>….</p>
+<p>This happens because both ulib.s and io.c define global symbols named “write”.  You need to change write to syswrite in io.c to fix this. We want to use “write” for the user-level system call, so the kernel</p>
+<p>needs another name for its function.  syswrite is the Linux kernel name for its write-implementing function, so let’s adopt that name.</p>
+<p>3) The Finished Program</p>
+<p>The idea here is that each user program to be run on the SAPC has to be separately built with tunix, downloaded and run. Startup0 executes first, and transfers control to the kernel initialization in tunix.c, which sets up the system and starts the user code at ustart (calling ustart will do the trick).  The C user startup module reinitializes the stack and calls main.  The syscalls in the user code (in ulib.s, called from test1.c) cause execution of the system call handler in tunix.c (and functions called from there), returning to the user code in ulib.s at the iret. Finally the user does a syscall exit.  The kernel gets control, and finishes up.</p>
+<p>4) Suggested Steps</p>
+<p>There are lots of little pieces to this system.  Here is a suggested sequence to follow:</p>
+<ol>
+<li>Get a system built.  Change io.c’s write to syswrite, read to sysread, fill out startup0 and startup1, write a tiny tunix.c init function that calls ioinit, then calls main (cheating for now–later it should call ustart), and then returns to startup, shutting down.  At this point, test1.c just has a main that kprintf’s a message.  Now it should build and run, but does no syscalls.</li>
+</ol>
+<ol start="2">
+<li>ulib.s is set up for write already, so do the write syscall first. Set the trap vector up in kernel init in tunix.c, and write sysentry.s—have it push registers on the stack and then call into tunix.c.  In tunix.c, access the pushed registers (themselves syscall arguments from the user) via args to the C function, and call syswrite.  Make test1.c do a simple write.  We’ll go over the trick about the syscall args in class.</li>
+</ol>
+<ol start="3">
+<li>Next implement syscall exit and add an exit to test1.c.</li>
+</ol>
+<ol start="4">
+<li>Write the proper user startup module crt0.s to reinitialize the stack and call into main, then when that returns, it does an exit syscall. It has entry point _ustart.  Change the call to main in kernel initialization</li>
+</ol>
+<p>to call ustart now.  Try a user program without its own exit syscall.</p>
+<p>留学生作业代写,cs作业代写,cs代写,作业代写,北美cs作业代写,澳洲cs作业代写,加拿大cs作业代写,cs作业代写价格,靠谱cs作业代写,程序代写<br><img src="images/wechat.jpeg" alt="WeChat"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000025/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1348,130 +1570,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://holydudecs.github.io/2018/11/04/Task000016/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nameless Coder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/wechat.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国留学生CS作业代写">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/Task000016/" itemprop="url">Project</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T17:22:47+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1 Introduction and purpose In review: a priority queue is a queue that stores elements that each have an associated priority. In this project the elements themselves will just be strings, and their priorities will be nonnegative integers. Regardless of the order that the elements were added to a priority queue, when an element is removed it is always the element being st</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/04/Task000016/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1526,7 +1624,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1583,7 +1681,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
